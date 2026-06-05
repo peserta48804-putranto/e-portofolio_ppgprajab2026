@@ -1,0 +1,2422 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>Putranto Argya — e-Portofolio PPL Terbimbing | PPG Prajabatan 2026</title>
+    
+    <link rel="icon" type="image/png" href="img/logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    
+    <style>
+      /* === VARIABLES === */
+      :root {
+        --dark: #2a2829;
+        --mid: #57474c;
+        --blush: #d1b1b7;
+        --rose: #d07388;
+        --mauve: #b98d97;
+        --cream: #efeae9;
+        --warm: #cfc7c9;
+        --fd: "Space Grotesk", sans-serif;
+        --fb: "Outfit", sans-serif;
+        --r: 12px;
+        --t: 0.32s;
+        --ease: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      }
+
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      html {
+        scroll-behavior: smooth;
+        font-size: 16px;
+      }
+
+      body {
+        font-family: var(--fb);
+        background: var(--dark);
+        color: var(--cream);
+        line-height: 1.7;
+        overflow-x: hidden;
+      }
+
+      body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        background-image: radial-gradient(circle, rgba(209, 177, 183, 0.12) 1px, transparent 1px);
+        background-size: 28px 28px;
+        pointer-events: none;
+        z-index: 0;
+      }
+
+      img {
+        max-width: 100%;
+        display: block;
+      }
+
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+
+      /* Webkit Scrollbar */
+      ::-webkit-scrollbar {
+        width: 5px;
+      }
+      ::-webkit-scrollbar-track {
+        background: var(--dark);
+      }
+      ::-webkit-scrollbar-thumb {
+        background: var(--rose);
+        border-radius: 4px;
+      }
+      ::selection {
+        background: var(--rose);
+        color: var(--cream);
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 28px;
+        position: relative;
+        z-index: 2;
+      }
+
+      /* === TYPOGRAPHY === */
+      .eyebrow {
+        font-family: var(--fd);
+        font-size: 10.5px;
+        font-weight: 600;
+        letter-spacing: 4px;
+        text-transform: uppercase;
+        color: var(--rose);
+        margin-bottom: 14px;
+        display: block;
+      }
+
+      .h-disp {
+        font-family: var(--fd);
+        font-size: clamp(1.9rem, 3.5vw, 2.85rem);
+        font-weight: 700;
+        line-height: 1.1;
+        letter-spacing: -0.02em;
+      }
+
+      .body-muted {
+        color: var(--warm);
+        line-height: 1.85;
+        font-size: 0.97rem;
+      }
+
+      /* === REVEAL ON SCROLL ANIMATION === */
+      .rv {
+        opacity: 0;
+        transform: translateY(32px);
+        transition: opacity 0.72s var(--ease), transform 0.72s var(--ease);
+      }
+      .rv.in {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      .d1 { transition-delay: 0.1s; }
+      .d2 { transition-delay: 0.2s; }
+      .d3 { transition-delay: 0.3s; }
+      .d4 { transition-delay: 0.4s; }
+      .d5 { transition-delay: 0.5s; }
+
+      /* === BUTTONS === */
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 12px 26px;
+        border-radius: 100px;
+        font-family: var(--fd);
+        font-size: 0.87rem;
+        font-weight: 600;
+        cursor: pointer;
+        border: none;
+        transition: transform var(--t), box-shadow var(--t), background var(--t);
+        letter-spacing: 0.3px;
+      }
+
+      .btn-p {
+        background: var(--rose);
+        color: var(--cream);
+      }
+      .btn-p:hover {
+        background: #b85c72;
+        transform: translateY(-3px);
+        box-shadow: 0 14px 28px rgba(208, 115, 136, 0.3);
+      }
+
+      .btn-g {
+        background: rgba(239, 234, 233, 0.07);
+        color: var(--cream);
+        border: 1px solid rgba(239, 234, 233, 0.2);
+      }
+      .btn-g:hover {
+        background: rgba(239, 234, 233, 0.13);
+        transform: translateY(-3px);
+        border-color: var(--rose);
+      }
+
+      .btn-wa {
+        background: #25d366;
+        color: #fff;
+        width: 100%;
+        justify-content: center;
+      }
+      .btn-wa:hover {
+        background: #1da851;
+        transform: translateY(-2px);
+        box-shadow: 0 10px 28px rgba(37, 211, 102, 0.3);
+      }
+
+      .btn-sm {
+        padding: 8px 18px;
+        font-size: 0.81rem;
+      }
+
+      /* ===== NAVBAR ===== */
+      #nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+        transition: all 0.4s ease;
+      }
+
+      #nav.scrolled {
+        background: rgba(42, 40, 41, 0.9);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        box-shadow: 0 1px 0 rgba(209, 177, 183, 0.12), 0 8px 32px rgba(0, 0, 0, 0.2);
+      }
+
+      .nav-w {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 66px;
+      }
+
+      .nav-logo {
+        font-family: var(--fd);
+        font-size: 1.25rem;
+        font-weight: 700;
+        color: var(--cream);
+        letter-spacing: -0.5px;
+        display: flex;
+        align-items: center;
+        gap: 9px;
+      }
+
+      .logo-badge {
+        width: 30px;
+        height: 30px;
+        background: var(--rose);
+        border-radius: 7px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.82rem;
+        font-weight: 700;
+        color: var(--cream);
+      }
+
+      .nav-ul {
+        display: flex;
+        align-items: center;
+        gap: 32px;
+        list-style: none;
+      }
+
+      .nav-ul a {
+        font-family: var(--fd);
+        font-size: 0.84rem;
+        font-weight: 500;
+        color: rgba(239, 234, 233, 0.7);
+        position: relative;
+        transition: color var(--t);
+      }
+
+      .nav-ul a::after {
+        content: "";
+        position: absolute;
+        bottom: -3px;
+        left: 0;
+        width: 0;
+        height: 1.5px;
+        background: var(--rose);
+        border-radius: 2px;
+        transition: width var(--t);
+      }
+
+      .nav-ul a:hover,
+      .nav-ul a.active {
+        color: var(--cream);
+      }
+
+      .nav-ul a:hover::after,
+      .nav-ul a.active::after {
+        width: 100%;
+      }
+
+      .burger {
+        display: none;
+        flex-direction: column;
+        gap: 5px;
+        cursor: pointer;
+        background: none;
+        border: none;
+        padding: 4px;
+        z-index: 1001;
+      }
+
+      .burger span {
+        display: block;
+        width: 22px;
+        height: 2px;
+        background: var(--cream);
+        border-radius: 2px;
+        transition: var(--t);
+      }
+
+      .burger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+      .burger.open span:nth-child(2) { opacity: 0; }
+      .burger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+      .mob-nav {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(42, 40, 41, 0.98);
+        z-index: 999;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 38px;
+      }
+
+      .mob-nav.open {
+        display: flex;
+      }
+
+      .mob-nav a {
+        font-family: var(--fd);
+        font-size: 1.9rem;
+        font-weight: 700;
+        color: var(--cream);
+        transition: color var(--t);
+      }
+
+      .mob-nav a:hover {
+        color: var(--rose);
+      }
+
+      /* ===== HERO ===== */
+      #home {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        padding-top: 66px;
+        position: relative;
+        overflow: hidden;
+      }
+
+      #home::after {
+        content: "";
+        position: absolute;
+        top: -200px;
+        right: -200px;
+        width: 700px;
+        height: 700px;
+        background: radial-gradient(circle, rgba(208, 115, 136, 0.08) 0%, transparent 70%);
+        pointer-events: none;
+      }
+
+      .hero-grid {
+        display: grid;
+        grid-template-columns: 1.05fr 0.95fr;
+        gap: 60px;
+        align-items: center;
+        padding: 80px 0 96px;
+      }
+
+      .hero-chip {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 5px 16px 5px 8px;
+        background: rgba(208, 115, 136, 0.1);
+        border: 1px solid rgba(208, 115, 136, 0.28);
+        border-radius: 100px;
+        font-family: var(--fd);
+        font-size: 0.74rem;
+        font-weight: 500;
+        color: var(--rose);
+        margin-bottom: 22px;
+      }
+
+      .hero-chip-dot {
+        width: 6px;
+        height: 6px;
+        background: var(--rose);
+        border-radius: 50%;
+        animation: pdot 2s infinite;
+      }
+
+      @keyframes pdot {
+        0%, 100% { opacity: 1; transform: scale(1); }
+        50% { opacity: 0.4; transform: scale(0.7); }
+      }
+
+      .hero-h1 {
+        font-family: var(--fd);
+        font-size: clamp(2.5rem, 5.2vw, 4rem);
+        font-weight: 700;
+        line-height: 1.06;
+        letter-spacing: -0.03em;
+        margin-bottom: 20px;
+      }
+
+      .hero-h1 .ac {
+        color: var(--rose);
+      }
+
+      .hero-desc {
+        color: var(--blush);
+        font-size: 1rem;
+        line-height: 1.85;
+        margin-bottom: 16px;
+        max-width: 500px;
+      }
+
+      .hero-quote {
+        display: flex;
+        align-items: flex-start;
+        gap: 12px;
+        margin-bottom: 34px;
+        padding: 15px 20px;
+        background: rgba(209, 177, 183, 0.07);
+        border-left: 2px solid var(--rose);
+        border-radius: 0 10px 10px 0;
+      }
+
+      .hero-quote p {
+        font-size: 0.88rem;
+        color: var(--warm);
+        font-style: italic;
+        line-height: 1.7;
+      }
+
+      .hero-cta {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+
+      .hero-vis {
+        position: relative;
+      }
+
+      .hero-frame {
+        border-radius: 22px;
+        overflow: hidden;
+        position: relative;
+      }
+
+      .hero-frame::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(135deg, rgba(208, 115, 136, 0.14) 0%, transparent 55%);
+      }
+
+      .hero-frame img {
+        width: 100%;
+        height: 500px;
+        object-fit: cover;
+      }
+
+      .hfb {
+        position: absolute;
+        bottom: -16px;
+        left: -20px;
+        background: rgba(42, 40, 41, 0.95);
+        backdrop-filter: blur(16px);
+        border: 1px solid rgba(209, 177, 183, 0.2);
+        border-radius: 14px;
+        padding: 14px 18px;
+        z-index: 3;
+      }
+
+      .hfb-l {
+        font-size: 0.69rem;
+        color: var(--mauve);
+        font-family: var(--fd);
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        margin-bottom: 3px;
+      }
+
+      .hfb-v {
+        font-family: var(--fd);
+        font-size: 1rem;
+        font-weight: 700;
+        color: var(--cream);
+      }
+
+      .hero-ring {
+        position: absolute;
+        top: -18px;
+        right: -18px;
+        width: 72px;
+        height: 72px;
+        border: 1.5px solid var(--rose);
+        border-radius: 50%;
+        opacity: 0.3;
+      }
+
+      /* ===== SECTION UTILITIES ===== */
+      .s-light {
+        background: var(--cream);
+        color: var(--dark);
+        position: relative;
+        z-index: 1;
+      }
+      .s-light .eyebrow { color: var(--rose); }
+      .s-light .h-disp { color: var(--dark); }
+      .s-light .body-muted { color: var(--mid); }
+
+      .s-mid {
+        background: #1f1c1d;
+        position: relative;
+        z-index: 1;
+      }
+
+      section {
+        padding: 96px 0;
+      }
+
+      .line-div {
+        display: block;
+        width: 44px;
+        height: 2px;
+        background: var(--rose);
+        border-radius: 2px;
+        margin-top: 10px;
+      }
+
+      /* ===== ABOUT ===== */
+      .about-grid {
+        display: grid;
+        grid-template-columns: 1fr 1.55fr;
+        gap: 76px;
+        align-items: start;
+      }
+
+      .about-photo-wrap {
+        position: relative;
+      }
+
+      .about-photo {
+        position: relative;
+        z-index: 1;
+        width: 100%;
+        border-radius: 18px;
+        aspect-ratio: 3/4;
+        object-fit: cover;
+      }
+
+      .about-photo-deco {
+        position: absolute;
+        bottom: -14px;
+        right: -14px;
+        width: 78%;
+        height: 68%;
+        border: 1.5px solid var(--rose);
+        border-radius: 18px;
+        opacity: 0.28;
+        z-index: 0;
+        pointer-events: none;
+      }
+
+      .about-tag {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 5px 14px;
+        background: rgba(208, 115, 136, 0.1);
+        border-radius: 100px;
+        font-size: 0.79rem;
+        font-family: var(--fd);
+        font-weight: 500;
+        color: var(--rose);
+        margin-bottom: 20px;
+      }
+
+      .about-bio {
+        font-size: 0.96rem;
+        color: var(--mid);
+        line-height: 1.9;
+        margin-bottom: 22px;
+      }
+
+      .pull-q {
+        border-left: 2px solid var(--rose);
+        padding: 13px 18px;
+        margin: 18px 0;
+        background: rgba(208, 115, 136, 0.05);
+        border-radius: 0 9px 9px 0;
+      }
+
+      .pull-q p {
+        font-size: 0.9rem;
+        color: var(--mid);
+        font-style: italic;
+        line-height: 1.7;
+      }
+
+      .strengths {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 11px;
+        margin-bottom: 26px;
+      }
+
+      .str-c {
+        background: #fff;
+        border: 1.5px solid var(--warm);
+        border-radius: 12px;
+        padding: 16px 13px;
+        transition: border-color var(--t), box-shadow var(--t), transform var(--t);
+      }
+
+      .str-c:hover {
+        border-color: var(--rose);
+        box-shadow: 0 8px 22px rgba(208, 115, 136, 0.1);
+        transform: translateY(-3px);
+      }
+
+      .str-ico {
+        width: 34px;
+        height: 34px;
+        background: rgba(208, 115, 136, 0.1);
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 8px;
+        color: var(--rose);
+      }
+
+      .str-c h4 {
+        font-family: var(--fd);
+        font-size: 0.84rem;
+        font-weight: 600;
+        color: var(--dark);
+        margin-bottom: 2px;
+      }
+
+      .str-c p {
+        font-size: 0.77rem;
+        color: var(--mid);
+      }
+
+      .stats-row {
+        display: flex;
+        gap: 32px;
+        flex-wrap: wrap;
+        margin-bottom: 26px;
+      }
+
+      .stat-n {
+        font-family: var(--fd);
+        font-size: 2rem;
+        font-weight: 700;
+        color: var(--rose);
+        line-height: 1;
+      }
+
+      .stat-l {
+        font-size: 0.81rem;
+        color: var(--mid);
+        margin-top: 3px;
+      }
+
+      /* ===== ANALISIS GRID ===== */
+      .a-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+        margin-top: 28px;
+      }
+
+      .a-card {
+        background: #fff;
+        border: 1.5px solid var(--warm);
+        border-radius: 14px;
+        padding: 22px;
+        position: relative;
+        overflow: hidden;
+        transition: border-color var(--t), box-shadow var(--t);
+      }
+
+      .a-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 3px;
+        height: 100%;
+        background: var(--rose);
+      }
+
+      .a-card:hover {
+        border-color: var(--rose);
+        box-shadow: 0 8px 28px rgba(208, 115, 136, 0.1);
+      }
+
+      .a-card h4 {
+        font-family: var(--fd);
+        font-size: 0.9rem;
+        font-weight: 600;
+        color: var(--dark);
+        margin-bottom: 7px;
+      }
+
+      .a-card p {
+        font-size: 0.85rem;
+        color: var(--mid);
+        line-height: 1.7;
+      }
+
+      /* ===== MODEL GURU ===== */
+      .mg-wrap {
+        margin-top: 44px;
+        background: var(--dark);
+        border-radius: 18px;
+        padding: 38px 42px;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .mg-wrap::before {
+        content: "";
+        position: absolute;
+        top: -80px;
+        right: -80px;
+        width: 280px;
+        height: 280px;
+        background: radial-gradient(circle, rgba(208, 115, 136, 0.11) 0%, transparent 70%);
+      }
+
+      .mg-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 22px;
+        margin-top: 24px;
+      }
+
+      .mg-wrap .h-disp { color: var(--cream); }
+      .mg-wrap > p { color: var(--warm); }
+
+      .mg-i .mg-l {
+        font-family: var(--fd);
+        font-size: 0.72rem;
+        font-weight: 600;
+        color: var(--rose);
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        margin-bottom: 6px;
+      }
+
+      .mg-i .mg-v {
+        font-size: 0.91rem;
+        color: var(--cream);
+        line-height: 1.65;
+      }
+
+      /* ===== LAMPIRAN ===== */
+      .lamp-row {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 14px;
+        margin-top: 28px;
+      }
+
+      .lamp-c {
+        background: #fff;
+        border: 1.5px solid var(--warm);
+        border-radius: 13px;
+        padding: 20px 22px;
+        display: flex;
+        align-items: flex-start;
+        gap: 14px;
+        transition: border-color var(--t), transform var(--t);
+      }
+
+      .lamp-c:hover {
+        border-color: var(--rose);
+        transform: translateY(-3px);
+      }
+
+      .lamp-num {
+        width: 42px;
+        height: 42px;
+        background: var(--rose);
+        color: var(--cream);
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: var(--fd);
+        font-size: 1.1rem;
+        font-weight: 700;
+        flex-shrink: 0;
+      }
+
+      .lamp-c h4 {
+        font-family: var(--fd);
+        font-size: 0.88rem;
+        font-weight: 600;
+        color: var(--dark);
+        margin-bottom: 4px;
+      }
+
+      .lamp-c p {
+        font-size: 0.81rem;
+        color: var(--mid);
+        line-height: 1.65;
+      }
+
+      .lamp-lnk {
+        display: inline-block;
+        margin-top: 7px;
+        font-size: 0.79rem;
+        color: var(--rose);
+        font-weight: 500;
+      }
+
+      /* ===== SIKLUS (IMPLEMENTASI PPL) ===== */
+      .sik-intro {
+        max-width: 680px;
+        margin-bottom: 52px;
+      }
+
+      .sik-tabs {
+        display: flex;
+        gap: 9px;
+        margin-bottom: 44px;
+        flex-wrap: wrap;
+      }
+
+      .sik-tab {
+        padding: 8px 22px;
+        border-radius: 100px;
+        font-family: var(--fd);
+        font-size: 0.82rem;
+        font-weight: 600;
+        cursor: pointer;
+        border: 1.5px solid rgba(209, 177, 183, 0.2);
+        background: transparent;
+        color: var(--blush);
+        transition: all var(--t);
+      }
+
+      .sik-tab.active,
+      .sik-tab:hover {
+        background: var(--rose);
+        border-color: var(--rose);
+        color: var(--cream);
+      }
+
+      .sik-panel {
+        display: none;
+      }
+
+      .sik-panel.active {
+        display: block;
+      }
+
+      .sik-layout {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 38px;
+        align-items: start;
+      }
+
+      .sik-img-w {
+        position: relative;
+        border-radius: 18px;
+        overflow: hidden;
+      }
+
+      .sik-img-w img {
+        width: 100%;
+        height: 330px;
+        object-fit: cover;
+      }
+
+      .sik-ov {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        padding: 22px;
+        background: linear-gradient(to top, rgba(42, 40, 41, 0.88), transparent);
+      }
+
+      .sik-tag {
+        display: inline-block;
+        padding: 4px 13px;
+        background: var(--rose);
+        border-radius: 100px;
+        font-size: 0.72rem;
+        font-family: var(--fd);
+        font-weight: 600;
+        color: var(--cream);
+        margin-bottom: 7px;
+      }
+
+      .sik-img-title {
+        font-family: var(--fd);
+        font-size: 1.05rem;
+        font-weight: 600;
+        color: var(--cream);
+      }
+
+      .sik-cg {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+        margin-top: 28px;
+      }
+
+      .sk-i {
+        background: rgba(87, 71, 76, 0.2);
+        border: 1px solid rgba(209, 177, 183, 0.11);
+        border-radius: 11px;
+        padding: 15px;
+      }
+
+      .sk-t {
+        font-family: var(--fd);
+        font-size: 0.71rem;
+        font-weight: 600;
+        color: var(--rose);
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        margin-bottom: 5px;
+      }
+
+      .sk-i p {
+        font-size: 0.85rem;
+        color: var(--blush);
+        line-height: 1.65;
+      }
+
+      .sk-full {
+        grid-column: 1 / -1;
+      }
+
+      .art-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 7px;
+        margin-top: 7px;
+      }
+
+      .art-chip {
+        padding: 4px 11px;
+        background: rgba(208, 115, 136, 0.11);
+        border: 1px solid rgba(208, 115, 136, 0.24);
+        border-radius: 100px;
+        font-size: 0.75rem;
+        color: var(--rose);
+        font-family: var(--fd);
+        font-weight: 500;
+      }
+      .art-chip:hover {
+        background: rgba(208, 115, 136, 0.18);
+        border-color: var(--rose);
+        color: var(--cream);
+      }
+
+      .lamp-sik {
+        display: flex;
+        gap: 9px;
+        flex-wrap: wrap;
+        margin-top: 7px;
+      }
+
+      .lamp-b {
+        display: flex;
+        align-items: center;
+        gap: 7px;
+        padding: 7px 13px;
+        background: rgba(208, 115, 136, 0.09);
+        border: 1px solid rgba(208, 115, 136, 0.22);
+        border-radius: 9px;
+        font-size: 0.79rem;
+        color: var(--blush);
+        font-family: var(--fd);
+      }
+
+      .lamp-b span {
+        width: 6px;
+        height: 6px;
+        background: var(--rose);
+        border-radius: 50%;
+        flex-shrink: 0;
+      }
+
+      /* ===== REFLEKSI & FILOSOFI ===== */
+      .ref-split {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 56px;
+        align-items: start;
+      }
+
+      .ref-tabs {
+        display: flex;
+        gap: 7px;
+        margin-bottom: 24px;
+      }
+
+      .ref-tab {
+        padding: 7px 17px;
+        border-radius: 100px;
+        font-family: var(--fd);
+        font-size: 0.79rem;
+        font-weight: 600;
+        cursor: pointer;
+        border: 1.5px solid rgba(87, 71, 76, 0.3);
+        background: transparent;
+        color: var(--mid);
+        transition: all var(--t);
+      }
+
+      .ref-tab.active {
+        background: var(--rose);
+        border-color: var(--rose);
+        color: var(--cream);
+      }
+
+      .ref-pan {
+        display: none;
+      }
+
+      .ref-pan.active {
+        display: block;
+      }
+
+      .ref-q {
+        margin-bottom: 20px;
+        padding: 20px;
+        background: rgba(208, 115, 136, 0.07);
+        border-radius: 12px;
+        border-left: 2.5px solid var(--rose);
+      }
+
+      .ref-q .q {
+        font-family: var(--fd);
+        font-size: 0.76rem;
+        font-weight: 600;
+        color: var(--rose);
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        margin-bottom: 7px;
+      }
+
+      .ref-q p {
+        font-size: 0.9rem;
+        color: var(--mid);
+        line-height: 1.82;
+      }
+
+      .ref-q p + p {
+        margin-top: 12px;
+      }
+
+      .fil-wrap {
+        background: rgba(87, 71, 76, 0.08);
+        border: 1.5px solid rgba(87, 71, 76, 0.18);
+        border-radius: 18px;
+        padding: 32px;
+      }
+
+      .fil-p {
+        font-size: 0.94rem;
+        color: var(--mid);
+        line-height: 1.9;
+        margin-bottom: 18px;
+      }
+
+      .fil-p:last-child {
+        margin-bottom: 0;
+      }
+
+      .fil-p em {
+        font-style: italic;
+        color: var(--rose);
+        font-weight: 500;
+      }
+
+      .gt-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 13px;
+        margin-top: 22px;
+      }
+
+      .gt-c {
+        background: rgba(208, 115, 136, 0.1);
+        border: 1.5px solid rgba(208, 115, 136, 0.28);
+        border-radius: 13px;
+        padding: 18px;
+      }
+
+      .gt-c .ic {
+        font-size: 1.35rem;
+        margin-bottom: 7px;
+      }
+
+      .gt-c h4 {
+        font-family: var(--fd);
+        font-size: 0.87rem;
+        font-weight: 600;
+        color: var(--dark);
+        margin-bottom: 4px;
+      }
+
+      .gt-c p {
+        font-size: 0.81rem;
+        color: var(--mid);
+        line-height: 1.65;
+      }
+
+      /* ===== GALLERY ===== */
+      .gal-filter {
+        display: flex;
+        gap: 9px;
+        margin-bottom: 32px;
+        flex-wrap: wrap;
+      }
+
+      .gf-btn {
+        padding: 7px 17px;
+        border-radius: 100px;
+        font-family: var(--fd);
+        font-size: 0.8rem;
+        font-weight: 500;
+        cursor: pointer;
+        border: 1px solid rgba(239, 234, 233, 0.19);
+        background: transparent;
+        color: var(--warm);
+        transition: all var(--t);
+      }
+
+      .gf-btn.active,
+      .gf-btn:hover {
+        background: var(--rose);
+        border-color: var(--rose);
+        color: var(--cream);
+      }
+
+      .gal-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-auto-rows: 210px;
+        grid-auto-flow: dense;
+        gap: 13px;
+      }
+
+      .g-i {
+        border-radius: 14px;
+        overflow: hidden;
+        position: relative;
+        background: var(--mid);
+        cursor: pointer;
+      }
+
+      .g-i.tall { grid-row: span 2; }
+      .g-i.wide { grid-column: span 2; }
+
+      .g-i img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+      }
+
+      .g-i:hover img {
+        transform: scale(1.05);
+      }
+
+      .g-cap {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        padding: 18px 14px 14px;
+        background: linear-gradient(to top, rgba(42, 40, 41, 0.87), transparent);
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+
+      .g-i:hover .g-cap {
+        opacity: 1;
+      }
+
+      .g-cap p {
+        font-size: 0.81rem;
+        color: var(--cream);
+        font-family: var(--fd);
+        font-weight: 500;
+      }
+
+      .g-cap span {
+        font-size: 0.7rem;
+        color: var(--blush);
+        display: block;
+        margin-top: 2px;
+      }
+
+      /* ===== KONTAK ===== */
+      .kon-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 72px;
+        align-items: center;
+      }
+
+      .ci-list {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        margin-top: 28px;
+      }
+
+      .ci-row {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+      }
+
+      .ci-ico {
+        width: 46px;
+        height: 46px;
+        background: rgba(208, 115, 136, 0.11);
+        border: 1px solid rgba(208, 115, 136, 0.19);
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--rose);
+        flex-shrink: 0;
+      }
+
+      .ci-row h4 {
+        font-family: var(--fd);
+        font-size: 0.76rem;
+        font-weight: 600;
+        color: var(--mauve);
+        margin-bottom: 2px;
+      }
+
+      .ci-row p {
+        font-size: 0.93rem;
+        color: var(--cream);
+      }
+
+      .kon-card {
+        background: rgba(87, 71, 76, 0.18);
+        border: 1px solid rgba(209, 177, 183, 0.13);
+        border-radius: 22px;
+        padding: 44px 38px;
+        text-align: center;
+      }
+
+      .kon-card h3 {
+        font-family: var(--fd);
+        font-size: 1.45rem;
+        font-weight: 700;
+        color: var(--cream);
+        margin-bottom: 11px;
+      }
+
+      .kon-card p {
+        color: var(--blush);
+        font-size: 0.92rem;
+        margin-bottom: 30px;
+        line-height: 1.75;
+      }
+
+      /* ===== FOOTER ===== */
+      footer {
+        background: #1c1a1b;
+        border-top: 1px solid rgba(209, 177, 183, 0.09);
+        padding: 50px 0 30px;
+      }
+
+      .ft-grid {
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr;
+        gap: 44px;
+        margin-bottom: 44px;
+      }
+
+      .ft-brand .fl {
+        font-family: var(--fd);
+        font-size: 1.18rem;
+        font-weight: 700;
+        color: var(--cream);
+        margin-bottom: 9px;
+      }
+
+      .ft-brand p {
+        font-size: 0.85rem;
+        color: var(--mauve);
+        line-height: 1.7;
+        max-width: 270px;
+      }
+
+      .ft-col h4 {
+        font-family: var(--fd);
+        font-size: 0.76rem;
+        font-weight: 600;
+        color: var(--warm);
+        text-transform: uppercase;
+        letter-spacing: 2.5px;
+        margin-bottom: 16px;
+      }
+
+      .ft-col ul {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .ft-col ul li a {
+        font-size: 0.87rem;
+        color: var(--mauve);
+        transition: color var(--t);
+      }
+
+      .ft-col ul li a:hover {
+        color: var(--rose);
+      }
+
+      .ft-bot {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-top: 26px;
+        border-top: 1px solid rgba(209, 177, 183, 0.07);
+      }
+
+      .ft-copy {
+        font-size: 0.79rem;
+        color: var(--mauve);
+      }
+
+      .soc-links {
+        display: flex;
+        gap: 9px;
+      }
+
+      .soc-l {
+        width: 34px;
+        height: 34px;
+        border-radius: 8px;
+        border: 1px solid rgba(209, 177, 183, 0.17);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--mauve);
+        transition: all var(--t);
+      }
+
+      .soc-l:hover {
+        border-color: var(--rose);
+        color: var(--rose);
+        background: rgba(208, 115, 136, 0.08);
+      }
+
+      /* ===== OL LI ===== */
+      ol li {
+        margin-bottom: 10px; /* Memberikan jarak antar poin */
+        line-height: 1.6;    /* Mengatur jarak spasi baris teks */
+        margin-left: 15px;  /* Memberikan indentasi pada poin */
+        font-size: 0.9rem; /* Ukuran font untuk poin */
+        color: var(--mid); /* Warna teks untuk poin */
+        line-height: 1.7;   /* Mengatur jarak spasi baris teks */
+      }
+
+      /* ===== RESPONSIVE MEDIA QUERIES ===== */
+      @media (max-width: 1024px) {
+        .gal-grid { grid-template-columns: repeat(3, 1fr); }
+        .ft-grid { grid-template-columns: 1fr 1fr; }
+        .ref-split { gap: 40px; }
+        .sik-layout { gap: 26px; }
+        .about-grid { gap: 48px; }
+        .hero-grid { gap: 40px; }
+      }
+
+      @media (max-width: 768px) {
+        section { padding: 64px 0; }
+        .nav-ul { display: none; }
+        .burger { display: flex; }
+        
+        .hero-grid {
+          grid-template-columns: 1fr;
+          gap: 32px;
+          text-align: center;
+          padding: 64px 0 72px;
+        }
+        .hero-vis { order: -1; }
+        .hero-frame img { height: 260px; }
+        .hero-desc, .hero-quote { max-width: 100%; }
+        .hero-cta { justify-content: center; }
+        .hfb { display: none; }
+        
+        .about-grid { grid-template-columns: 1fr; gap: 36px; }
+        .about-photo-wrap { max-width: 220px; margin: 0 auto; }
+        .about-photo-deco { display: none; }
+        
+        .strengths { grid-template-columns: 1fr; }
+        .stats-row { gap: 16px 24px; }
+        .a-grid { grid-template-columns: 1fr; }
+        .lamp-row { grid-template-columns: 1fr; }
+        
+        .mg-wrap { padding: 24px 20px; }
+        .mg-grid { grid-template-columns: 1fr; gap: 14px; }
+        
+        .sik-tabs { gap: 7px; }
+        .sik-tab { font-size: 0.76rem; padding: 7px 14px; }
+        .sik-layout { grid-template-columns: 1fr; gap: 20px; }
+        .sik-img-w img { height: 240px; }
+        .sik-cg { grid-template-columns: 1fr; }
+        .sk-full { grid-column: 1; }
+        
+        .lamp-sik { flex-direction: column; gap: 7px; }
+        .ref-split { grid-template-columns: 1fr; gap: 40px; }
+        .ref-tabs { flex-wrap: wrap; gap: 6px; }
+        .gt-grid { grid-template-columns: 1fr; }
+        
+        .gal-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 180px; }
+        .g-i.wide { grid-column: 1; }
+        .gal-filter { gap: 6px; }
+        .gf-btn { font-size: 0.76rem; padding: 6px 12px; }
+        
+        .kon-grid { grid-template-columns: 1fr; gap: 36px; }
+        .kon-card { padding: 32px 24px; }
+        .ft-grid { grid-template-columns: 1fr; gap: 28px; }
+        .ft-bot { flex-direction: column; gap: 12px; text-align: center; }
+      }
+
+      @media (max-width: 480px) {
+        section { padding: 52px 0; }
+        .hero-grid { padding: 52px 0 60px; }
+        .hero-frame img { height: 210px; }
+        .hero-chip { font-size: 0.68rem; }
+        .hero-h1 { font-size: clamp(1.85rem, 6.5vw, 2.5rem); }
+        
+        .sik-tab { font-size: 0.71rem; padding: 6px 11px; }
+        .sik-img-w img { height: 200px; }
+        
+        .gal-grid { grid-template-columns: 1fr; grid-auto-rows: 190px; }
+        .g-i.tall { grid-row: span 1; }
+        .lamp-c { flex-direction: column; gap: 10px; }
+        .lamp-num { width: 36px; height: 36px; font-size: 0.95rem; border-radius: 8px; }
+        
+        .stats-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+        .mob-nav a { font-size: 1.5rem; }
+      }
+    </style>
+  </head>
+  <body>
+    
+    <!-- === NAVBAR === -->
+    <nav id="nav">
+      <div class="container">
+        <div class="nav-w">
+          <a href="#home" class="nav-logo">
+            <div class="logo-badge"><img src="img/logo.png" alt="Logo"></div>
+            Putranto Argya
+          </a>
+          <ul class="nav-ul" id="navUl">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#tentang">Tentang Saya</a></li>
+            <li><a href="#implementasi">Implementasi PPL</a></li>
+            <li><a href="#refleksi">Refleksi &amp; Filosofi</a></li>
+            <li><a href="#dokumentasi">Dokumentasi</a></li>
+            <li><a href="#kontak">Kontak</a></li>
+          </ul>
+          <button class="burger" id="burger">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Mobile Nav -->
+    <nav class="mob-nav" id="mobNav">
+      <a href="#home" class="ml">Home</a>
+      <a href="#tentang" class="ml">Tentang Saya</a>
+      <a href="#implementasi" class="ml">Implementasi PPL</a>
+      <a href="#refleksi" class="ml">Refleksi &amp; Filosofi</a>
+      <a href="#dokumentasi" class="ml">Dokumentasi</a>
+      <a href="#kontak" class="ml">Kontak</a>
+    </nav>
+
+    <!-- === HERO === -->
+    <section id="home">
+      <div class="container">
+        <div class="hero-grid">
+          <div>
+            <div class="hero-chip rv">
+              <span class="hero-chip-dot"></span>PPG Prajabatan Gelombang I 2026 · PPLG UNESA
+            </div>
+            <h1 class="hero-h1 rv d1">
+              e-Portofolio<br /><span class="ac">PPL Terbimbing</span><br />Putranto Argya
+            </h1>
+            <p class="hero-desc rv d2" style="text-align: justify">
+              Mahasiswa PPG Prajabatan pada Program Studi PPLG, Universitas Negeri Surabaya. Website ini mendokumentasikan perjalanan saya mengajar di SMK Negeri 1 Surabaya — mulai dari perancangan modul ajar, pelaksanaan pembelajaran di kelas X RPL, hingga refleksi yang jujur sebagai calon guru Informatika.
+            </p>
+            <div class="hero-quote rv d3">
+              <p>
+                "Tugas guru bukan mengisi kepala murid dengan pengetahuan, tetapi menyalakan api rasa ingin tahu — dan memberikan ruang agar api itu tumbuh menjadi cahaya sendiri."
+              </p>
+            </div>
+            <div class="hero-cta rv d4">
+              <a href="#implementasi" class="btn btn-p">Lihat Perjalanan PPL</a>
+              <a href="#tentang" class="btn btn-g">Profil Saya</a>
+            </div>
+          </div>
+          <div class="hero-vis rv d2">
+            <div class="hero-frame">
+              <img src="img/dokumentasi/penyerahan_compressed.jpg" alt="Pembelajaran Vokasi Informatika" loading="lazy" />
+            </div>
+            <div class="hfb">
+              <div class="hfb-l">Lokasi PPL</div>
+              <div class="hfb-v">SMK Negeri 1 Surabaya</div>
+            </div>
+            <div class="hero-ring"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- === TENTANG SAYA (E-Porto 1: Profil Mahasiswa) === -->
+    <section id="tentang" class="s-light">
+      <div class="container">
+        <div class="about-grid">
+          <div class="about-photo-wrap rv">
+            <img src="img/gwehj_formal.jpg" alt="Putranto Argya" class="about-photo" loading="lazy" />
+            <div class="about-photo-deco"></div>
+          </div>
+          <div>
+            <span class="eyebrow rv">E-Portofolio 1 — Profil Mahasiswa</span>
+            <h2 class="h-disp rv d1">Putranto Argya<br />Kuncara Jati</h2>
+            <span class="line-div rv d1"></span>
+            <div style="margin-top: 22px" class="rv d2">
+              <div class="about-tag">✦ PPG Prajabatan Gelombang I 2026</div>
+              <div class="about-tag">✦ NIM 2500103916524001</div>
+              <p class="about-bio" style="text-align: justify">
+                Nama saya Putranto Argya Kuncara Jati. Saya lahir dan tumbuh di Surakarta, Jawa Tengah, kemudian menyelesaikan studi di Program Studi Pendidikan Teknik Informatika dan Komputer, FKIP Universitas Sebelas Maret. Kini saya menjalani PPG Prajabatan Gelombang I Tahun 2026 pada Program Studi Pengembangan Perangkat Lunak dan Gim (PPLG) di Universitas Negeri Surabaya.
+              </p>
+              <p class="about-bio" style="text-align: justify">
+                Solo mengajarkan saya banyak hal yang tidak ada di kurikulum mana pun. Filosofi Memayu Hayuning Bawana dan nilai-nilai seperti tepa slira serta andhap asor membentuk cara saya memandang hubungan antar manusia, termasuk hubungan guru dan murid. Di keluarga saya, hanya kakek yang pernah menjadi guru. Mungkin dari situlah dorongan itu datang, ditambah kegelisahan melihat generasi muda yang cakap teknologi tetapi mengalami krisis moral dan etika. Saya ingin ikut ambil bagian dalam memperbaikinya.
+              </p>
+            </div>
+            <div class="pull-q rv d3">
+              <p>
+                "Jadilah guru yang pertama-tama mengajar dengan teladannya, bukan hanya dengan kata-katanya."
+              </p>
+            </div>
+            <div class="strengths rv d3">
+              <div class="str-c">
+                <div class="str-ico">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <circle cx="12" cy="12" r="10" />
+                    <polyline points="12 6 12 12 16 14" />
+                  </svg>
+                </div>
+                <h4>Tepat Waktu</h4>
+                <p>Menyelesaikan tugas sesuai target dan deadline</p>
+              </div>
+              <div class="str-c">
+                <div class="str-ico">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+                  </svg>
+                </div>
+                <h4>Komunikatif</h4>
+                <p>Memahami murid dengan pendekatan terbaik</p>
+              </div>
+              <div class="str-c">
+                <div class="str-ico">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <polyline points="23 4 23 10 17 10" />
+                    <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10" />
+                  </svg>
+                </div>
+                <h4>Adaptif</h4>
+                <p>Mudah beradaptasi dalam lingkungan baru</p>
+              </div>
+            </div>
+            <div class="stats-row rv d4">
+              <div>
+                <div class="stat-n">3</div>
+                <div class="stat-l">Siklus PPL</div>
+              </div>
+              <div>
+                <div class="stat-n">36+</div>
+                <div class="stat-l">JP Mengajar</div>
+              </div>
+              <div>
+                <div class="stat-n">30+</div>
+                <div class="stat-l">Murid Terdampak</div>
+              </div>
+              <div>
+                <div class="stat-n">100%</div>
+                <div class="stat-l">Dedikasi</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Refleksi Awal PPL -->
+        <div style="margin-top: 68px">
+          <span class="eyebrow rv">Refleksi Awal PPL</span>
+          <h2 class="h-disp rv d1" style="margin-bottom: 24px">Refleksi Awal:<br />Ekspektasi, Tantangan &amp; Pertumbuhan</h2>
+          <div class="a-grid">
+            <div class="a-card rv d1">
+              <h4>🎯 Ekspektasi Awal</h4>
+              <p> Sebelum memulai PPL di SMK Negeri 1 Surabaya, saya sudah punya gambaran tentang mengajar di SMK karena pernah menjalani PLP saat S1. Dari pengalaman itu, saya menduga mengelola kelas di SMK perlu kesabaran ekstra dan materinya tidak jauh berbeda dari yang pernah saya ajarkan sebelumnya. </p>
+            </div>
+            <div class="a-card rv d2">
+              <h4>⚡ Tantangan yang Dihadapi</h4>
+              <p> Ternyata beberapa hal berbeda dari dugaan awal. Perilaku murid bukan menjadi masalah karena X RPL 2 aktif dan kooperatif meski kelasnya ramai. Yang lebih mengejutkan adalah materinya. Proyek Informatika di sini disesuaikan dengan program keahlian RPL sehingga murid langsung mengerjakan pengembangan website, bukan materi Informatika yang bersifat umum. Saya juga tidak sempat mengobservasi guru mengajar karena murid sudah langsung mengerjakan proyek akhir sejak pertama saya datang. </p>
+            </div>
+            <div class="a-card rv d3">
+              <h4>💡 Pendekatan yang Ditempuh</h4>
+              <p> Peran saya dari awal adalah memantau progres tiap kelompok dan mendampingi hingga presentasi. Karena tidak ada sesi observasi mengajar guru, saya langsung belajar dari kondisi lapangan dan menyesuaikan cara pendampingan dengan kebutuhan tiap kelompok secara langsung. </p>
+            </div>
+            <div class="a-card rv d4">
+              <h4>📈 Perkembangan Diri</h4>
+              <p> Pengalaman ini mengajarkan saya bahwa ekspektasi awal tidak selalu mencerminkan kenyataan di lapangan. Saya menjadi lebih terbuka dan tidak bergantung pada asumsi sebelumnya. Justru dengan masuk tanpa banyak prasangka, saya lebih mudah membaca situasi kelas dan menyesuaikan diri dengan lebih baik. </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Analisis Perangkat Pembelajaran (E-Porto 1) -->
+        <div style="margin-top: 68px">
+          <span class="eyebrow rv">E-Portofolio 1 — Analisis Artefak</span>
+          <h2 class="h-disp rv d1" style="margin-bottom: 10px">Analisis Perangkat<br />Pembelajaran</h2>
+          <p class="rv d2" style="color: var(--mid); font-size: 0.96rem; margin-bottom: 28px; max-width: 560px;">
+            Perangkat ajar yang dirancang dan diimplementasikan selama 3 siklus PPL Terbimbing, beserta analisis mendalam terhadap konteks pedagogis dan proses penyusunannya.
+          </p>
+          <div class="a-grid">
+            <div class="a-card rv d1">
+              <h4>⚠️ Kendala Penyusunan Produk</h4>
+              <p> Kendala terbesar dalam penyusunan perangkat adalah menyesuaikan alokasi waktu. Materi yang seharusnya dilaksanakan dalam empat pertemuan harus dipadatkan menjadi dua pertemuan di setiap siklus, sehingga beberapa kegiatan seperti peer review antarkelompok terpaksa tidak terlaksana. Di Siklus II, instruksi pembuatan wireframe juga disampaikan secara dadakan di tengah pembelajaran sehingga beberapa murid sempat kehilangan semangat karena merasa harus mengerjakan sesuatu yang tidak mereka antisipasi. Di Siklus III, format laporan baru disiapkan pada hari yang sama karena ada miskomunikasi antara saya dan guru pamong soal siapa yang menyiapkannya. </p>
+            </div>
+            <div class="a-card rv d2">
+              <h4>📚 Teori Pedagogi yang Diadopsi</h4>
+              <p> Ketiga siklus dirancang menggunakan pendekatan Deep Learning berbasis Project-Based Learning (PjBL), di mana murid menghasilkan produk nyata yang berkelanjutan dari satu siklus ke siklus berikutnya. Scaffolding diberikan secara bertahap sesuai kebutuhan tiap kelompok, terutama bagi yang belum terbiasa dengan alur perancangan website. Asesmen dirancang dalam tiga bentuk yaitu formatif untuk memantau proses, sumatif untuk menilai produk akhir, dan reflektif melalui lembar self-assessment di setiap pertemuan. Pendekatan diferensiasi juga mulai diterapkan mengingat kemampuan awal murid yang beragam dalam satu kelas. </p>
+            </div>
+            <div class="a-card rv d3">
+              <h4>✅ Faktor Keberhasilan</h4>
+              <p> Murid diberi kebebasan memilih tema website sesuai minat kelompok masing-masing. Hal ini membuat mereka lebih bersemangat karena mengerjakan sesuatu yang mereka pilih sendiri. Pembagian tugas antaranggota juga berjalan secara mandiri tanpa perlu arahan khusus dari guru. Keterbatasan perangkat pun bukan halangan — murid yang tidak membawa laptop tetap bisa berpartisipasi aktif dengan merancang desain UI/UX menggunakan Canva di ponsel mereka. Semua kelompok berhasil mengumpulkan desain brief dan prototype UI/UX tepat waktu. Di Siklus III, meski jadwal presentasi dimajukan secara mendadak, murid mampu beradaptasi dengan baik dan tetap menyelesaikan laporan serta finalisasi website mereka. </p>
+            </div>
+            <div class="a-card rv d4">
+              <h4>🔄 Penyesuaian Komponen</h4>
+              <p> Beberapa hal yang perlu diperbaiki ke depan adalah manajemen waktu yang lebih baik agar kegiatan peer review bisa terlaksana, penyampaian instruksi yang lebih terencana agar tidak ada yang disampaikan dadakan, serta koordinasi lebih awal dengan semua pihak yang terlibat termasuk guru mata pelajaran lain. Diferensiasi pembelajaran juga perlu lebih diperhatikan karena tidak semua murid belajar dengan cara dan kecepatan yang sama. </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Model Guru (E-Porto 1) -->
+        <div class="mg-wrap rv" style="margin-top: 56px">
+          <span class="eyebrow" style="color: var(--rose)">E-Portofolio 1 — Model Guru</span>
+          <h2 class="h-disp" style="margin-bottom: 8px">Model Guru yang Dituju</h2>
+          <p style="color: var(--blush); font-size: 0.93rem; max-width: 540px">
+            Misi, kompetensi, dan karakter guru profesional yang ingin saya bangun sebagai calon pendidik vokasi bidang Informatika.
+          </p>
+          <div class="mg-grid">
+            <div class="mg-i">
+              <div class="mg-l">Misi Utama</div>
+              <div class="mg-v"> Menjadi guru yang benar-benar hadir untuk murid, bukan hanya menyampaikan materi, tetapi juga mengayomi dan menuntun dengan tulus. Kegelisahan melihat generasi muda yang cakap teknologi tetapi mengalami krisis moral mendorong saya untuk ikut ambil bagian dalam memperbaikinya melalui pendidikan. </div>
+            </div>
+            <div class="mg-i">
+              <div class="mg-l">Kompetensi yang Dituju</div>
+              <div class="mg-v"> Merencanakan pembelajaran yang realistis sesuai kondisi lapangan, menerapkan diferensiasi agar semua murid dapat berkembang sesuai kemampuannya, menyiapkan instrumen penilaian sejak awal, serta membangun koordinasi yang aktif dengan semua pihak yang terlibat. Fleksibilitas juga menjadi hal yang penting karena kondisi lapangan tidak selalu sesuai dengan rencana. </div>
+            </div>
+            <div class="mg-i">
+              <div class="mg-l">Karakter Guru Profesional</div>
+              <div class="mg-v"> Guru yang tidak takut mengakui kekurangan dan mau belajar dari setiap pengalaman. Proaktif dalam mencari informasi, mampu beradaptasi dengan situasi yang tidak terduga, serta dapat membuat murid merasa nyaman untuk bertanya dan bercerita karena kepercayaan itulah yang menjadi fondasi proses belajar yang baik. </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- === IMPLEMENTASI PPL (3 SIKLUS) === -->
+    <section id="implementasi" class="s-mid">
+      <div class="container">
+        <div class="sik-intro">
+          <span class="eyebrow rv">Implementasi PPL Terbimbing</span>
+          <h2 class="h-disp rv d1" style="margin-bottom: 12px">Tiga Siklus Praktik<br />Mengajar di Kelas X RPL</h2>
+          <p class="body-muted rv d2">
+            Mata Pelajaran Informatika · SMK Negeri 1 Surabaya · PPG Prajabatan Gelombang I 2026
+          </p>
+        </div>
+        
+        <div class="sik-tabs rv">
+          <button class="sik-tab active" onclick="showSik(1)">Siklus I — Perencanaan Website</button>
+          <button class="sik-tab" onclick="showSik(2)">Siklus II — Perancangan UI/UX</button>
+          <button class="sik-tab" onclick="showSik(3)">Siklus III — Implementasi &amp; Presentasi</button>
+        </div>
+
+        <!-- SIKLUS I -->
+        <div class="sik-panel active" id="sp1">
+          <div class="sik-layout">
+            <div class="sik-img-w rv">
+              <img src="img/dokumentasi/siklus1_compressed.jpg" alt="Siklus I" loading="lazy" />
+              <div class="sik-ov">
+                <span class="sik-tag">Siklus I</span>
+                <div class="sik-img-title">Perencanaan Website: Desain Brief &amp; Wireframe</div>
+              </div>
+            </div>
+            <div class="rv d1">
+              <h3 style="font-family: var(--fd); font-size: 1.45rem; font-weight: 700; color: var(--cream); margin-bottom: 7px;">Siklus I</h3>
+              <p style="color: var(--rose); font-size: 0.86rem; font-family: var(--fd); font-weight: 600; margin-bottom: 14px;">PERENCANAAN WEBSITE — DESAIN BRIEF &amp; WIREFRAME</p>
+              <p style="color: var(--blush); font-size: 0.93rem; line-height: 1.8; margin-bottom: 18px; text-align: justify;">
+                Saat pertama masuk materi, murid ternyata sudah mulai menulis kode padahal tahap perancangan belum dilakukan sama sekali. Setelah berdiskusi dengan guru pamong, kami memutuskan untuk menghentikan sementara proses coding dan mengarahkan murid kembali ke tahap awal. Dari situ saya menjelaskan konsep desain brief dan wireframe beserta alasan mengapa pengembangan web perlu dimulai dari perencanaan.
+              </p>
+              <div class="art-list">
+                <span class="art-chip"><a href="https://drive.google.com/file/d/1TVL9G1DSrrZVJ2dL53XAnDxAo82rUB4B/view?usp=drive_link" target="_blank">Modul Ajar</a></span>
+                <span class="art-chip"><a href="https://drive.google.com/file/d/1V4p9ashMIZVVXQTQ8N7HuG8COcs17bu2/view?usp=drive_link" target="_blank">Lampiran</a></span>
+                <span class="art-chip"><a href="https://www.canva.com/design/DAHI2Mb3oIM/xeHDZKVV_-TH0JW_sUxQZw/edit" target="_blank">Media Figma/Canva</a></span>
+              </div>
+            </div>
+          </div>
+          
+          <div class="sik-cg rv d2" style="margin-top: 32px">
+            <div class="sk-i">
+              <div class="sk-t">🎯 Deskripsi Kegiatan</div>
+              <p> Saat pertama masuk materi, murid ternyata sudah langsung melompat ke tahap coding dan melewati perancangan sama sekali. Setelah berdiskusi dengan guru pamong, kami memutuskan menghentikan sementara proses coding dan mengarahkan murid kembali ke tahap yang seharusnya. Saya menjelaskan konsep desain brief dan wireframe beserta alasan mengapa pengembangan web perlu dimulai dari perencanaan. Suasana kelas sangat hidup karena murid aktif berdiskusi dalam kelompok. </p>
+            </div>
+            <div class="sk-i">
+              <div class="sk-t">⚠️ Kendala Pembelajaran</div>
+              <p> Murid awalnya bingung karena di mata pelajaran lain mereka selama ini langsung diajarkan coding tanpa melalui tahap perancangan, sehingga konsep desain brief dan wireframe terasa asing. Selain itu, kegiatan peer review antarteman yang sudah direncanakan dalam modul ajar tidak dapat terlaksana karena waktu tidak mencukupi. </p>
+            </div>
+            <div class="sk-i">
+              <div class="sk-t">✅ Solusi yang Diterapkan</div>
+              <p> Saya menjelaskan alur pengembangan web yang sebenarnya disertai contoh nyata, lalu memberikan scaffolding langsung kepada kelompok yang masih kesulitan saat berkeliling kelas. </p>
+            </div>
+            <div class="sk-i">
+              <div class="sk-t">📚 Landasan Pedagogis</div>
+              <p> Ketiga siklus menggunakan pendekatan Deep Learning berbasis Project-Based Learning (PjBL). Di Siklus I, PjBL diwujudkan melalui pembuatan desain brief sebagai produk nyata yang akan digunakan di siklus berikutnya, bukan sekadar latihan. Scaffolding diberikan bertahap sesuai kebutuhan tiap kelompok, sejalan dengan prinsip Tut Wuri Handayani Ki Hadjar Dewantara. Dimensi Profil Pelajar Pancasila yang disasar meliputi bernalar kritis, kreatif, gotong royong, dan mandiri. </p>
+            </div>
+            <div class="sk-i">
+              <div class="sk-t">🏆 Faktor Keberhasilan</div>
+              <p> Setelah dua pertemuan, semua kelompok berhasil menyelesaikan desain brief. Wireframe belum selesai seratus persen di semua kelompok, namun progresnya sudah terlihat jelas. Antusiasme murid meningkat ketika mereka menyadari bahwa inilah alur kerja yang digunakan pengembang web di dunia nyata. </p>
+            </div>
+            <div class="sk-i">
+              <div class="sk-t">🔄 Penyesuaian Perangkat</div>
+              <p> Peer review perlu dipertimbangkan ulang dari sisi alokasi waktu. Kelompok yang selesai lebih awal dapat mengembangkan moodboard visual sebagai persiapan Siklus II. </p>
+            </div>
+            <div class="sk-i sk-full">
+              <div class="sk-t">📋 Lampiran Penilaian Siklus I</div>
+              <div class="lamp-sik">
+                <div class="lamp-b">
+                  <span></span>Lampiran 7: Penyusunan Perangkat — <a href="https://drive.google.com/file/d/1915AFWMA6Rkz-rh3iaWw6elCbZWbU86a/view?usp=drive_link" target="_blank" style="color: var(--rose); margin-left: 4px; transition: all 0.3s ease;" onmouseover="this.style.color='var(--cream)'; this.style.textDecoration='underline';" onmouseout="this.style.color='var(--rose)'; this.style.textDecoration='none';">Unduh</a>
+                </div>
+                <div class="lamp-b">
+                  <span></span>Lampiran 8: Praktik Mengajar Siklus I — <a href="https://drive.google.com/file/d/1eW2VMDOAW51EYuz7ANYaoor2q58B76kg/view?usp=drive_link" target="_blank" style="color: var(--rose); margin-left: 4px; transition: all 0.3s ease;" onmouseover="this.style.color='var(--cream)'; this.style.textDecoration='underline';" onmouseout="this.style.color='var(--rose)'; this.style.textDecoration='none';">Unduh</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- SIKLUS II -->
+        <div class="sik-panel" id="sp2">
+          <div class="sik-layout">
+            <div class="sik-img-w">
+              <img src="img/dokumentasi/siklus2_compressed.jpg" alt="Siklus II" loading="lazy" />
+              <div class="sik-ov">
+                <span class="sik-tag">Siklus II</span>
+                <div class="sik-img-title">Perancangan UI/UX: Prinsip Desain &amp; Prototipe</div>
+              </div>
+            </div>
+            <div>
+              <h3 style="font-family: var(--fd); font-size: 1.45rem; font-weight: 700; color: var(--cream); margin-bottom: 7px;">Siklus II</h3>
+              <p style="color: var(--rose); font-size: 0.86rem; font-family: var(--fd); font-weight: 600; margin-bottom: 14px;">PERANCANGAN UI/UX — PRINSIP DESAIN &amp; PROTOTIPE VISUAL</p>
+              <p style="color: var(--blush); font-size: 0.93rem; line-height: 1.8; margin-bottom: 18px; text-align: justify;">
+                Memasuki siklus kedua, murid sudah mulai memahami alur pengembangan web. Mereka mengembangkan desain brief dari siklus sebelumnya menjadi prototype visual menggunakan Figma atau Canva. Saya memberi kebebasan dalam memilih alat desain dan hasilnya sebagian besar kelompok memilih Canva, meski ada juga yang menggunakan Figma. Mereka membagi tugas secara mandiri sehingga setiap anggota kebagian mendesain setidaknya satu halaman.
+              </p>
+              <div class="art-list">
+                <span class="art-chip"><a href="https://drive.google.com/file/d/1SFK1vZ8xGyCHq4TzXYjyQnx7gFNpTvRs/view?usp=drive_link" target="_blank">Modul Ajar</a></span>
+                <span class="art-chip"><a href="https://drive.google.com/file/d/11D3mFvv-_yXjzhQPH6sLqtZwNeBN56ip/view?usp=drive_link" target="_blank">Lampiran</a></span>
+                <span class="art-chip"><a href="https://drive.google.com/drive/folders/1nmtuMN_HY87B-16PX_Jt2wrEj9TKhyoD?usp=sharing" target="_blank">Contoh Desain UI/UX</a></span>
+              </div>
+            </div>
+          </div>
+          
+          <div class="sik-cg" style="margin-top: 32px">
+            <div class="sk-i">
+              <div class="sk-t">🎯 Deskripsi Kegiatan</div>
+              <p> Murid dijelaskan bahwa desain UI/UX dapat dikembangkan langsung dari wireframe Siklus I. Saya memberi kebebasan memilih alat desain dan menyarankan Figma atau Canva. Dari 34 murid dalam tujuh kelompok, sebagian besar memilih Canva karena lebih familiar, meski ada yang menggunakan Figma. Mereka membagi tugas secara mandiri, setiap anggota mendesain kurang lebih satu halaman, dan yang sudah selesai membantu halaman yang belum dikerjakan. </p>
+            </div>
+            <div class="sk-i">
+              <div class="sk-t">⚠️ Kendala Pembelajaran</div>
+              <p> Beberapa murid belum menyelesaikan wireframe dari Siklus I tetapi sudah melanjutkan ke desain UI/UX. Sama seperti siklus sebelumnya, kegiatan peer review kembali tidak terlaksana karena keterbatasan waktu. </p>
+            </div>
+            <div class="sk-i">
+              <div class="sk-t">✅ Solusi yang Diterapkan</div>
+              <p> Murid yang wireframe-nya belum selesai tetap diperbolehkan melanjutkan ke UI/UX agar tidak tertinggal, dengan catatan wireframe diselesaikan bersamaan. Kebebasan memilih alat desain terbukti efektif karena murid bisa menggunakan alat yang sudah mereka kenal. </p>
+            </div>
+            <div class="sk-i">
+              <div class="sk-t">📚 Landasan Pedagogis</div>
+              <p> PjBL berlanjut dengan produk yang lebih kompleks berupa prototype desain UI/UX. Pendekatan Deep Learning terlihat dalam cara murid tidak sekadar meniru referensi visual, tetapi mempertimbangkan kebutuhan pengguna dalam setiap keputusan desain. Asesmen formatif dilakukan melalui observasi dan umpan balik langsung saat berkeliling, sedangkan asesmen reflektif dijalankan melalui lembar self-assessment di akhir pertemuan, sesuai semangat Kurikulum Merdeka yang menilai proses bukan hanya hasil akhir. </p>
+            </div>
+            <div class="sk-i">
+              <div class="sk-t">🏆 Faktor Keberhasilan</div>
+              <p> Semua kelompok mengumpulkan desain UI/UX tepat waktu melalui tautan yang dibagikan guru pamong. Pembagian tugas antarteman berjalan mandiri tanpa perlu arahan khusus, mencerminkan tumbuhnya dimensi kemandirian dan gotong royong dalam diri murid. </p>
+            </div>
+            <div class="sk-i">
+              <div class="sk-t">🔄 Penyesuaian Perangkat</div>
+              <p> Bagi murid yang belum familiar Figma, tersedia template di Canva sebagai alternatif. Kelompok yang lebih cepat selesai dapat mengembangkan animasi transisi antarlaman atau menyusun style guide singkat sebagai persiapan Siklus III. </p>
+            </div>
+            <div class="sk-i sk-full">
+              <div class="sk-t">📋 Lampiran Penilaian Siklus II</div>
+              <div class="lamp-sik">
+                <div class="lamp-b">
+                  <span></span>Lampiran 7: Penyusunan Perangkat — <a href="https://drive.google.com/file/d/1eyTvmDqGlD5-R0hbBVGe04-OT2sZxz_Q/view?usp=drive_link" target="_blank" style="color: var(--rose); margin-left: 4px; transition: all 0.3s ease;" onmouseover="this.style.color='var(--cream)'; this.style.textDecoration='underline';" onmouseout="this.style.color='var(--rose)'; this.style.textDecoration='none';">Unduh</a>
+                </div>
+                <div class="lamp-b">
+                  <span></span>Lampiran 8: Praktik Mengajar Siklus II — <a href="https://drive.google.com/file/d/108ej0n5DaAugWRP11OhaEmEmHxL8g_ws/view?usp=drive_link" target="_blank" style="color: var(--rose); margin-left: 4px; transition: all 0.3s ease;" onmouseover="this.style.color='var(--cream)'; this.style.textDecoration='underline';" onmouseout="this.style.color='var(--rose)'; this.style.textDecoration='none';">Unduh</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- SIKLUS III -->
+        <div class="sik-panel" id="sp3">
+          <div class="sik-layout">
+            <div class="sik-img-w">
+              <img src="img/dokumentasi/siklus3_compressed.jpg" alt="Siklus III" loading="lazy" />
+              <div class="sik-ov">
+                <span class="sik-tag">Siklus III</span>
+                <div class="sik-img-title">Implementasi Desain → Website &amp; Presentasi Hasil</div>
+              </div>
+            </div>
+            <div>
+              <h3 style="font-family: var(--fd); font-size: 1.45rem; font-weight: 700; color: var(--cream); margin-bottom: 7px;">Siklus III</h3>
+              <p style="color: var(--rose); font-size: 0.86rem; font-family: var(--fd); font-weight: 600; margin-bottom: 14px;">IMPLEMENTASI DESAIN → WEBSITE &amp; PRESENTASI HASIL</p>
+              <p style="color: var(--blush); font-size: 0.93rem; line-height: 1.8; margin-bottom: 18px; text-align: justify;">
+                Di siklus terakhir, saatnya desain diwujudkan menjadi website sungguhan. Murid mengimplementasikan prototype dari siklus sebelumnya ke dalam kode HTML dan CSS menggunakan VS Code. Mereka melakukan banyak revisi tampilan karena langsung mencocokkan kode dengan desain yang sudah dibuat. Di tengah proses, jadwal presentasi tiba-tiba dimajukan sehingga implementasi, penyusunan laporan, dan finalisasi website harus diselesaikan dalam satu pertemuan.
+              </p>
+              <div class="art-list">
+                <span class="art-chip"><a href="https://drive.google.com/file/d/1ZiLmA8Q5paFWSASS1GndJXrd4VY-z8Ey/view?usp=drive_link" target="_blank">Modul Ajar</a></span>
+                <span class="art-chip"><a href="https://drive.google.com/file/d/1qE39txhkeysN5dS_LdB8nm_jmsSoFtK_/view?usp=drive_link" target="_blank">Lampiran</a></span>
+                <span class="art-chip"><a href="https://drive.google.com/drive/folders/1t8cus5SVm0W649w4E3ivZWZCw6FMNh9L?usp=sharing" target="_blank">Contoh Tampilan Website Murid</a></span>
+              </div>
+            </div>
+          </div>
+          
+          <div class="sik-cg" style="margin-top: 32px">
+            <div class="sk-i">
+              <div class="sk-t">🎯 Deskripsi Kegiatan</div>
+              <p> Murid mengimplementasikan desain UI/UX ke dalam kode program menggunakan VS Code secara native dengan HTML dan CSS tanpa framework. Mereka banyak melakukan revisi tampilan karena coding langsung didasarkan pada desain yang sudah dibuat sebelumnya. Pada pertemuan kedua, ada koordinasi mendadak bahwa jadwal presentasi dimajukan, sehingga murid harus membuat PPT, menyusun laporan, dan menyelesaikan website dalam waktu yang lebih singkat dari rencana awal. </p>
+            </div>
+            <div class="sk-i">
+              <div class="sk-t">⚠️ Kendala Pembelajaran</div>
+              <p> Dari sisi teknis murid tidak ada kendala berarti. Kendala justru datang dari koordinasi: saya hanya berkomunikasi dengan guru pamong tanpa ada koordinasi langsung dengan guru mata pelajaran DPK, sehingga perubahan jadwal terasa mendadak dan tidak sesuai perencanaan. </p>
+            </div>
+            <div class="sk-i">
+              <div class="sk-t">✅ Solusi yang Diterapkan</div>
+              <p> Saya menerima keputusan perubahan jadwal dan menyesuaikan diri bersama murid. Prioritas dialihkan ke finalisasi website dan persiapan presentasi dalam waktu yang tersedia. </p>
+            </div>
+            <div class="sk-i">
+              <div class="sk-t">📚 Landasan Pedagogis</div>
+              <p> Di siklus ini PjBL mencapai titik penuhnya karena murid menghasilkan produk nyata berupa website yang bisa dibuka dan dipresentasikan. Asesmen sumatif melalui rubrik penilaian presentasi dan demo website menggantikan ujian tulis, sesuai semangat asesmen autentik Kurikulum Merdeka. Prinsip Tut Wuri Handayani terasa paling nyata di sini: saya berdiri di belakang, sementara murid maju dan bercerita tentang karya mereka sendiri. </p>
+            </div>
+            <div class="sk-i">
+              <div class="sk-t">🏆 Faktor Keberhasilan</div>
+              <p> Murid mampu beradaptasi dengan baik terhadap perubahan jadwal yang tiba-tiba tanpa kepanikan. Presentasi tetap berjalan meski tidak semua kelompok sempat saya pantau secara penuh. Saya juga diminta memberikan umpan balik kepada kelompok yang presentasi, yang menjadi pengalaman berharga dalam peran sebagai calon guru. </p>
+            </div>
+            <div class="sk-i">
+              <div class="sk-t">🔄 Penyesuaian Perangkat</div>
+              <p> Ke depan, koordinasi dengan semua pihak yang terlibat perlu dilakukan lebih awal dan tidak hanya melalui satu jalur. Kelompok yang lebih cepat selesai dapat mengembangkan fitur tambahan menggunakan JavaScript dasar atau meningkatkan responsivitas halaman. </p>
+            </div>
+            <div class="sk-i sk-full">
+              <div class="sk-t">📋 Lampiran Penilaian Siklus III</div>
+              <div class="lamp-sik">
+                <div class="lamp-b">
+                  <span></span>Lampiran 7: Penyusunan Perangkat — <a href="https://drive.google.com/file/d/1yWx5hrFAABQpG9v_d50POrCYGyjbtYQi/view?usp=drive_link" target="_blank" style="color: var(--rose); margin-left: 4px; transition: all 0.3s ease;" onmouseover="this.style.color='var(--cream)'; this.style.textDecoration='underline';" onmouseout="this.style.color='var(--rose)'; this.style.textDecoration='none';">Unduh</a>
+                </div>
+                <div class="lamp-b">
+                  <span></span>Lampiran 8: Praktik Mengajar Siklus III — <a href="https://drive.google.com/file/d/1oyEZvbxuGwVMAVlLwa-5170GOSA9PkC_/view?usp=drive_link" target="_blank" style="color: var(--rose); margin-left: 4px; transition: all 0.3s ease;" onmouseover="this.style.color='var(--cream)'; this.style.textDecoration='underline';" onmouseout="this.style.color='var(--rose)'; this.style.textDecoration='none';">Unduh</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- === REFLEKSI & FILOSOFI (E-Porto 2) === -->
+    <section id="refleksi" class="s-light">
+      <div class="container">
+        <span class="eyebrow rv">E-Portofolio 2 — Refleksi &amp; Filosofi</span>
+        <h2 class="h-disp rv d1" style="margin-bottom: 44px">Refleksi Akhir PPL &amp;<br />Filosofi Mengajar</h2>
+        
+        <div class="ref-split">
+          <!-- Refleksi Akhir -->
+          <div class="rv">
+            <h3 style="font-family: var(--fd); font-size: 1.2rem; font-weight: 700; color: var(--dark); margin-bottom: 18px;">Refleksi Akhir PPL Terbimbing</h3>
+            <div class="ref-tabs">
+              <button class="ref-tab active" onclick="showRef('rl', 'learned', this)">Yang Dipelajari</button>
+              <button class="ref-tab" onclick="showRef('rl', 'tantangan', this)">Tantangan</button>
+              <button class="ref-tab" onclick="showRef('rl', 'feedback', this)">Umpan Balik</button>
+            </div>
+            
+            <div class="ref-pan active" id="rl-learned">
+              <div class="ref-q">
+                <div class="q">✦ Apa yang dipelajari selama PPL?</div>
+                <p> PPL di SMK Negeri 1 Surabaya mengajarkan banyak hal yang tidak saya temukan di bangku kuliah. Saya belajar bahwa rencana pembelajaran yang sudah disusun sebaik apapun tidak selalu bisa berjalan persis seperti yang direncanakan. Kondisi lapangan bisa berbeda dan seorang guru harus bisa menyesuaikan diri tanpa kehilangan arah tujuan pembelajaran. </p>
+                <p> Saya juga belajar bahwa koordinasi dengan semua pihak yang terlibat itu penting dan tidak bisa hanya mengandalkan satu jalur komunikasi. Selain itu, tidak semua murid belajar dengan cara dan kecepatan yang sama sehingga diferensiasi pembelajaran bukan sekadar teori di modul, tetapi kebutuhan nyata di kelas. Hal lain yang saya sadari adalah pentingnya menyiapkan instrumen penilaian sejak awal agar tidak terbebani di akhir siklus. </p>
+              </div>
+              <div class="ref-q">
+                <div class="q">✦ Perkembangan diri sebagai calon guru</div>
+                <p> PPL ini mengubah beberapa cara pandang saya tentang mengajar. Saya yang awalnya menganggap rencana pembelajaran adalah patokan utama, kini lebih memahami bahwa fleksibilitas sama pentingnya dengan perencanaan yang matang. Saya juga menjadi lebih sadar bahwa koordinasi tidak bisa hanya mengandalkan satu pihak dan harus dilakukan secara aktif dengan semua yang terlibat. </p>
+                <p> Yang paling berkesan adalah ketika saya mulai memahami diferensiasi bukan sebagai teori di modul, tetapi sebagai kebutuhan nyata di kelas. Setiap murid punya cara dan kecepatan belajarnya sendiri, dan tugas guru adalah hadir untuk semua dari mereka, bukan hanya yang paling cepat atau paling lambat. </p>
+              </div>
+            </div>
+            
+            <div class="ref-pan" id="rl-tantangan">
+              <div class="ref-q">
+                <div class="q">✦ Pengalaman menantang &amp; solusinya</div>
+                <p> Ada beberapa situasi yang cukup menantang selama PPL berlangsung. Alokasi waktu menjadi kendala paling konsisten karena materi yang seharusnya dilaksanakan dalam empat pertemuan harus dipadatkan menjadi dua pertemuan di setiap siklus. Akibatnya kegiatan peer review antarkelompok yang sudah direncanakan tidak pernah sempat terlaksana. </p>
+                <p> Di Siklus II, saya menyampaikan instruksi pembuatan wireframe secara dadakan di tengah pembelajaran dan hasilnya beberapa murid sempat kehilangan semangat. Dari sini saya belajar bahwa instruksi perlu disampaikan lebih terencana, bukan menyesuaikan di tengah jalan. </p>
+                <p> Di Siklus III, jadwal presentasi tiba-tiba dimajukan karena ada kegiatan sekolah yang bentrok. Implementasi, penyusunan laporan, dan finalisasi website harus diselesaikan dalam satu pertemuan. Di sisi lain, format laporan juga baru disiapkan hari itu karena ada miskomunikasi tentang siapa yang bertanggung jawab menyiapkannya. Meski begitu, murid tetap mampu beradaptasi dan menyelesaikan semua yang diminta dengan baik. </p>
+              </div>
+              <div class="ref-q">
+                <div class="q">✦ Hambatan teknis &amp; adaptasi</div>
+                <p> Selama PPL, pembelajaran terkadang dilaksanakan di ruang kelas biasa, dan terkadang di laboratorium komputer. Tidak semua murid membawa laptop sehingga ada yang tidak memiliki perangkat untuk mengerjakan tugas. Namun hal ini tidak menjadi hambatan berarti karena murid yang tidak membawa laptop tetap bisa berpartisipasi aktif menggunakan Canva di ponsel mereka. Situasi ini justru menunjukkan bahwa murid mampu beradaptasi dengan keterbatasan yang ada tanpa perlu banyak arahan dari guru. </p>
+              </div>
+            </div>
+            
+            <div class="ref-pan" id="rl-feedback">
+              <div class="ref-q">
+                <div class="q">✦ Umpan balik dari guru pamong</div>
+                <p> Selama pelaksanaan PPL Terbimbing, Guru Pamong memberikan apresiasi atas inisiatif saya dalam menghubungkan alur kerja pembuatan website dengan situasi nyata di industri, serta kreativitas dalam mengatasi keterbatasan fasilitas kelas (seperti mengarahkan penggunaan Canva di ponsel dan membagi peran menjadi tim <em>coding</em> dan tim laporan). </p>
+                <p> Namun, ada beberapa catatan evaluasi yang membekas dan menjadi pegangan utama saya menuju PPL Mandiri:</p>
+                <ol>
+                  <li>
+                    <strong>Manajemen Waktu & Kelas:</strong> Alokasi waktu harus dirancang lebih realistis agar tahapan penting seperti <em>peer review</em> tidak terlewat, serta perlunya pengelolaan kelompok yang lebih ketat untuk mengatasi keterbatasan laptop.
+                  </li>
+                  <li>
+                    <strong>Konsistensi Instruksi:</strong> Menghindari instruksi tugas tambahan secara mendadak (seperti pembuatan <em>wireframe</em> di tengah pengerjaan UI/UX) karena terbukti dapat menurunkan motivasi belajar murid yang sudah terlanjur fokus.
+                  </li>
+                  <li>
+                    <strong>Proaktif Komunikasi:</strong> Saya harus lebih proaktif berdiskusi dan menggali informasi terkait agenda internal sekolah (seperti jadwal kunjungan industri) agar tidak terkejut oleh perubahan jadwal mendadak.
+                  </li>
+                  <li>
+                    <strong>Persiapan Perangkat:</strong> Pentingnya menyiapkan instrumen penilaian proyek serta format panduan laporan sejak awal penyusunan modul ajar.
+                  </li>
+                </ol>
+              </div>
+              <div class="ref-q">
+                <div class="q">✦ Target menuju PPL Mandiri</div>
+                <p> Ada beberapa hal yang ingin saya perbaiki saat memasuki PPL Mandiri. Yang pertama adalah manajemen waktu karena selama PPL Terbimbing alokasi waktu sering tidak sesuai sehingga beberapa kegiatan seperti peer review antarkelompok tidak sempat terlaksana. Ke depan saya perlu merancang alokasi yang lebih realistis sesuai kondisi lapangan. </p>
+                <p> Saya juga ingin lebih aktif berkoordinasi dengan semua pihak yang terlibat sejak awal, tidak hanya mengandalkan satu jalur komunikasi. Instruksi kepada murid pun perlu lebih terencana agar tidak ada yang disampaikan secara dadakan di tengah pembelajaran. </p>
+                <p> Dari sisi pembelajaran, saya ingin menerapkan diferensiasi yang lebih terstruktur karena kemampuan awal murid dalam satu kelas bisa sangat beragam. Instrumen penilaian juga perlu disiapkan sejak awal siklus agar proses evaluasi di akhir tidak terburu-buru. </p>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Filosofi Mengajar -->
+          <div class="rv d2">
+            <h3 style="font-family: var(--fd); font-size: 1.2rem; font-weight: 700; color: var(--dark); margin-bottom: 18px;">Filosofi Mengajar</h3>
+            <div class="fil-wrap">
+              <p class="fil-p"> Saya percaya bahwa mengajar bukan hanya soal menyampaikan materi, tetapi soal bagaimana seorang guru bisa memfasilitasi murid agar kebutuhan mereka terpenuhi. Memberikan instruksi saja tidak cukup karena pendampingan dengan pendekatan yang baik jauh lebih penting agar murid tidak merasa bahwa mereka tidak bisa, tetapi merasa bahwa mereka sedang belajar dan berproses. Keyakinan ini saya bawa dari pemikiran Ki Hadjar Dewantara tentang guru sebagai pamong yang hadir bukan untuk mendominasi, melainkan untuk menuntun dengan tulus sesuai kodrat dan kemampuan masing-masing murid. </p>
+              <p class="fil-p"> Pengalaman PPL mengajarkan saya bahwa setiap murid punya cara belajarnya sendiri dan tugas guru adalah memberi ruang untuk itu. Ketika tidak semua murid membawa laptop, mereka secara mandiri beradaptasi menggunakan ponsel untuk tetap berpartisipasi. Dari situ saya menyadari bahwa jika murid dipaksa menggunakan satu cara saja, yang terkendala tidak akan bisa menyelesaikan tugasnya dengan maksimal. Pembelajaran yang baik memberi beragam jalan menuju tujuan yang sama, bukan memaksa semua orang melewati jalan yang sama. </p>
+              <p class="fil-p"> Saya juga meyakini bahwa guru yang baik adalah guru yang mau terus belajar dan tidak takut mengakui kekurangan. Setiap siklus dalam PPL ini mengubah cara pandang saya sedikit demi sedikit, dari yang awalnya terlalu bergantung pada rencana menjadi lebih fleksibel dan peka terhadap kondisi lapangan. Bagi saya, sikap mau terus berkembang bukan hanya sesuatu yang perlu ada pada murid, tetapi sesuatu yang harus lebih dulu dihidupi oleh gurunya sendiri. Kurikulum Merdeka memberi ruang untuk itu semua, baik bagi murid untuk berkembang sesuai kemampuannya maupun bagi guru untuk terus bertumbuh bersama mereka. </p>
+            </div>
+            
+            <h3 style="font-family: var(--fd); font-size: 1.05rem; font-weight: 700; color: var(--dark); margin-top: 28px; margin-bottom: 14px;">Karakter Guru yang Dibangun</h3>
+            <div class="gt-grid">
+              <div class="gt-c">
+                <div class="ic">🌿</div>
+                <h4>Tut Wuri Handayani</h4>
+                <p>Mendorong kemandirian dari belakang. Murid diberi ruang untuk mencoba, salah, dan bangkit karena guru hadir sebagai pendamping, bukan pengawas yang mengontrol setiap langkah.</p>
+              </div>
+              <div class="gt-c">
+                <div class="ic">🤝</div>
+                <h4>Ing Madya Mangun Karsa</h4>
+                <p>Ketika murid buntu, guru masuk sebagai teman berpikir, bukan yang memberi jawaban, melainkan yang mengajukan pertanyaan yang tepat untuk membuka jalan pikiran mereka sendiri.</p>
+              </div>
+              <div class="gt-c">
+                <div class="ic">✨</div>
+                <h4>Ing Ngarsa Sung Tulada</h4>
+                <p>Guru yang mau belajar dan berkembang, menunjukkannya lewat tindakan, bukan sekadar kata-kata. Ketika murid melihat gurunya masih mau berproses, mereka pun tidak takut untuk berproses.</p>
+              </div>
+              <div class="gt-c">
+                <div class="ic">🌐</div>
+                <h4>Peka terhadap Kodrat Zaman</h4>
+                <p>Murid hari ini tumbuh dalam ekosistem digital. Guru yang baik tidak melawan itu, tetapi memanfaatkannya sebagai jembatan menuju pembelajaran yang lebih bermakna dan kontekstual.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- === DOKUMENTASI & ARTEFAK === -->
+    <section id="dokumentasi">
+      <div class="container">
+        <span class="eyebrow rv">Dokumentasi &amp; Artefak</span>
+        <h2 class="h-disp rv d1" style="margin-bottom: 12px">Galeri Kegiatan Pembelajaran</h2>
+        <p class="body-muted rv d2" style="margin-bottom: 32px">
+          Dokumentasi praktik mengajar, karya murid, artefak media pembelajaran, dan aktivitas laboratorium komputer selama PPL Terbimbing di SMK Negeri 1 Surabaya.
+        </p>
+        
+        <div class="gal-filter rv d2">
+          <button class="gf-btn active" data-cat="all">Semua</button>
+          <button class="gf-btn" data-cat="karya">Karya Murid</button>
+          <button class="gf-btn" data-cat="media">Media Pembelajaran</button>
+          <button class="gf-btn" data-cat="dok">Dokumentasi Kelas</button>
+          <button class="gf-btn" data-cat="artefak">Artefak</button>
+        </div>
+        
+        <div class="gal-grid rv d3">
+          <!-- Karya Murid: Desain UI/UX -->
+          <div class="g-i tall" data-gc="karya">
+            <a href="https://www.canva.com/design/DAHI2Mb3oIM/xeHDZKVV_-TH0JW_sUxQZw/edit" target="_blank">
+              <img src="img/thumb/tgs_desain.png" loading="lazy" alt="Desain UI/UX Murid" />
+            </a>
+            <a href="https://www.canva.com/design/DAHI2Mb3oIM/xeHDZKVV_-TH0JW_sUxQZw/edit" target="_blank">
+              <div class="g-cap" style="text-decoration: none; text-shadow: 2px 2px 4px rgba(0,0,0,0.8); transition: all 0.3s ease;" onmouseover="this.style.color='var(--cream)'; this.style.textShadow='none';" onmouseout="this.style.color='var(--rose)'; this.style.textShadow='2px 2px 4px rgba(0,0,0,0.8)';">
+                <p>Desain UI/UX — Karya Murid</p>
+                <span>Siklus II · Prototype Visual</span>
+              </div>
+            </a>
+          </div>
+
+          <!-- Dokumentasi: Pendampingan -->
+          <div class="g-i" data-gc="dok">
+            <a href="img/dokumentasi/pendampingan_s1_compressed.jpg" target="_blank">
+              <img src="img/thumb/thumb_pendampingan_s1_compressed.jpg" loading="lazy" alt="Pendampingan Kelompok" />
+            </a>
+            <a href="img/dokumentasi/pendampingan_s1_compressed.jpg" target="_blank">
+              <div class="g-cap" style="text-decoration: none; text-shadow: 2px 2px 4px rgba(0,0,0,0.8); transition: all 0.3s ease;" onmouseover="this.style.color='var(--cream)'; this.style.textShadow='none';" onmouseout="this.style.color='var(--rose)'; this.style.textShadow='2px 2px 4px rgba(0,0,0,0.8)';">
+                <p>Pendampingan Kelompok</p>
+                <span>Dokumentasi Siklus I</span>
+              </div>
+            </a>
+          </div>
+
+          <!-- Dokumentasi: Presentasi wide -->
+          <div class="g-i wide" data-gc="dok">
+            <a href="img/dokumentasi/presentasi_compressed.jpg" target="_blank">
+              <img src="img/thumb/thumb_presentasi.jpg" loading="lazy" alt="Presentasi Proyek Akhir" />
+            </a>
+            <a href="img/dokumentasi/presentasi_compressed.jpg" target="_blank">
+              <div class="g-cap" style="text-decoration: none; text-shadow: 2px 2px 4px rgba(0,0,0,0.8); transition: all 0.3s ease;" onmouseover="this.style.color='var(--cream)'; this.style.textShadow='none';" onmouseout="this.style.color='var(--rose)'; this.style.textShadow='2px 2px 4px rgba(0,0,0,0.8)';">
+                <p>Presentasi Proyek Akhir — X RPL 2</p>
+                <span>Dokumentasi Siklus III · SMK N 1 Surabaya</span>
+              </div>
+            </a>
+          </div>
+
+          <!-- Karya Murid: Screenshot Website -->
+          <div class="g-i" data-gc="karya">
+            <a href="https://drive.google.com/drive/folders/1t8cus5SVm0W649w4E3ivZWZCw6FMNh9L?usp=sharing" target="_blank">
+              <img src="img/thumb/thumb_dasboard admin1.png" loading="lazy" alt="Hasil Website" />
+            </a>
+            <a href="https://drive.google.com/drive/folders/1t8cus5SVm0W649w4E3ivZWZCw6FMNh9L?usp=sharing" target="_blank">
+              <div class="g-cap" style="text-decoration: none; text-shadow: 2px 2px 4px rgba(0,0,0,0.8); transition: all 0.3s ease;" onmouseover="this.style.color='var(--cream)'; this.style.textShadow='none';" onmouseout="this.style.color='var(--rose)'; this.style.textShadow='2px 2px 4px rgba(0,0,0,0.8)';">
+                <p>Screenshot Website — Hasil Implementasi</p>
+                <span>Siklus III · Karya Kelompok Murid</span>
+              </div>
+            </a>
+          </div>
+
+          <!-- Artefak: Modul Ajar -->
+          <div class="g-i" data-gc="artefak">
+            <a href="https://drive.google.com/drive/folders/1MupMB2sFIP3u-dSLq7MGQhjB5CpD1u-_?usp=sharing" target="_blank">
+              <img src="img/thumb/thumb_modul.png" loading="lazy" alt="Modul Ajar" />
+            </a>
+            <a href="https://drive.google.com/drive/folders/1MupMB2sFIP3u-dSLq7MGQhjB5CpD1u-_?usp=sharing" target="_blank">
+              <div class="g-cap" style="text-decoration: none; text-shadow: 2px 2px 4px rgba(0,0,0,0.8); transition: all 0.3s ease;" onmouseover="this.style.color='var(--cream)'; this.style.textShadow='none';" onmouseout="this.style.color='var(--rose)'; this.style.textShadow='2px 2px 4px rgba(0,0,0,0.8)';">
+                <p>Modul Ajar</p>
+                <span>Artefak Siklus I, II, III</span>
+              </div>
+            </a>
+          </div>
+
+          <!-- Dokumentasi: Pendampingan Siklus III tall -->
+          <div class="g-i tall" data-gc="dok">
+            <a href="img/dokumentasi/pendampingan_s3.jpg" target="_blank">
+              <img src="img/thumb/thumb_pendampingan_s3.jpg" loading="lazy" alt="Pendampingan III" />
+            </a>
+            <a href="img/dokumentasi/pendampingan_s3.jpg" target="_blank">
+              <div class="g-cap" style="text-decoration: none; text-shadow: 2px 2px 4px rgba(0,0,0,0.8); transition: all 0.3s ease;" onmouseover="this.style.color='var(--cream)'; this.style.textShadow='none';" onmouseout="this.style.color='var(--rose)'; this.style.textShadow='2px 2px 4px rgba(0,0,0,0.8)';">
+                <p>Pendampingan Finalisasi Website</p>
+                <span>Dokumentasi Siklus III</span>
+            </div>
+            </a>
+          </div>
+
+          <!-- Karya Murid: Laporan Hasil Akhir -->
+          <div class="g-i" data-gc="karya">
+            <a href="https://drive.google.com/drive/folders/1jzo7-CmldRK4OWIXUNcy_cERA9lFewe-?usp=drive_link" target="_blank">
+              <img src="img/thumb/tgs_lap_pkk.png" loading="lazy" alt="Laporan Akhir" />
+            </a>
+            <a href="https://drive.google.com/drive/folders/1jzo7-CmldRK4OWIXUNcy_cERA9lFewe-?usp=drive_link" target="_blank">
+            <div class="g-cap" style="text-decoration: none; text-shadow: 2px 2px 4px rgba(0,0,0,0.8); transition: all 0.3s ease;" onmouseover="this.style.color='var(--cream)'; this.style.textShadow='none';" onmouseout="this.style.color='var(--rose)'; this.style.textShadow='2px 2px 4px rgba(0,0,0,0.8)';">
+              <p>Laporan Hasil Akhir Pengembangan Website</p>
+              <span>Siklus III · Produk Akhir Murid</span>
+            </div>
+            </a>
+          </div>
+
+          <!-- Artefak: Presensi -->
+          <div class="g-i" data-gc="artefak">
+            <a href="https://drive.google.com/file/d/1h5-oXSsOpTZn_6Rt7xDOgQE8UM-4cifs/view?usp=drive_link" target="_blank">
+              <img src="img/thumb/thumb_presensi_xrpl2-1.jpg" loading="lazy" alt="Presensi Murid" />
+            </a>
+            <a href="https://drive.google.com/file/d/1h5-oXSsOpTZn_6Rt7xDOgQE8UM-4cifs/view?usp=drive_link" target="_blank">
+            <div class="g-cap" style="text-decoration: none; text-shadow: 2px 2px 4px rgba(0,0,0,0.8); transition: all 0.3s ease;" onmouseover="this.style.color='var(--cream)'; this.style.textShadow='none';" onmouseout="this.style.color='var(--rose)'; this.style.textShadow='2px 2px 4px rgba(0,0,0,0.8)';">
+              <p>Presensi Murid</p>
+              <span>Dokumentasi Kehadiran X RPL 2</span>
+            </div>
+            </a>
+          </div>
+
+          <!-- Dokumentasi: Pendampingan Siklus II -->
+          <div class="g-i" data-gc="dok">
+            <a href="img/dokumentasi/pendampingan_s2_compressed.jpg" target="_blank">
+              <img src="img/thumb/thumb_siklus2_compressed.jpg" loading="lazy" alt="Pendampingan Siklus II" />
+            </a>
+            <a href="img/dokumentasi/pendampingan_s2_compressed.jpg" target="_blank">
+              <div class="g-cap" style="text-decoration: none; text-shadow: 2px 2px 4px rgba(0,0,0,0.8); transition: all 0.3s ease;" onmouseover="this.style.color='var(--cream)'; this.style.textShadow='none';" onmouseout="this.style.color='var(--rose)'; this.style.textShadow='2px 2px 4px rgba(0,0,0,0.8)';">
+                <p>Pendampingan Perancangan UI/UX</p>
+                <span>Dokumentasi Siklus II</span>
+              </div>
+            </a>
+          </div>
+
+          <!-- Artefak: LKPD -->
+          <div class="g-i" data-gc="artefak">
+            <a href="https://drive.google.com/drive/folders/1h_FwnzoiFgSb7hc30n90nlmWz0_9Imi2?usp=sharing" target="_blank">
+              <img src="img/thumb/thumb_lampiran.png" loading="lazy" alt="LKPD" />
+            </a>
+            <a href="https://drive.google.com/drive/folders/1h_FwnzoiFgSb7hc30n90nlmWz0_9Imi2?usp=sharing" target="_blank">
+              <div class="g-cap" style="text-decoration: none; text-shadow: 2px 2px 4px rgba(0,0,0,0.8); transition: all 0.3s ease;" onmouseover="this.style.color='var(--cream)'; this.style.textShadow='none';" onmouseout="this.style.color='var(--rose)'; this.style.textShadow='2px 2px 4px rgba(0,0,0,0.8)';">
+                <p>Lembar Kerja Murid (LKPD)</p>
+                <span>Artefak Siklus I, II, III</span>
+              </div>
+            </a>
+          </div>
+
+          <!-- Media: PPT Siklus I -->
+          <div class="g-i" data-gc="media">
+            <a href="https://docs.google.com/presentation/d/17M3nN8CrHjBP7FNGQYss4aVGO8YBZLiM8QOfDkVVyGQ/edit?usp=drive_link" target="_blank">
+              <img src="img/thumb/thumb_ppt1.jpg" loading="lazy" alt="PPT Siklus I" />
+            </a>
+            <a href="https://docs.google.com/presentation/d/17M3nN8CrHjBP7FNGQYss4aVGO8YBZLiM8QOfDkVVyGQ/edit?usp=drive_link" target="_blank">
+              <div class="g-cap" style="text-decoration: none; text-shadow: 2px 2px 4px rgba(0,0,0,0.8); transition: all 0.3s ease;" onmouseover="this.style.color='var(--cream)'; this.style.textShadow='none';" onmouseout="this.style.color='var(--rose)'; this.style.textShadow='2px 2px 4px rgba(0,0,0,0.8)';">
+                <p>Bahan Ajar — Perencanaan Website</p>
+                <span>Media Pembelajaran Siklus I</span>
+              </div>
+            </a>
+          </div>
+
+          <!-- Media: PPT Siklus II -->
+          <div class="g-i" data-gc="media">
+            <a href="https://docs.google.com/presentation/d/1Q1NvHqGdhFs_OFx1gGEWUSEGIBDgjdlVk6Mk0I0s6eI/edit?usp=drive_link" target="_blank">
+              <img src="img/thumb/thumb_ppt2.jpg" loading="lazy" alt="PPT Siklus II" />
+            </a>
+            <a href="https://docs.google.com/presentation/d/1Q1NvHqGdhFs_OFx1gGEWUSEGIBDgjdlVk6Mk0I0s6eI/edit?usp=drive_link" target="_blank">
+              <div class="g-cap" style="text-decoration: none; text-shadow: 2px 2px 4px rgba(0,0,0,0.8); transition: all 0.3s ease;" onmouseover="this.style.color='var(--cream)'; this.style.textShadow='none';" onmouseout="this.style.color='var(--rose)'; this.style.textShadow='2px 2px 4px rgba(0,0,0,0.8)';">
+                <p>Bahan Ajar — Perancangan UI/UX</p>
+                <span>Media Pembelajaran Siklus II</span>
+              </div>
+            </a>
+          </div>
+
+          <!-- Media: PPT Siklus III -->
+          <div class="g-i" data-gc="media">
+            <a href="https://docs.google.com/presentation/d/1WkEibBgKK9MRgSEJMZFOBQK9uX9GlPnLIpn7nqnDaOk/edit?usp=drive_link" target="_blank">
+              <img src="img/thumb/thumb_ppt3.jpg" loading="lazy" alt="PPT Siklus III" />
+            </a>
+            <a href="https://docs.google.com/presentation/d/1WkEibBgKK9MRgSEJMZFOBQK9uX9GlPnLIpn7nqnDaOk/edit?usp=drive_link" target="_blank">
+              <div class="g-cap" style="text-decoration: none; text-shadow: 2px 2px 4px rgba(0,0,0,0.8); transition: all 0.3s ease;" onmouseover="this.style.color='var(--cream)'; this.style.textShadow='none';" onmouseout="this.style.color='var(--rose)'; this.style.textShadow='2px 2px 4px rgba(0,0,0,0.8)';">
+                <p>Bahan Ajar — Implementasi Website</p>
+                <span>Media Pembelajaran Siklus III</span>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- === KONTAK === -->
+    <section id="kontak" class="s-mid">
+      <div class="container">
+        <div class="kon-grid">
+          <div>
+            <span class="eyebrow rv">Kontak</span>
+            <h2 class="h-disp rv d1" style="margin-bottom: 12px">Mari Terhubung<br />Bersama Saya</h2>
+            <p class="body-muted rv d2">
+              Punya pertanyaan tentang e-portofolio ini atau ingin berdiskusi tentang pendidikan vokasi Informatika? Jangan ragu menghubungi saya.
+            </p>
+            
+            <div class="ci-list">
+              <div class="ci-row rv d1">
+                <div class="ci-ico">
+                  <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                    <polyline points="22,6 12,13 2,6" />
+                  </svg>
+                </div>
+                <div>
+                  <h4>Email</h4>
+                  <p>peserta.48808@ppg.belajar.id</p>
+                </div>
+              </div>
+              
+              <div class="ci-row rv d2">
+                <div class="ci-ico">
+                  <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.56 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.29 6.29l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" />
+                  </svg>
+                </div>
+                <div>
+                  <h4>WhatsApp</h4>
+                  <p>+62 813-2979-2820</p>
+                </div>
+              </div>
+              
+              <div class="ci-row rv d3">
+                <div class="ci-ico">
+                  <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="2" y="2" width="20" height="20" rx="5" />
+                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+                  </svg>
+                </div>
+                <div>
+                  <h4>Instagram</h4>
+                  <p>@argya_353</p>
+                </div>
+              </div>
+              
+              <div class="ci-row rv d4">
+                <div class="ci-ico">
+                  <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                    <circle cx="12" cy="10" r="3" />
+                  </svg>
+                </div>
+                <div>
+                  <h4>Lokasi PPL</h4>
+                  <p>SMK Negeri 1 Surabaya, Jawa Timur</p>
+                </div>
+              </div>
+              
+              <div class="ci-row rv d5">
+                <div class="ci-ico">
+                  <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10" />
+                    <polyline points="12 6 12 12 16 14" />
+                  </svg>
+                </div>
+                <div>
+                  <h4>Jam Aktif</h4>
+                  <p>Senin–Jumat, 07.00–16.00 WIB</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="rv d2">
+            <div class="kon-card">
+              <div style="width: 56px; height: 56px; background: rgba(37, 211, 102, 0.12); border-radius: 16px; display: flex; align-items: center; justify-content: center; margin: 0 auto 18px;">
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="#25D366">
+                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z" />
+                </svg>
+              </div>
+              <h3>Chat via WhatsApp</h3>
+              <p> Cara paling mudah untuk terhubung langsung. Saya biasa membalas di jam kerja, Senin sampai Jumat. Silakan mulai obrolan kapan saja! </p>
+              <a href="https://wa.me/6281329792820" target="_blank" rel="noopener" class="btn btn-wa">Chat via WhatsApp</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- === FOOTER === -->
+    <footer>
+      <div class="container">
+        <div class="ft-grid">
+          <div class="ft-brand">
+            <div class="fl">Putranto Argya Kuncara Jati</div>
+            <p>
+              Mahasiswa PPG Prajabatan Gelombang I 2026 — PPLG, Universitas Negeri Surabaya. e-Portofolio PPL Terbimbing di SMK Negeri 1 Surabaya, Kelas X RPL, Mata Pelajaran Informatika.
+            </p>
+          </div>
+          <div class="ft-col">
+            <h4>Navigasi</h4>
+            <ul>
+              <li><a href="#home">Home</a></li>
+              <li><a href="#tentang">Tentang Saya</a></li>
+              <li><a href="#implementasi">Implementasi PPL</a></li>
+              <li><a href="#refleksi">Refleksi &amp; Filosofi</a></li>
+              <li><a href="#dokumentasi">Dokumentasi</a></li>
+              <li><a href="#kontak">Kontak</a></li>
+            </ul>
+          </div>
+          <div class="ft-col">
+            <h4>Siklus PPL</h4>
+            <ul>
+              <li><a href="#implementasi">Siklus I — Perencanaan Website</a></li>
+              <li><a href="#implementasi">Siklus II — Perancangan UI/UX</a></li>
+              <li><a href="#implementasi">Siklus III — Implementasi &amp; Presentasi</a></li>
+              <li><a href="#refleksi">Refleksi Akhir</a></li>
+              <li><a href="#refleksi">Filosofi Mengajar</a></li>
+            </ul>
+          </div>
+        </div>
+        
+        <div class="ft-bot">
+          <p class="ft-copy"> © 2026 Putranto Argya Kuncara Jati — Seluruh hak cipta dilindungi. </p>
+          <div class="soc-links">
+            <a href="https://instagram.com/argya_353" target="_blank" rel="noopener" class="soc-l" title="@argya_353">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="2" y="2" width="20" height="20" rx="5" />
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- ===== LOGIC JAVASCRIPT ===== -->
+    <script>
+      // 1. EFEK NAVBAR ON SCROLL
+      const nav = document.getElementById('nav');
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+          nav.classList.add('scrolled');
+        } else {
+          nav.classList.remove('scrolled');
+        }
+      });
+
+      // 2. TOGGLE BURGER MENU (MOBILE NAVIGATION)
+      const burger = document.getElementById('burger');
+      const mobNav = document.getElementById('mobNav');
+      const mobLinks = document.querySelectorAll('.mob-nav a');
+
+      burger.addEventListener('click', () => {
+        burger.classList.toggle('open');
+        mobNav.classList.toggle('open');
+      });
+
+      mobLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          burger.classList.remove('open');
+          mobNav.classList.remove('open');
+        });
+      });
+
+      // 3. LOGIK TABS SIKLUS IMPLEMENTASI PPL
+      function showSik(num) {
+        const tabs = document.querySelectorAll('.sik-tab');
+        const panels = document.querySelectorAll('.sik-panel');
+        
+        tabs.forEach((tab, index) => {
+          if (index === num - 1) tab.classList.add('active');
+          else tab.classList.remove('active');
+        });
+
+        panels.forEach((panel, index) => {
+          if (index === num - 1) panel.classList.add('active');
+          else panel.classList.remove('active');
+        });
+      }
+
+      // 4. LOGIK TABS REFLEKSI AKHIR PPL
+      function showRef(prefix, id, currentBtn) {
+        const tabContainer = currentBtn.parentElement;
+        tabContainer.querySelectorAll('.ref-tab').forEach(btn => btn.classList.remove('active'));
+        currentBtn.classList.add('active');
+
+        const targetId = prefix + '-' + id;
+        document.querySelectorAll('.ref-pan').forEach(panel => {
+          if (panel.id === targetId) panel.classList.add('active');
+          else panel.classList.remove('active');
+        });
+      }
+
+      // 5. FILTER GALERI DOKUMENTASI
+      const filterBtns = document.querySelectorAll('.gf-btn');
+      const galItems = document.querySelectorAll('.g-i');
+
+      filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          filterBtns.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+
+          const cat = btn.getAttribute('data-cat');
+          galItems.forEach(item => {
+            if (cat === 'all' || item.getAttribute('data-gc') === cat) {
+              item.style.display = 'block';
+            } else {
+              item.style.display = 'none';
+            }
+          });
+        });
+      });
+
+      // 6. ANIMASI REVEAL ON SCROLL (SIMPLE OBSERVER)
+      const rvItems = document.querySelectorAll('.rv');
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in');
+          }
+        });
+      }, { threshold: 0.1 });
+
+      rvItems.forEach(item => observer.observe(item));
+    </script>
+  </body>
+</html>
