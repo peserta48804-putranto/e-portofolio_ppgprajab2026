@@ -60,6 +60,16 @@
       .card-actions .card-link { margin-top:0; }
       .deep .card { background:rgba(239,234,233,.045); border-color:rgba(209,177,183,.18); }
       .deep .card h3 { color:var(--cream); } .deep .card p { color:var(--warm); }
+      .lk1-card { grid-column:1 / -1; }
+      .lk1-label { margin-top:20px; color:var(--rose); font:600 .7rem/1.2 var(--fd); letter-spacing:2px; text-transform:uppercase; }
+      .vision-quote { margin:10px 0 4px; padding:16px 20px; border-left:3px solid var(--rose); border-radius:0 10px 10px 0; background:rgba(208,115,136,.08); color:var(--dark); font:500 1.08rem/1.65 var(--fd); }
+      .lk1-intro { max-width:850px; }
+      .lk1-actions { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; margin-top:10px; }
+      .lk1-action { display:flex; gap:12px; padding:14px; border:1px solid var(--warm); border-radius:10px; background:var(--cream); }
+      .lk1-action > span { flex:0 0 28px; display:grid; place-items:center; width:28px; height:28px; border-radius:8px; background:var(--rose); color:var(--cream); font:600 .72rem var(--fd); }
+      .lk1-action strong { display:block; color:var(--dark); font:600 .88rem/1.35 var(--fd); }
+      .lk1-action p { margin-top:4px; }
+      .lk1-actions + .card-actions { margin-top:22px; padding-top:0; }
       .status { align-self:flex-start; margin-top:auto; padding:6px 12px; border:1px solid rgba(208,115,136,.35); border-radius:100px; color:var(--rose); font:600 .76rem var(--fd); }
       .source-box { display:flex; justify-content:space-between; align-items:center; gap:24px; margin-top:38px; padding:26px; border-radius:14px; background:var(--dark); color:var(--cream); }
       .source-box p { color:var(--warm); font-size:.9rem; }
@@ -70,7 +80,7 @@
       .footer-links { display:flex; flex-wrap:wrap; gap:18px; color:var(--blush); font:500 .82rem var(--fd); }
       .copyright { padding-top:24px; color:var(--mauve); font-size:.78rem; }
       @media(max-width:900px) { .cards { grid-template-columns:repeat(2,1fr); } }
-      @media(max-width:700px) { .nav-links { display:none; } .burger { display:block; } section { padding:68px 0; } .hero { min-height:auto; padding:130px 0 80px; } .cards { grid-template-columns:1fr; } .source-box,.footer-top { align-items:flex-start; flex-direction:column; } }
+      @media(max-width:700px) { .nav-links { display:none; } .burger { display:block; } section { padding:68px 0; } .hero { min-height:auto; padding:130px 0 80px; } .cards { grid-template-columns:1fr; } .lk1-actions { grid-template-columns:1fr; } .source-box,.footer-top { align-items:flex-start; flex-direction:column; } }
       @media(max-width:440px) { .container { padding:0 20px; } h1 { font-size:2.45rem; } .hero-actions .btn { width:100%; justify-content:center; } .card { min-height:0; } }
     </style>
   </head>
@@ -88,7 +98,24 @@
 
     <main>
       <section class="light" id="sppg"><div class="container"><span class="eyebrow">Seminar Pendidikan Profesi Guru</span><h2>SPPG</h2><p class="intro">Rangkaian identifikasi diri, refleksi pembelajaran Semester 1, dan bukti pendukung sebagai dasar pengembangan kompetensi guru yang berkelanjutan.</p>
-        <div class="group-title"><span>01</span>Identifikasi Diri</div><div class="cards"><article class="card"><div class="card-num">LK 1</div><h3>Identifikasi Diri</h3><p>Visi pendidikan, visi sebagai calon guru, dan langkah konkret untuk mewujudkannya.</p><a class="card-link" href="https://drive.google.com/file/d/1bFwmvJ2BFxNPad4hW14sUR1i-arXJ2fU/view?usp=drivesdk" target="_blank" rel="noopener">Buka LK1 ↗</a></article></div>
+        <div class="group-title"><span>01</span>Identifikasi Diri</div>
+        <div class="cards">
+          <article class="card lk1-card">
+            <div class="card-num">LK 1 · Identifikasi Diri</div>
+            <h3>Visi Saya sebagai Guru</h3>
+            <p class="lk1-label">Rumusan visi</p>
+            <blockquote class="vision-quote">Menjadi guru yang benar-benar hadir untuk murid, memberi ruang bagi setiap murid untuk tumbuh sesuai potensinya, dan membuat mereka merasa aman untuk belajar, salah, dan mencoba lagi.</blockquote>
+            <p class="lk1-intro">Visi ini menjadi arah bagi saya untuk terus belajar, bersikap reflektif, dan menyesuaikan pembelajaran dengan kebutuhan murid.</p>
+            <p class="lk1-label">Langkah pencapaian</p>
+            <div class="lk1-actions">
+              <div class="lk1-action"><span>01</span><div><strong>Merancang pembelajaran berdasarkan kebutuhan murid</strong><p>Saya menggunakan asesmen diagnostik dan hasil observasi sebagai dasar untuk merancang pembelajaran yang berdiferensiasi.</p></div></div>
+              <div class="lk1-action"><span>02</span><div><strong>Melakukan refleksi setiap pertemuan</strong><p>Saya merefleksikan setiap praktik mengajar secara jujur untuk mengenali hal yang sudah berjalan dan yang masih perlu diperbaiki.</p></div></div>
+              <div class="lk1-action"><span>03</span><div><strong>Menerapkan perbaikan pada setiap siklus</strong><p>Saya menetapkan dan melakukan minimal satu perbaikan pada setiap siklus berdasarkan hasil refleksi dan kebutuhan pembelajaran.</p></div></div>
+              <div class="lk1-action"><span>04</span><div><strong>Membangun koordinasi aktif di sekolah</strong><p>Saya berkoordinasi dengan pihak-pihak terkait di sekolah agar perkembangan murid dan proses pembelajaran dapat ditangani secara bersama.</p></div></div>
+            </div>
+            <div class="card-actions"><a class="card-link" href="https://drive.google.com/file/d/1bFwmvJ2BFxNPad4hW14sUR1i-arXJ2fU/view?usp=drivesdk" target="_blank" rel="noopener">Buka Dokumen LK1 Lengkap ↗</a></div>
+          </article>
+        </div>
         <div class="group-title"><span>02</span>Enam Refleksi Semester 1</div><div class="cards">
           <article class="card"><div class="card-num">LK 2 · 01</div><h3>Filosofi Pendidikan dan Pendidikan Nilai</h3><p>Refleksi 4C dan analisis artefak pembelajaran.</p><a class="card-link" href="https://drive.google.com/file/d/1x1-KkphRbDOpovpXIrkAXDtdgiH3_9Ra/view?usp=drivesdk" target="_blank" rel="noopener">Buka LK2 ↗</a></article>
           <article class="card"><div class="card-num">LK 2 · 02</div><h3>Pola Pikir Bertumbuh (Growth Mindset)</h3><p>Refleksi 4C dan analisis artefak pembelajaran.</p><a class="card-link" href="https://drive.google.com/file/d/1ABECK8Nd9SJIC1CrMkULPxpCULwU77y1/view?usp=drivesdk" target="_blank" rel="noopener">Buka LK2 ↗</a></article>
