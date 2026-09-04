@@ -78,6 +78,27 @@
       .fourc-item { min-height:132px; padding:16px; border:1px solid var(--warm); border-radius:10px; background:#fff; }
       .fourc-item strong { display:block; color:var(--rose); font:600 .9rem/1.3 var(--fd); }
       .fourc-item span { display:block; margin-top:8px; color:var(--mid); font-size:.82rem; line-height:1.55; }
+      .pm-box { margin:42px 0 48px; padding:28px; border:1.5px solid rgba(209,177,183,.28); border-radius:16px; background:linear-gradient(135deg,rgba(208,115,136,.14),rgba(239,234,233,.05)); scroll-margin-top:86px; }
+      .pm-head { display:flex; justify-content:space-between; align-items:flex-start; gap:28px; }
+      .pm-head h3 { margin-top:8px; color:var(--cream); font:600 1.45rem/1.2 var(--fd); }
+      .pm-head > p { max-width:590px; color:var(--warm); font-size:.91rem; line-height:1.7; }
+      .pm-principles { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:12px; margin-top:24px; }
+      .pm-principle { padding:16px; border:1px solid rgba(209,177,183,.2); border-radius:11px; background:rgba(239,234,233,.06); }
+      .pm-principle strong { display:block; color:var(--rose); font:600 .9rem/1.3 var(--fd); }
+      .pm-principle p { margin-top:7px; color:var(--blush); font-size:.83rem; line-height:1.6; }
+      .pm-flow { display:flex; align-items:center; gap:14px; margin-top:22px; padding:16px 18px; border-left:3px solid var(--rose); border-radius:0 11px 11px 0; background:rgba(42,40,41,.46); }
+      .pm-flow-label { flex:0 0 auto; color:var(--warm); font:600 .72rem var(--fd); letter-spacing:1.3px; text-transform:uppercase; }
+      .pm-flow-steps { display:flex; align-items:center; gap:10px; flex-wrap:wrap; }
+      .pm-flow-steps span { padding:6px 12px; border:1px solid rgba(208,115,136,.36); border-radius:100px; color:var(--cream); font:600 .79rem var(--fd); }
+      .pm-flow-steps i { color:var(--rose); font-style:normal; }
+      .pm-apply { margin-top:19px; color:var(--warm); font-size:.87rem; line-height:1.7; }
+      .pm-apply strong { color:var(--cream); font-family:var(--fd); }
+      .pm-frameworks { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:9px; margin-top:18px; }
+      .pm-framework { padding:11px 12px; border-radius:9px; background:rgba(239,234,233,.055); }
+      .pm-framework strong { display:block; color:var(--rose); font:600 .74rem/1.35 var(--fd); }
+      .pm-framework span { display:block; margin-top:4px; color:var(--blush); font-size:.75rem; line-height:1.45; }
+      .pm-actions { display:flex; flex-wrap:wrap; gap:8px 17px; margin-top:20px; }
+      .pm-actions a { color:var(--rose); font:600 .78rem var(--fd); }
       .status { align-self:flex-start; margin-top:auto; padding:6px 12px; border:1px solid rgba(208,115,136,.35); border-radius:100px; color:var(--rose); font:600 .76rem var(--fd); }
       .source-box { display:flex; justify-content:space-between; align-items:center; gap:24px; margin-top:38px; padding:26px; border-radius:14px; background:var(--dark); color:var(--cream); }
       .source-box p { color:var(--warm); font-size:.9rem; }
@@ -87,8 +108,8 @@
       .footer-top p { max-width:580px; color:var(--warm); font-size:.86rem; }
       .footer-links { display:flex; flex-wrap:wrap; gap:18px; color:var(--blush); font:500 .82rem var(--fd); }
       .copyright { padding-top:24px; color:var(--mauve); font-size:.78rem; }
-      @media(max-width:900px) { .cards,.fourc-grid { grid-template-columns:repeat(2,1fr); } }
-      @media(max-width:700px) { .nav-links { display:none; } .burger { display:block; } section { padding:68px 0; } .hero { min-height:auto; padding:130px 0 80px; } .cards,.fourc-grid { grid-template-columns:1fr; } .lk1-actions { grid-template-columns:1fr; } .source-box,.footer-top { align-items:flex-start; flex-direction:column; } }
+      @media(max-width:900px) { .cards,.fourc-grid { grid-template-columns:repeat(2,1fr); } .pm-principles { grid-template-columns:repeat(2,1fr); } .pm-frameworks { grid-template-columns:repeat(2,1fr); } }
+      @media(max-width:700px) { .nav-links { display:none; } .burger { display:block; } section { padding:68px 0; } .hero { min-height:auto; padding:130px 0 80px; } .cards,.fourc-grid,.pm-principles,.pm-frameworks { grid-template-columns:1fr; } .lk1-actions { grid-template-columns:1fr; } .pm-head { flex-direction:column; gap:12px; } .pm-flow { align-items:flex-start; flex-direction:column; gap:10px; } .source-box,.footer-top { align-items:flex-start; flex-direction:column; } }
       @media(max-width:440px) { .container { padding:0 20px; } h1 { font-size:2.45rem; } .hero-actions .btn { width:100%; justify-content:center; } .card { min-height:0; } }
     </style>
   </head>
@@ -148,13 +169,42 @@
         <div class="source-box"><div><h3>Sumber Dokumen Semester 2</h3><p>Seluruh dokumen, artefak, dan folder analisis dihimpun dalam Google Drive Semester 2.</p></div><a class="btn primary" href="https://drive.google.com/drive/folders/1ijCVdVwRolKFF647FFvfKDXyn3TOHDv9" target="_blank" rel="noopener">Buka Folder Drive ↗</a></div>
       </div></section>
 
-      <section class="deep" id="ppl-mandiri"><div class="container"><span class="eyebrow">Praktik Pengalaman Lapangan</span><h2>PPL Mandiri</h2><p class="intro">Dokumentasi perencanaan, pelaksanaan, asesmen, serta analisis praktik pembelajaran mandiri pada Siklus 1.</p><div class="group-title"><span>01</span>Dokumen dan Artefak Siklus 1</div><div class="cards">
-        <article class="card"><div class="card-num">Perencanaan</div><h3>Rancangan Pembelajaran Siklus 1</h3><p>Dua modul ajar untuk praktik PPL Mandiri Siklus 1. Produk utama yang dipilih untuk UTS perlu ditetapkan pada versi final.</p><div class="card-actions"><a class="card-link" href="https://drive.google.com/drive/folders/18oSKDjPH7XgbcVjkjROxRern82L8-978" target="_blank" rel="noopener">Buka folder rancangan ↗</a><a class="card-link" href="https://drive.google.com/drive/folders/1I7nyusqqMQ0geEGeiHkLhNY549aTx8Cm" target="_blank" rel="noopener">Buka analisis rancangan ↗</a></div></article>
+      <section class="deep" id="ppl-mandiri"><div class="container"><span class="eyebrow">Praktik Pengalaman Lapangan</span><h2>PPL Mandiri</h2><p class="intro">Dokumentasi perencanaan, pelaksanaan, asesmen, serta analisis praktik pembelajaran mandiri pada Siklus 1 yang dikembangkan dengan pendekatan Pembelajaran Mendalam.</p>
+      <div class="pm-box" id="pembelajaran-mendalam" aria-labelledby="pm-title">
+        <div class="pm-head">
+          <div><span class="eyebrow">Pendekatan Pembelajaran</span><h3 id="pm-title">Pembelajaran Mendalam dalam Praktik Mengajar</h3></div>
+          <p>Pembelajaran Mendalam saya gunakan sebagai pendekatan, bukan sebagai materi atau mata pelajaran baru. Fokusnya adalah membantu murid memahami konsep secara utuh, menggunakannya dalam konteks yang dekat, lalu meninjau kembali proses dan hasil belajarnya.</p>
+        </div>
+        <div class="pm-principles">
+          <div class="pm-principle"><strong>Berkesadaran</strong><p>Murid mengetahui tujuan kegiatan, memahami alasan di balik setiap tahap, dan diberi ruang untuk membaca perkembangan belajarnya melalui umpan balik serta refleksi.</p></div>
+          <div class="pm-principle"><strong>Bermakna</strong><p>Konsep algoritma, flowchart, dan pseudocode tidak berhenti pada definisi. Murid menggunakannya untuk membaca kasus, menyusun solusi, dan menghasilkan produk yang dapat dijelaskan.</p></div>
+          <div class="pm-principle"><strong>Menggembirakan</strong><p>Suasana belajar dibangun lewat diskusi, kesempatan mencoba, dan ruang untuk memperbaiki kesalahan tanpa takut dianggap gagal.</p></div>
+        </div>
+        <div class="pm-flow" aria-label="Alur pengalaman belajar">
+          <span class="pm-flow-label">Pengalaman belajar</span>
+          <div class="pm-flow-steps"><span>Memahami</span><i>→</i><span>Mengaplikasi</span><i>→</i><span>Merefleksi</span></div>
+        </div>
+        <p class="pm-apply"><strong>Penerapan dalam PPL Mandiri.</strong> Pada Siklus 1, pendekatan ini terlihat dalam rancangan asesmen awal, penguatan konsep, latihan berbasis kasus, penyusunan produk, pemberian umpan balik, dan refleksi. Perancangan modul juga mempertimbangkan kebutuhan murid melalui TaRL, CRT, PSE, serta asesmen AFL, AAL, dan AOL.</p>
+        <div class="pm-frameworks">
+          <div class="pm-framework"><strong>Praktik pedagogis</strong><span>PjBL, scaffolding, dan diferensiasi.</span></div>
+          <div class="pm-framework"><strong>Kemitraan pembelajaran</strong><span>Koordinasi, diskusi, dan kerja kelompok.</span></div>
+          <div class="pm-framework"><strong>Lingkungan belajar</strong><span>Aman, inklusif, dan fleksibel.</span></div>
+          <div class="pm-framework"><strong>Teknologi digital</strong><span>Materi, media, asesmen, dan portofolio.</span></div>
+        </div>
+        <div class="pm-actions">
+          <a href="https://drive.google.com/drive/folders/18oSKDjPH7XgbcVjkjROxRern82L8-978" target="_blank" rel="noopener">Bukti rancangan dan modul ↗</a>
+          <a href="https://drive.google.com/drive/folders/1tApkq_NGgJcXJ9xoAU3zC-eg1cGfUuJW" target="_blank" rel="noopener">Analisis materi dan media ↗</a>
+          <a href="https://drive.google.com/drive/folders/19S-xjLVeQ5uaO214yxUVRXVkdM5HT6XS" target="_blank" rel="noopener">Bukti instrumen dan analisis ↗</a>
+          <a href="https://kurikulum.kemendikdasmen.go.id/pembelajaran-mendalam" target="_blank" rel="noopener">Rujukan kebijakan Kemendikdasmen ↗</a>
+        </div>
+      </div>
+<div class="group-title"><span>01</span>Dokumen dan Artefak Siklus 1</div><div class="cards">
+        <article class="card"><div class="card-num">Perencanaan</div><h3>Rancangan Pembelajaran Siklus 1</h3><p>Dua modul ajar untuk praktik PPL Mandiri Siklus 1 yang menjadi dasar penyusunan dan pelaksanaan pembelajaran, dilengkapi dokumen analisisnya.</p><div class="card-actions"><a class="card-link" href="https://drive.google.com/drive/folders/18oSKDjPH7XgbcVjkjROxRern82L8-978" target="_blank" rel="noopener">Buka folder rancangan ↗</a><a class="card-link" href="https://drive.google.com/drive/folders/1I7nyusqqMQ0geEGeiHkLhNY549aTx8Cm" target="_blank" rel="noopener">Buka analisis rancangan ↗</a></div></article>
         <article class="card"><div class="card-num">Sumber Belajar</div><h3>Materi dan Media</h3><p>Bahan ajar dan media pendukung pembelajaran PPL Mandiri Siklus 1, beserta analisisnya.</p><div class="card-actions"><a class="card-link" href="https://drive.google.com/drive/folders/1l0pJQTxgUAZ7Lp8HsyZdmaDKaxLmkAsi" target="_blank" rel="noopener">Buka folder materi ↗</a><a class="card-link" href="https://drive.google.com/drive/folders/1tApkq_NGgJcXJ9xoAU3zC-eg1cGfUuJW" target="_blank" rel="noopener">Buka analisis materi/media ↗</a></div></article>
-        <article class="card"><div class="card-num">Asesmen</div><h3>Instrumen Penilaian</h3><p>Instrumen asesmen untuk Berpikir Komputasional–Pseudocode dan Algoritma–Flowchart, beserta analisisnya.</p><div class="card-actions"><a class="card-link" href="https://drive.google.com/drive/folders/19S-xjLVeQ5uaO214yxUVRXVkdM5HT6XS" target="_blank" rel="noopener">Buka folder instrumen ↗</a><a class="card-link" href="https://drive.google.com/drive/folders/1FBWzxOrUhbD7Ys4KX6GuD1F7LRG6Xdb_" target="_blank" rel="noopener">Buka analisis instrumen ↗</a></div></article>
+        <article class="card"><div class="card-num">Asesmen</div><h3>Instrumen Penilaian</h3><p>Instrumen asesmen untuk Berpikir Komputasional–Pseudocode dan Algoritma–Flowchart, disusun untuk membaca proses dan hasil belajar murid, beserta analisisnya.</p><div class="card-actions"><a class="card-link" href="https://drive.google.com/drive/folders/19S-xjLVeQ5uaO214yxUVRXVkdM5HT6XS" target="_blank" rel="noopener">Buka folder instrumen ↗</a><a class="card-link" href="https://drive.google.com/drive/folders/1FBWzxOrUhbD7Ys4KX6GuD1F7LRG6Xdb_" target="_blank" rel="noopener">Buka analisis instrumen ↗</a></div></article>
         <article class="card"><div class="card-num">Kontribusi Sekolah</div><h3>Kegiatan Nonmengajar</h3><p>Lima dokumentasi kegiatan nonmengajar dan satu dokumen analisis kegiatan.</p><div class="card-actions"><a class="card-link" href="https://drive.google.com/drive/folders/1mVJzFI135jEsnquWkMbHZjhQnkdfWlMF" target="_blank" rel="noopener">Buka folder dokumentasi ↗</a><a class="card-link" href="https://drive.google.com/drive/folders/1l5bhq0txg8pvKS-nyx3f7PoRQi0KD_DU" target="_blank" rel="noopener">Buka analisis kegiatan ↗</a></div></article>
         <article class="card"><div class="card-num">Rekaman Praktik</div><h3>Video Praktik Mengajar</h3><p>Folder untuk menyimpan rekaman praktik mengajar Siklus 1. Video belum tersedia pada saat halaman ini diperbarui.</p><a class="card-link" href="https://drive.google.com/drive/folders/1dU6elsWI0JlRdcqFTKwPnFj7jczuCgQj" target="_blank" rel="noopener">Buka folder video ↗</a><span class="status" aria-label="Video belum tersedia">Video belum tersedia</span></article>
-        <article class="card"><div class="card-num">Evaluasi</div><h3>Analisis Video dan Asesmen</h3><p>Analisis rancangan, materi/media, instrumen, dan kegiatan nonmengajar sudah tersedia melalui tautan di atas. Analisis video dan asesmen akan dilengkapi setelah bukti praktik mengajar tersedia.</p><a class="card-link" href="https://drive.google.com/drive/folders/1Py7spYcDw5yX4j2p4Yzn32USt9Or5VzZ" target="_blank" rel="noopener">Buka folder analisis ↗</a><span class="status" aria-label="Analisis video belum tersedia">Analisis video menyusul</span></article>
+        <article class="card"><div class="card-num">Evaluasi</div><h3>Analisis Video dan Asesmen</h3><p>Analisis rancangan, materi/media, instrumen, dan kegiatan nonmengajar sudah tersedia melalui tautan masing-masing. Analisis pelaksanaan video dan pembacaan hasil asesmen akan dilengkapi setelah bukti praktik mengajar tersedia.</p><a class="card-link" href="https://drive.google.com/drive/folders/1Py7spYcDw5yX4j2p4Yzn32USt9Or5VzZ" target="_blank" rel="noopener">Buka folder analisis ↗</a><span class="status" aria-label="Analisis video belum tersedia">Analisis video menyusul</span></article>
       </div></div></section>
     </main>
     <footer><div class="container"><div class="footer-top"><div><h3>Putranto Argya Kuncara Jati</h3><p>e-Portofolio PPG Prajabatan Semester 2 — dokumentasi SPPG dan PPL Mandiri.</p></div><div class="footer-links"><a href="#home">Semester 2</a><a href="#sppg">SPPG</a><a href="#ppl-mandiri">PPL Mandiri</a><a href="index.html" target="_blank" rel="noopener">e-Porto 1 ↗</a><a href="https://drive.google.com/drive/folders/1ijCVdVwRolKFF647FFvfKDXyn3TOHDv9" target="_blank" rel="noopener">Folder Drive ↗</a></div></div><p class="copyright">© 2026 Putranto Argya Kuncara Jati — Seluruh hak cipta dilindungi.</p></div></footer>
