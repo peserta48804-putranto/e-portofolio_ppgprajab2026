@@ -78,9 +78,14 @@ class InventoryParser(HTMLParser):
         self.active_blocks = []
         self.active_links = []
         self.ignored_depth = 0
+        self.preserve_ignored_elements = []
 
     def handle_starttag(self, tag, attrs):
         attributes = dict(attrs)
+        if self.preserve_ignored_elements or "data-preserve-ignore" in attributes:
+            if tag not in VOID_TAGS:
+                self.preserve_ignored_elements.append(tag)
+            return
         if tag in IGNORED_TEXT_TAGS:
             self.ignored_depth += 1
 
@@ -119,6 +124,11 @@ class InventoryParser(HTMLParser):
         self.handle_endtag(tag)
 
     def handle_endtag(self, tag):
+        if self.preserve_ignored_elements:
+            if tag in self.preserve_ignored_elements:
+                index = len(self.preserve_ignored_elements) - 1 - self.preserve_ignored_elements[::-1].index(tag)
+                del self.preserve_ignored_elements[index:]
+            return
         if tag == "a" and self.active_links:
             link = self.active_links.pop()
             self.link_records.append(
@@ -142,7 +152,7 @@ class InventoryParser(HTMLParser):
                 break
 
     def handle_data(self, data):
-        if self.ignored_depth:
+        if self.ignored_depth or self.preserve_ignored_elements:
             return
         self.rendered_text_parts.append(data)
         for block in self.active_blocks:

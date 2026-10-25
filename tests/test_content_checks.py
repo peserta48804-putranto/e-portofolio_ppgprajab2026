@@ -114,6 +114,16 @@ class ContentCheckTests(unittest.TestCase):
         self.assertEqual(result.returncode, 1, result.stderr)
         self.assertIn("duplicate anchor/id", result.stdout)
 
+    def test_shell_elements_can_be_excluded_from_preservation_comparison(self):
+        result = self.run_check(
+            '<section id="home"><h1>Semester 1</h1></section>',
+            '<a class="skip-link" href="#main-content" data-preserve-ignore>'
+            'Lewati navigasi</a><a id="main-content" data-preserve-ignore></a>'
+            '<main><section id="home"><h1>Semester 1</h1></section></main>',
+        )
+
+        self.assertEqual(result.returncode, 0, result.stdout)
+
     def test_reports_removed_list_structure(self):
         result = self.run_check(
             "<main><ul><li>Refleksi</li></ul></main>",

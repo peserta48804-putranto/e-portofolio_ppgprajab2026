@@ -1453,6 +1453,8 @@
     </style>
   </head>
   <body>
+    <a class="skip-link" href="#main-content" data-preserve-ignore style="position:fixed;z-index:9999;top:.75rem;left:.75rem;padding:.65rem 1rem;background:#2a2829;color:white;border-radius:999px;transform:translateY(-180%)" onfocus="this.style.transform='none'" onblur="this.style.transform='translateY(-180%)'">Lewati navigasi</a>
+    <a href="index.html" data-preserve-ignore style="position:fixed;z-index:9998;right:1rem;bottom:1rem;padding:.65rem 1rem;background:#d07388;color:white;border-radius:999px;text-decoration:none;font-weight:700">← Beranda utama</a>
     
     <!-- === NAVBAR === -->
     <nav id="nav">
@@ -1490,6 +1492,8 @@
     </nav>
 
     <!-- === HERO === -->
+    <a id="main-content" data-preserve-ignore tabindex="-1"></a>
+    <main>
     <section id="home">
       <div class="container">
         <div class="hero-grid">
@@ -2285,6 +2289,7 @@
       </div>
     </section>
 
+    </main>
     <!-- === FOOTER === -->
     <footer>
       <div class="container">

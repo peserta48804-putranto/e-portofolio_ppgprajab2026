@@ -1,0 +1,3 @@
+# Keep unclassified documentation local until its semester/activity is verified.
+assets/media/semester2/_review/*
+!assets/media/semester2/_review/.gitkeep
