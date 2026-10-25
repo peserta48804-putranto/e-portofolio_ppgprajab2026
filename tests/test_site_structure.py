@@ -131,11 +131,10 @@ class SiteStructureTests(unittest.TestCase):
     def test_home_restores_rich_contact_and_footer(self):
         html = (ROOT / "index.html").read_text(encoding="utf-8")
         for expected in (
-            "contact-home-grid",
-            'class="contact-card"',
+            "contact-compact",
+            "contact-compact-links",
             'class="footer-grid"',
             "Mari Terhubung",
-            "Bersama Saya",
             "SMK Negeri 1 Surabaya, Jawa Timur",
             "Senin–Jumat, 07.00–16.00 WIB",
             'href="mailto:peserta.48808@ppg.belajar.id"',
@@ -143,6 +142,7 @@ class SiteStructureTests(unittest.TestCase):
             'href="https://instagram.com/argya_353"',
         ):
             self.assertIn(expected, html)
+        self.assertNotIn('class="contact-card"', html)
 
     def test_identity_is_consolidated_on_home(self):
         home = (ROOT / "index.html").read_text(encoding="utf-8")
@@ -179,6 +179,23 @@ class SiteStructureTests(unittest.TestCase):
             self.assertTrue((ROOT / photo).is_file())
         for photo in old_photos:
             self.assertNotIn(photo, html)
+
+    def test_semester_one_uses_shared_font_and_compact_vertical_rhythm(self):
+        html = (ROOT / "semester1.html").read_text(encoding="utf-8")
+        css = (ROOT / "assets/css/site.css").read_text(encoding="utf-8")
+        self.assertNotIn("Space+Grotesk", html)
+        self.assertIn("family=Outfit", html)
+        self.assertIn(".semester-one-page #home { min-height: auto;", css)
+        self.assertNotIn(".semester-one-page #home { min-height: 640px;", css)
+
+    def test_teacher_character_content_is_a_full_width_section(self):
+        html = (ROOT / "semester1.html").read_text(encoding="utf-8")
+        self.assertEqual(html.count('class="teacher-character-card"'), 4)
+        self.assertEqual(html.count('class="teacher-character-section"'), 1)
+        self.assertGreater(
+            html.index('class="teacher-character-section"'),
+            html.index('class="ref-split"'),
+        )
 
     def test_semester_one_gallery_uses_generated_thumbnails_and_keeps_targets(self):
         html = (ROOT / "semester1.html").read_text(encoding="utf-8")

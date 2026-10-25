@@ -241,11 +241,16 @@ h3 { font-size: 1.25rem; }
 .profile-stats strong { color: var(--rose); font-size: 1.7rem; }
 .profile-stats span { color: var(--mid); font-size: .8rem; }
 
+.semester-one-page { --fd: "Outfit", "Segoe UI", sans-serif; --fb: "Outfit", "Segoe UI", sans-serif; }
 .semester-one-page .site-shell { background: var(--cream); }
-.semester-one-page #home { min-height: 640px; }
+.semester-one-page .container { width: min(1140px, calc(100% - 3rem)); max-width: none; padding: 0; }
+.semester-one-page section { padding-block: 4rem; }
+.semester-one-page #home { min-height: auto; padding-block: 0; }
+.semester-one-page .hero-grid { padding-block: 3.5rem; }
+.semester-one-page .h-disp { font-size: clamp(2.15rem, 5vw, 3.8rem); letter-spacing: -.04em; }
 .semester-one-page .hero-desc { color: var(--mid); }
 .semester-one-page .hero-quote { color: var(--mid); background: rgba(255,255,255,.48); }
-.semester-one-page .semester-one-section-intro { max-width: 760px; margin-bottom: 3rem; }
+.semester-one-page .semester-one-section-intro { max-width: 760px; margin-bottom: 2rem; }
 .semester-one-page .semester-one-section-intro p { color: var(--mid); }
 .semester-one-page .hero-frame img,
 .semester-one-page .sik-img-w img { object-fit: cover; }
@@ -273,23 +278,27 @@ h3 { font-size: 1.25rem; }
 .semester-one-gallery-copy small { color: var(--mid); }
 .semester-one-gallery-copy em { align-self: end; margin-top: .5rem; color: var(--rose); font-size: .82rem; font-style: normal; font-weight: 700; }
 
-.contact-home { padding-block: clamp(4rem, 8vw, 7rem); }
-.contact-home-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(320px, .9fr); gap: clamp(2rem, 6vw, 5.5rem); align-items: center; }
-.contact-home h2 { margin: .45rem 0 1rem; font-size: clamp(2.7rem, 6vw, 5.25rem); line-height: .96; }
-.contact-intro { max-width: 620px; color: var(--warm); font-size: 1.05rem; line-height: 1.8; }
-.contact-list { display: grid; gap: .8rem; margin-top: 2rem; font-style: normal; }
-.contact-row { display: flex; align-items: center; gap: .9rem; color: var(--cream); text-decoration: none; }
-.contact-row[href]:hover strong { color: var(--rose); }
-.contact-icon { width: 46px; height: 46px; display: grid; flex: 0 0 46px; place-items: center; color: var(--rose); border: 1px solid rgba(209,177,183,.25); border-radius: 13px; background: rgba(239,234,233,.06); }
-.contact-row small, .contact-row strong { display: block; }
-.contact-row small { margin-bottom: .12rem; color: var(--blush); font-size: .72rem; font-weight: 700; letter-spacing: .06em; }
-.contact-row strong { font-size: .96rem; transition: color var(--transition); }
-.contact-card { padding: clamp(2rem, 5vw, 3.5rem); text-align: center; border: 1px solid rgba(209,177,183,.22); border-radius: calc(var(--radius) + 8px); background: rgba(87,71,76,.2); }
-.contact-card h3 { margin: 1rem 0 .7rem; font-size: clamp(1.7rem, 3vw, 2.3rem); }
-.contact-card p { margin: 0 auto 1.8rem; max-width: 480px; color: var(--blush); line-height: 1.75; }
-.whatsapp-mark { width: 58px; height: 58px; display: grid; margin: 0 auto; place-items: center; color: #25d366; font-size: 2rem; border-radius: 17px; background: rgba(37,211,102,.12); }
-.whatsapp-button { display: block; padding: .95rem 1.25rem; color: white; font-weight: 800; text-align: center; text-decoration: none; border-radius: 999px; background: #25d366; transition: transform var(--transition), background var(--transition); }
-.whatsapp-button:hover { transform: translateY(-2px); background: #1daf56; }
+.teacher-character-section { margin-top: 3rem; padding-top: 2.5rem; border-top: 1px solid var(--line); }
+.teacher-character-heading { display: grid; grid-template-columns: minmax(220px, .8fr) minmax(0, 1.2fr); gap: 2rem; align-items: end; margin-bottom: 1.5rem; }
+.teacher-character-heading h3 { margin: 0; color: var(--dark); font-family: var(--fd); font-size: clamp(1.8rem, 4vw, 2.7rem); line-height: 1.05; }
+.teacher-character-heading p { margin: 0; color: var(--mid); line-height: 1.7; }
+.teacher-character-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); border-top: 1px solid var(--line); }
+.teacher-character-card { display: grid; grid-template-columns: auto 1fr; gap: 1rem; padding: 1.4rem 1.5rem 1.4rem 0; border-bottom: 1px solid var(--line); }
+.teacher-character-card:nth-child(odd) { border-right: 1px solid var(--line); }
+.teacher-character-card:nth-child(even) { padding-left: 1.5rem; }
+.teacher-character-card > span { color: var(--rose); font-weight: 800; letter-spacing: .08em; }
+.teacher-character-card h4 { margin: 0; color: var(--dark); font-family: var(--fd); font-size: 1.05rem; }
+.teacher-character-card p { margin: .35rem 0 0; color: var(--mid); font-size: .9rem; line-height: 1.65; }
+
+.contact-compact { padding: 2.75rem 0; color: var(--warm); background: var(--dark); border-top: 1px solid rgba(209,177,183,.12); }
+.contact-compact-grid { display: grid; grid-template-columns: minmax(240px, .8fr) minmax(0, 1.5fr); gap: clamp(2rem, 6vw, 5rem); align-items: start; }
+.contact-compact h2 { margin: .35rem 0 .6rem; color: var(--cream); font-size: clamp(2rem, 4vw, 3rem); }
+.contact-compact p { max-width: 480px; margin: 0; color: var(--mauve); line-height: 1.7; }
+.contact-compact-links { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 1.5rem; font-style: normal; }
+.contact-compact-links a, .contact-compact-links span { display: grid; gap: .18rem; min-width: 0; padding: .75rem 0; color: var(--cream); text-decoration: none; border-bottom: 1px solid rgba(209,177,183,.14); }
+.contact-compact-links a:hover strong { color: var(--rose); }
+.contact-compact-links small { color: var(--mauve); font-size: .7rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
+.contact-compact-links strong { overflow-wrap: anywhere; font-size: .92rem; transition: color var(--transition); }
 
 .legacy-fallback { display: none; margin: 1rem auto; padding: 1rem; border-left: 4px solid var(--rose); background: var(--white); }
 .legacy-fallback:target { display: block; box-shadow: var(--shadow); }
@@ -316,7 +325,7 @@ h3 { font-size: 1.25rem; }
   .mobile-nav nav a { padding: .65rem; text-decoration: none; border-radius: 8px; }
   .mobile-nav nav a:hover { background: var(--mid); }
   .card-grid { grid-template-columns: repeat(3,minmax(0,1fr)); }
-  .contact-home-grid { grid-template-columns: 1fr; }
+  .contact-compact-grid { grid-template-columns: 1fr; }
   .footer-grid { grid-template-columns: 1fr 1fr; }
   .footer-brand { grid-column: 1 / -1; }
   .semester-one-gallery-grid { grid-template-columns: repeat(3,minmax(0,1fr)); }
@@ -332,8 +341,13 @@ h3 { font-size: 1.25rem; }
   .stat-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
   .photo-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
   .detail-cover { min-height: 240px; }
-  .contact-row strong { overflow-wrap: anywhere; }
-  .contact-card { padding: 2rem 1.25rem; }
+  .semester-one-page .container { width: min(100% - 2rem, 1140px); }
+  .semester-one-page section { padding-block: 3rem; }
+  .semester-one-page .hero-grid { padding-block: 2.5rem; }
+  .teacher-character-heading, .teacher-character-grid { grid-template-columns: 1fr; }
+  .teacher-character-card:nth-child(odd) { border-right: 0; }
+  .teacher-character-card:nth-child(even) { padding-left: 0; }
+  .contact-compact-links { grid-template-columns: 1fr; }
   .footer-grid { grid-template-columns: 1fr; }
   .footer-brand { grid-column: auto; }
   .footer-bottom { flex-direction: column; }
