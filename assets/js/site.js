@@ -37,6 +37,31 @@
     buttons.forEach((button) => button.addEventListener("click", () => activate(button)));
   });
 
+  const semesterOneTabs = [...document.querySelectorAll(".sik-tab")];
+  const semesterOnePanels = [...document.querySelectorAll(".sik-panel")];
+  window.showSik = (number) => {
+    semesterOneTabs.forEach((tab, index) => tab.classList.toggle("active", index === number - 1));
+    semesterOnePanels.forEach((panel, index) => panel.classList.toggle("active", index === number - 1));
+  };
+
+  window.showRef = (prefix, name, button) => {
+    button.parentElement.querySelectorAll(".ref-tab").forEach((tab) => tab.classList.toggle("active", tab === button));
+    document.querySelectorAll(".ref-pan").forEach((panel) => panel.classList.toggle("active", panel.id === `${prefix}-${name}`));
+  };
+
+  const cycleFromHash = { sp1: 1, sp2: 2, sp3: 3 }[location.hash.slice(1)];
+  if (cycleFromHash) window.showSik(cycleFromHash);
+
+  const revealItems = document.querySelectorAll(".rv");
+  if ("IntersectionObserver" in window) {
+    const observer = new IntersectionObserver((entries) => entries.forEach((entry) => {
+      if (entry.isIntersecting) entry.target.classList.add("in");
+    }), { threshold: 0.08 });
+    revealItems.forEach((item) => observer.observe(item));
+  } else {
+    revealItems.forEach((item) => item.classList.add("in"));
+  }
+
   document.querySelectorAll("[data-catalog]").forEach((catalog) => {
     const items = [...catalog.querySelectorAll("[data-title][data-category]")];
     const buttons = [...catalog.querySelectorAll("[data-filter]")];

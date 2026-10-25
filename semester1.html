@@ -1451,49 +1451,23 @@
         .mob-nav a { font-size: 1.5rem; }
       }
     </style>
+    <link rel="stylesheet" href="assets/css/site.css">
+    <script src="assets/js/site.js" defer></script>
   </head>
-  <body>
-    <a class="skip-link" href="#main-content" data-preserve-ignore style="position:fixed;z-index:9999;top:.75rem;left:.75rem;padding:.65rem 1rem;background:#2a2829;color:white;border-radius:999px;transform:translateY(-180%)" onfocus="this.style.transform='none'" onblur="this.style.transform='translateY(-180%)'">Lewati navigasi</a>
-    <a href="index.html" data-preserve-ignore style="position:fixed;z-index:9998;right:1rem;bottom:1rem;padding:.65rem 1rem;background:#d07388;color:white;border-radius:999px;text-decoration:none;font-weight:700">← Beranda utama</a>
-    
-    <!-- === NAVBAR === -->
-    <nav id="nav">
-      <div class="container">
-        <div class="nav-w">
-          <a href="#home" class="nav-logo">
-            <div class="logo-badge"><img src="img/logo.png" alt="Logo"></div>
-            Putranto Argya
-          </a>
-          <ul class="nav-ul" id="navUl">
-            <li><a href="#home">Home</a></li>
-            <li><a href="semester2.html" target="_blank" rel="noopener">Semester 2</a></li>
-            <li><a href="#tentang">Tentang Saya</a></li>
-            <li><a href="#implementasi">Implementasi PPL</a></li>
-            <li><a href="#refleksi">Refleksi &amp; Filosofi</a></li>
-            <li><a href="#dokumentasi">Dokumentasi</a></li>
-            <li><a href="#kontak">Kontak</a></li>
-          </ul>
-          <button class="burger" id="burger">
-            <span></span><span></span><span></span>
-          </button>
-        </div>
-      </div>
-    </nav>
-
-    <!-- Mobile Nav -->
-    <nav class="mob-nav" id="mobNav">
-      <a href="#home" class="ml">Home</a>
-      <a href="semester2.html" target="_blank" rel="noopener" class="ml">Semester 2</a>
-      <a href="#tentang" class="ml">Tentang Saya</a>
-      <a href="#implementasi" class="ml">Implementasi PPL</a>
-      <a href="#refleksi" class="ml">Refleksi &amp; Filosofi</a>
-      <a href="#dokumentasi" class="ml">Dokumentasi</a>
-      <a href="#kontak" class="ml">Kontak</a>
-    </nav>
-
-    <!-- === HERO === -->
-    <a id="main-content" data-preserve-ignore tabindex="-1"></a>
-    <main>
+  <body class="semester-one-page">
+    <a class="skip-link" href="#main-content">Lewati navigasi</a>
+    <aside class="site-sidebar">
+      <a class="site-brand" href="index.html"><span class="brand-mark">PA</span><span><strong>Putranto Argya</strong><small>E-PORTOFOLIO PPG</small></span></a>
+      <nav class="site-nav" aria-label="Navigasi utama">
+        <a href="index.html">Beranda</a><span class="nav-label">SEMESTER 1</span>
+        <a href="semester1.html" aria-current="page">PPL Terbimbing</a><a href="#tentang">Refleksi awal</a><a href="#implementasi">Tiga siklus</a><a href="#refleksi">Refleksi &amp; filosofi</a><a href="#dokumentasi">Galeri kegiatan</a>
+        <span class="nav-label">PERJALANAN PPG</span><a href="semester2.html">Semester 2</a><a href="sppg.html">Seminar PPG</a><a href="pplm.html">PPL Mandiri</a>
+      </nav>
+      <p class="side-note">PPL Terbimbing · Kelas X RPL · SMK Negeri 1 Surabaya.</p>
+    </aside>
+    <div class="mobile-bar"><a class="mobile-brand" href="index.html">Putranto Argya</a><details class="mobile-nav"><summary aria-label="Buka menu">☰</summary><nav aria-label="Navigasi seluler"><a href="index.html">Beranda</a><a href="#tentang">Refleksi awal</a><a href="#implementasi">Tiga siklus</a><a href="#refleksi">Refleksi</a><a href="#dokumentasi">Galeri</a><a href="semester2.html">Semester 2</a></nav></details></div>
+    <div class="site-shell">
+      <main id="main-content" class="page-main">
     <section id="home">
       <div class="container">
         <div class="hero-grid">
@@ -1520,7 +1494,7 @@
           </div>
           <div class="hero-vis rv d2">
             <div class="hero-frame">
-              <img src="img/dokumentasi/penyerahan_compressed.jpg" alt="Pembelajaran Vokasi Informatika" loading="lazy" />
+              <img src="assets/img/semester1/lokasi-ppl-bersih.webp" alt="Pembelajaran Vokasi Informatika" loading="lazy" />
             </div>
             <div class="hfb">
               <div class="hfb-l">Lokasi PPL</div>
@@ -1535,80 +1509,10 @@
     <!-- === TENTANG SAYA (E-Porto 1: Profil Mahasiswa) === -->
     <section id="tentang" class="s-light">
       <div class="container">
-        <div class="about-grid">
-          <div class="about-photo-wrap rv">
-            <img src="img/gwehj_formal.jpg" alt="Putranto Argya" class="about-photo" loading="lazy" />
-            <div class="about-photo-deco"></div>
-          </div>
-          <div>
-            <span class="eyebrow rv">E-Portofolio 1 — Profil Mahasiswa</span>
-            <h2 class="h-disp rv d1">Putranto Argya<br />Kuncara Jati</h2>
-            <span class="line-div rv d1"></span>
-            <div style="margin-top: 22px" class="rv d2">
-              <div class="about-tag">✦ PPG Prajabatan Gelombang I 2026</div>
-              <div class="about-tag">✦ NIM 2500103916524001</div>
-              <p class="about-bio" style="text-align: justify">
-                Nama saya Putranto Argya Kuncara Jati. Saya lahir dan tumbuh di Surakarta, Jawa Tengah, kemudian menyelesaikan studi di Program Studi Pendidikan Teknik Informatika dan Komputer, FKIP Universitas Sebelas Maret. Kini saya menjalani PPG Prajabatan Gelombang I Tahun 2026 pada Program Studi Pengembangan Perangkat Lunak dan Gim (PPLG) di Universitas Negeri Surabaya.
-              </p>
-              <p class="about-bio" style="text-align: justify">
-                Solo mengajarkan saya banyak hal yang tidak ada di kurikulum mana pun. Filosofi Memayu Hayuning Bawana dan nilai-nilai seperti tepa slira serta andhap asor membentuk cara saya memandang hubungan antar manusia, termasuk hubungan guru dan murid. Di keluarga saya, hanya kakek yang pernah menjadi guru. Mungkin dari situlah dorongan itu datang, ditambah kegelisahan melihat generasi muda yang cakap teknologi tetapi mengalami krisis moral dan etika. Saya ingin ikut ambil bagian dalam memperbaikinya.
-              </p>
-            </div>
-            <div class="pull-q rv d3">
-              <p>
-                "Jadilah guru yang pertama-tama mengajar dengan teladannya, bukan hanya dengan kata-katanya."
-              </p>
-            </div>
-            <div class="strengths rv d3">
-              <div class="str-c">
-                <div class="str-ico">
-                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                    <circle cx="12" cy="12" r="10" />
-                    <polyline points="12 6 12 12 16 14" />
-                  </svg>
-                </div>
-                <h4>Tepat Waktu</h4>
-                <p>Menyelesaikan tugas sesuai target dan deadline</p>
-              </div>
-              <div class="str-c">
-                <div class="str-ico">
-                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
-                  </svg>
-                </div>
-                <h4>Komunikatif</h4>
-                <p>Memahami murid dengan pendekatan terbaik</p>
-              </div>
-              <div class="str-c">
-                <div class="str-ico">
-                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                    <polyline points="23 4 23 10 17 10" />
-                    <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10" />
-                  </svg>
-                </div>
-                <h4>Adaptif</h4>
-                <p>Mudah beradaptasi dalam lingkungan baru</p>
-              </div>
-            </div>
-            <div class="stats-row rv d4">
-              <div>
-                <div class="stat-n">3</div>
-                <div class="stat-l">Siklus PPL</div>
-              </div>
-              <div>
-                <div class="stat-n">36+</div>
-                <div class="stat-l">JP Mengajar</div>
-              </div>
-              <div>
-                <div class="stat-n">30+</div>
-                <div class="stat-l">Murid Terdampak</div>
-              </div>
-              <div>
-                <div class="stat-n">100%</div>
-                <div class="stat-l">Dedikasi</div>
-              </div>
-            </div>
-          </div>
+        <div class="semester-one-section-intro">
+          <span class="eyebrow">Semester 1 · PPL Terbimbing</span>
+          <h2 class="h-disp">Landasan Awal dan Analisis Pembelajaran</h2>
+          <p>Bagian ini berfokus pada pengalaman PPL Terbimbing. Profil lengkap mahasiswa telah dipusatkan di <a class="jump-link" href="index.html#tentang">halaman beranda</a>.</p>
         </div>
 
         <!-- Refleksi Awal PPL -->
@@ -1709,7 +1613,7 @@
         <div class="sik-panel active" id="sp1">
           <div class="sik-layout">
             <div class="sik-img-w rv">
-              <img src="img/dokumentasi/siklus1_compressed.jpg" alt="Siklus I" loading="lazy" />
+              <img src="assets/img/semester1/siklus-1-bersih.webp" alt="Siklus I" loading="lazy" />
               <div class="sik-ov">
                 <span class="sik-tag">Siklus I</span>
                 <div class="sik-img-title">Perencanaan Website: Desain Brief &amp; Wireframe</div>
@@ -1772,7 +1676,7 @@
         <div class="sik-panel" id="sp2">
           <div class="sik-layout">
             <div class="sik-img-w">
-              <img src="img/dokumentasi/siklus2_compressed.jpg" alt="Siklus II" loading="lazy" />
+              <img src="assets/img/semester1/siklus-2-bersih.webp" alt="Siklus II" loading="lazy" />
               <div class="sik-ov">
                 <span class="sik-tag">Siklus II</span>
                 <div class="sik-img-title">Perancangan UI/UX: Prinsip Desain &amp; Prototipe</div>
@@ -1835,7 +1739,7 @@
         <div class="sik-panel" id="sp3">
           <div class="sik-layout">
             <div class="sik-img-w">
-              <img src="img/dokumentasi/siklus3_compressed.jpg" alt="Siklus III" loading="lazy" />
+              <img src="assets/img/semester1/siklus-3-bersih.webp" alt="Siklus III" loading="lazy" />
               <div class="sik-ov">
                 <span class="sik-tag">Siklus III</span>
                 <div class="sik-img-title">Implementasi Desain → Website &amp; Presentasi Hasil</div>
@@ -2005,429 +1909,72 @@
     </section>
 
     <!-- === DOKUMENTASI & ARTEFAK === -->
-    <section id="dokumentasi">
+    <section id="dokumentasi" class="semester-one-gallery">
       <div class="container">
-        <span class="eyebrow rv">Dokumentasi &amp; Artefak</span>
-        <h2 class="h-disp rv d1" style="margin-bottom: 12px">Galeri Kegiatan Pembelajaran</h2>
-        <p class="body-muted rv d2" style="margin-bottom: 32px">
-          Dokumentasi praktik mengajar, karya murid, artefak media pembelajaran, dan aktivitas laboratorium komputer selama PPL Terbimbing di SMK Negeri 1 Surabaya.
-        </p>
-        
-        <div class="gal-filter rv d2">
-          <button class="gf-btn active" data-cat="all">Semua</button>
-          <button class="gf-btn" data-cat="karya">Karya Murid</button>
-          <button class="gf-btn" data-cat="media">Media Pembelajaran</button>
-          <button class="gf-btn" data-cat="dok">Dokumentasi Kelas</button>
-          <button class="gf-btn" data-cat="artefak">Artefak</button>
-        </div>
-        
-        <div class="gal-grid rv d3">
-          <!-- Karya Murid: Desain UI/UX -->
-          <div class="g-i tall" data-gc="karya">
-            <a href="https://www.canva.com/design/DAHI2Mb3oIM/xeHDZKVV_-TH0JW_sUxQZw/edit" target="_blank" rel="noopener">
-              <img src="img/thumb/tgs_desain.png" loading="lazy" alt="Desain UI/UX Murid" />
-            </a>
-            <a href="https://www.canva.com/design/DAHI2Mb3oIM/xeHDZKVV_-TH0JW_sUxQZw/edit" target="_blank" rel="noopener">
-              <div class="g-cap" style="text-decoration: none; text-shadow: 2px 2px 4px rgba(0,0,0,0.8); transition: all 0.3s ease;" onmouseover="this.style.color='var(--cream)'; this.style.textShadow='none';" onmouseout="this.style.color='var(--rose)'; this.style.textShadow='2px 2px 4px rgba(0,0,0,0.8)';">
-                <p>Desain UI/UX — Karya Murid</p>
-                <span>Siklus II · Prototype Visual</span>
-              </div>
-            </a>
-          </div>
-
-          <!-- Dokumentasi: Pendampingan -->
-          <div class="g-i" data-gc="dok">
-            <a href="img/dokumentasi/pendampingan_s1_compressed.jpg" target="_blank" rel="noopener">
-              <img src="img/thumb/thumb_pendampingan_s1_compressed.jpg" loading="lazy" alt="Pendampingan Kelompok" />
-            </a>
-            <a href="img/dokumentasi/pendampingan_s1_compressed.jpg" target="_blank" rel="noopener">
-              <div class="g-cap" style="text-decoration: none; text-shadow: 2px 2px 4px rgba(0,0,0,0.8); transition: all 0.3s ease;" onmouseover="this.style.color='var(--cream)'; this.style.textShadow='none';" onmouseout="this.style.color='var(--rose)'; this.style.textShadow='2px 2px 4px rgba(0,0,0,0.8)';">
-                <p>Pendampingan Kelompok</p>
-                <span>Dokumentasi Siklus I</span>
-              </div>
-            </a>
-          </div>
-
-          <!-- Dokumentasi: Presentasi wide -->
-          <div class="g-i wide" data-gc="dok">
-            <a href="img/dokumentasi/presentasi_compressed.jpg" target="_blank" rel="noopener">
-              <img src="img/thumb/thumb_presentasi.jpg" loading="lazy" alt="Presentasi Proyek Akhir" />
-            </a>
-            <a href="img/dokumentasi/presentasi_compressed.jpg" target="_blank" rel="noopener">
-              <div class="g-cap" style="text-decoration: none; text-shadow: 2px 2px 4px rgba(0,0,0,0.8); transition: all 0.3s ease;" onmouseover="this.style.color='var(--cream)'; this.style.textShadow='none';" onmouseout="this.style.color='var(--rose)'; this.style.textShadow='2px 2px 4px rgba(0,0,0,0.8)';">
-                <p>Presentasi Proyek Akhir — X RPL 2</p>
-                <span>Dokumentasi Siklus III · SMK N 1 Surabaya</span>
-              </div>
-            </a>
-          </div>
-
-          <!-- Karya Murid: Screenshot Website -->
-          <div class="g-i" data-gc="karya">
-            <a href="https://drive.google.com/drive/folders/1t8cus5SVm0W649w4E3ivZWZCw6FMNh9L?usp=sharing" target="_blank" rel="noopener">
-              <img src="img/thumb/thumb_dasboard admin1.png" loading="lazy" alt="Hasil Website" />
-            </a>
-            <a href="https://drive.google.com/drive/folders/1t8cus5SVm0W649w4E3ivZWZCw6FMNh9L?usp=sharing" target="_blank" rel="noopener">
-              <div class="g-cap" style="text-decoration: none; text-shadow: 2px 2px 4px rgba(0,0,0,0.8); transition: all 0.3s ease;" onmouseover="this.style.color='var(--cream)'; this.style.textShadow='none';" onmouseout="this.style.color='var(--rose)'; this.style.textShadow='2px 2px 4px rgba(0,0,0,0.8)';">
-                <p>Screenshot Website — Hasil Implementasi</p>
-                <span>Siklus III · Karya Kelompok Murid</span>
-              </div>
-            </a>
-          </div>
-
-          <!-- Artefak: Modul Ajar -->
-          <div class="g-i" data-gc="artefak">
-            <a href="https://drive.google.com/drive/folders/1MupMB2sFIP3u-dSLq7MGQhjB5CpD1u-_?usp=sharing" target="_blank" rel="noopener">
-              <img src="img/thumb/thumb_modul.png" loading="lazy" alt="Modul Ajar" />
-            </a>
-            <a href="https://drive.google.com/drive/folders/1MupMB2sFIP3u-dSLq7MGQhjB5CpD1u-_?usp=sharing" target="_blank" rel="noopener">
-              <div class="g-cap" style="text-decoration: none; text-shadow: 2px 2px 4px rgba(0,0,0,0.8); transition: all 0.3s ease;" onmouseover="this.style.color='var(--cream)'; this.style.textShadow='none';" onmouseout="this.style.color='var(--rose)'; this.style.textShadow='2px 2px 4px rgba(0,0,0,0.8)';">
-                <p>Modul Ajar</p>
-                <span>Artefak Siklus I, II, III</span>
-              </div>
-            </a>
-          </div>
-
-          <!-- Dokumentasi: Pendampingan Siklus III tall -->
-          <div class="g-i tall" data-gc="dok">
-            <a href="img/dokumentasi/pendampingan_s3.jpg" target="_blank" rel="noopener">
-              <img src="img/thumb/thumb_pendampingan_s3.jpg" loading="lazy" alt="Pendampingan III" />
-            </a>
-            <a href="img/dokumentasi/pendampingan_s3.jpg" target="_blank" rel="noopener">
-              <div class="g-cap" style="text-decoration: none; text-shadow: 2px 2px 4px rgba(0,0,0,0.8); transition: all 0.3s ease;" onmouseover="this.style.color='var(--cream)'; this.style.textShadow='none';" onmouseout="this.style.color='var(--rose)'; this.style.textShadow='2px 2px 4px rgba(0,0,0,0.8)';">
-                <p>Pendampingan Finalisasi Website</p>
-                <span>Dokumentasi Siklus III</span>
-            </div>
-            </a>
-          </div>
-
-          <!-- Karya Murid: Laporan Hasil Akhir -->
-          <div class="g-i" data-gc="karya">
-            <a href="https://drive.google.com/drive/folders/1jzo7-CmldRK4OWIXUNcy_cERA9lFewe-?usp=drive_link" target="_blank" rel="noopener">
-              <img src="img/thumb/tgs_lap_pkk.png" loading="lazy" alt="Laporan Akhir" />
-            </a>
-            <a href="https://drive.google.com/drive/folders/1jzo7-CmldRK4OWIXUNcy_cERA9lFewe-?usp=drive_link" target="_blank" rel="noopener">
-            <div class="g-cap" style="text-decoration: none; text-shadow: 2px 2px 4px rgba(0,0,0,0.8); transition: all 0.3s ease;" onmouseover="this.style.color='var(--cream)'; this.style.textShadow='none';" onmouseout="this.style.color='var(--rose)'; this.style.textShadow='2px 2px 4px rgba(0,0,0,0.8)';">
-              <p>Laporan Hasil Akhir Pengembangan Website</p>
-              <span>Siklus III · Produk Akhir Murid</span>
-            </div>
-            </a>
-          </div>
-
-          <!-- Artefak: Presensi -->
-          <div class="g-i" data-gc="artefak">
-            <a href="https://drive.google.com/file/d/1h5-oXSsOpTZn_6Rt7xDOgQE8UM-4cifs/view?usp=drive_link" target="_blank" rel="noopener">
-              <img src="img/thumb/thumb_presensi_xrpl2-1.jpg" loading="lazy" alt="Presensi Murid" />
-            </a>
-            <a href="https://drive.google.com/file/d/1h5-oXSsOpTZn_6Rt7xDOgQE8UM-4cifs/view?usp=drive_link" target="_blank" rel="noopener">
-            <div class="g-cap" style="text-decoration: none; text-shadow: 2px 2px 4px rgba(0,0,0,0.8); transition: all 0.3s ease;" onmouseover="this.style.color='var(--cream)'; this.style.textShadow='none';" onmouseout="this.style.color='var(--rose)'; this.style.textShadow='2px 2px 4px rgba(0,0,0,0.8)';">
-              <p>Presensi Murid</p>
-              <span>Dokumentasi Kehadiran X RPL 2</span>
-            </div>
-            </a>
-          </div>
-
-          <!-- Dokumentasi: Pendampingan Siklus II -->
-          <div class="g-i" data-gc="dok">
-            <a href="img/dokumentasi/pendampingan_s2_compressed.jpg" target="_blank" rel="noopener">
-              <img src="img/thumb/thumb_siklus2_compressed.jpg" loading="lazy" alt="Pendampingan Siklus II" />
-            </a>
-            <a href="img/dokumentasi/pendampingan_s2_compressed.jpg" target="_blank" rel="noopener">
-              <div class="g-cap" style="text-decoration: none; text-shadow: 2px 2px 4px rgba(0,0,0,0.8); transition: all 0.3s ease;" onmouseover="this.style.color='var(--cream)'; this.style.textShadow='none';" onmouseout="this.style.color='var(--rose)'; this.style.textShadow='2px 2px 4px rgba(0,0,0,0.8)';">
-                <p>Pendampingan Perancangan UI/UX</p>
-                <span>Dokumentasi Siklus II</span>
-              </div>
-            </a>
-          </div>
-
-          <!-- Artefak: LKPD -->
-          <div class="g-i" data-gc="artefak">
-            <a href="https://drive.google.com/drive/folders/1h_FwnzoiFgSb7hc30n90nlmWz0_9Imi2?usp=sharing" target="_blank" rel="noopener">
-              <img src="img/thumb/thumb_lampiran.png" loading="lazy" alt="LKPD" />
-            </a>
-            <a href="https://drive.google.com/drive/folders/1h_FwnzoiFgSb7hc30n90nlmWz0_9Imi2?usp=sharing" target="_blank" rel="noopener">
-              <div class="g-cap" style="text-decoration: none; text-shadow: 2px 2px 4px rgba(0,0,0,0.8); transition: all 0.3s ease;" onmouseover="this.style.color='var(--cream)'; this.style.textShadow='none';" onmouseout="this.style.color='var(--rose)'; this.style.textShadow='2px 2px 4px rgba(0,0,0,0.8)';">
-                <p>Lembar Kerja Murid (LKPD)</p>
-                <span>Artefak Siklus I, II, III</span>
-              </div>
-            </a>
-          </div>
-
-          <!-- Media: PPT Siklus I -->
-          <div class="g-i" data-gc="media">
-            <a href="https://docs.google.com/presentation/d/17M3nN8CrHjBP7FNGQYss4aVGO8YBZLiM8QOfDkVVyGQ/edit?usp=drive_link" target="_blank" rel="noopener">
-              <img src="img/thumb/thumb_ppt1.jpg" loading="lazy" alt="PPT Siklus I" />
-            </a>
-            <a href="https://docs.google.com/presentation/d/17M3nN8CrHjBP7FNGQYss4aVGO8YBZLiM8QOfDkVVyGQ/edit?usp=drive_link" target="_blank" rel="noopener">
-              <div class="g-cap" style="text-decoration: none; text-shadow: 2px 2px 4px rgba(0,0,0,0.8); transition: all 0.3s ease;" onmouseover="this.style.color='var(--cream)'; this.style.textShadow='none';" onmouseout="this.style.color='var(--rose)'; this.style.textShadow='2px 2px 4px rgba(0,0,0,0.8)';">
-                <p>Bahan Ajar — Perencanaan Website</p>
-                <span>Media Pembelajaran Siklus I</span>
-              </div>
-            </a>
-          </div>
-
-          <!-- Media: PPT Siklus II -->
-          <div class="g-i" data-gc="media">
-            <a href="https://docs.google.com/presentation/d/1Q1NvHqGdhFs_OFx1gGEWUSEGIBDgjdlVk6Mk0I0s6eI/edit?usp=drive_link" target="_blank" rel="noopener">
-              <img src="img/thumb/thumb_ppt2.jpg" loading="lazy" alt="PPT Siklus II" />
-            </a>
-            <a href="https://docs.google.com/presentation/d/1Q1NvHqGdhFs_OFx1gGEWUSEGIBDgjdlVk6Mk0I0s6eI/edit?usp=drive_link" target="_blank" rel="noopener">
-              <div class="g-cap" style="text-decoration: none; text-shadow: 2px 2px 4px rgba(0,0,0,0.8); transition: all 0.3s ease;" onmouseover="this.style.color='var(--cream)'; this.style.textShadow='none';" onmouseout="this.style.color='var(--rose)'; this.style.textShadow='2px 2px 4px rgba(0,0,0,0.8)';">
-                <p>Bahan Ajar — Perancangan UI/UX</p>
-                <span>Media Pembelajaran Siklus II</span>
-              </div>
-            </a>
-          </div>
-
-          <!-- Media: PPT Siklus III -->
-          <div class="g-i" data-gc="media">
-            <a href="https://docs.google.com/presentation/d/1WkEibBgKK9MRgSEJMZFOBQK9uX9GlPnLIpn7nqnDaOk/edit?usp=drive_link" target="_blank" rel="noopener">
-              <img src="img/thumb/thumb_ppt3.jpg" loading="lazy" alt="PPT Siklus III" />
-            </a>
-            <a href="https://docs.google.com/presentation/d/1WkEibBgKK9MRgSEJMZFOBQK9uX9GlPnLIpn7nqnDaOk/edit?usp=drive_link" target="_blank" rel="noopener">
-              <div class="g-cap" style="text-decoration: none; text-shadow: 2px 2px 4px rgba(0,0,0,0.8); transition: all 0.3s ease;" onmouseover="this.style.color='var(--cream)'; this.style.textShadow='none';" onmouseout="this.style.color='var(--rose)'; this.style.textShadow='2px 2px 4px rgba(0,0,0,0.8)';">
-                <p>Bahan Ajar — Implementasi Website</p>
-                <span>Media Pembelajaran Siklus III</span>
-              </div>
-            </a>
-          </div>
+        <span class="eyebrow">Dokumentasi &amp; Artefak</span>
+        <h2 class="h-disp">Galeri Kegiatan Pembelajaran</h2>
+        <p class="body-muted">Thumbnail ilustratif membuat katalog tetap rapi. Klik kartu untuk membuka foto, dokumen, atau karya aslinya.</p>
+        <div class="semester-one-gallery-grid" style="--semester-one-sprite:url('assets/img/semester1/galeri-thumbnail-sprite.webp')">
+          <a class="semester-one-gallery-card" data-gallery-item data-category="karya" href="https://www.canva.com/design/DAHI2Mb3oIM/xeHDZKVV_-TH0JW_sUxQZw/edit" target="_blank" rel="noopener">
+            <span class="semester-one-cover gallery-cover-01" aria-hidden="true"></span>
+            <span class="semester-one-gallery-copy"><strong>Desain UI/UX — Karya Murid</strong><small>Siklus II · Prototype Visual</small><em>Buka konten ↗</em></span>
+          </a>
+          <a class="semester-one-gallery-card" data-gallery-item data-category="dok" href="img/dokumentasi/pendampingan_s1_compressed.jpg" target="_blank" rel="noopener">
+            <span class="semester-one-cover gallery-cover-02" aria-hidden="true"></span>
+            <span class="semester-one-gallery-copy"><strong>Pendampingan Kelompok</strong><small>Dokumentasi Siklus I</small><em>Buka konten ↗</em></span>
+          </a>
+          <a class="semester-one-gallery-card" data-gallery-item data-category="dok" href="img/dokumentasi/presentasi_compressed.jpg" target="_blank" rel="noopener">
+            <span class="semester-one-cover gallery-cover-03" aria-hidden="true"></span>
+            <span class="semester-one-gallery-copy"><strong>Presentasi Proyek Akhir — X RPL 2</strong><small>Dokumentasi Siklus III · SMK N 1 Surabaya</small><em>Buka konten ↗</em></span>
+          </a>
+          <a class="semester-one-gallery-card" data-gallery-item data-category="karya" href="https://drive.google.com/drive/folders/1t8cus5SVm0W649w4E3ivZWZCw6FMNh9L?usp=sharing" target="_blank" rel="noopener">
+            <span class="semester-one-cover gallery-cover-04" aria-hidden="true"></span>
+            <span class="semester-one-gallery-copy"><strong>Screenshot Website — Hasil Implementasi</strong><small>Siklus III · Karya Kelompok Murid</small><em>Buka konten ↗</em></span>
+          </a>
+          <a class="semester-one-gallery-card" data-gallery-item data-category="artefak" href="https://drive.google.com/drive/folders/1MupMB2sFIP3u-dSLq7MGQhjB5CpD1u-_?usp=sharing" target="_blank" rel="noopener">
+            <span class="semester-one-cover gallery-cover-05" aria-hidden="true"></span>
+            <span class="semester-one-gallery-copy"><strong>Modul Ajar</strong><small>Artefak Siklus I, II, III</small><em>Buka konten ↗</em></span>
+          </a>
+          <a class="semester-one-gallery-card" data-gallery-item data-category="dok" href="img/dokumentasi/pendampingan_s3.jpg" target="_blank" rel="noopener">
+            <span class="semester-one-cover gallery-cover-06" aria-hidden="true"></span>
+            <span class="semester-one-gallery-copy"><strong>Pendampingan Finalisasi Website</strong><small>Dokumentasi Siklus III</small><em>Buka konten ↗</em></span>
+          </a>
+          <a class="semester-one-gallery-card" data-gallery-item data-category="karya" href="https://drive.google.com/drive/folders/1jzo7-CmldRK4OWIXUNcy_cERA9lFewe-?usp=drive_link" target="_blank" rel="noopener">
+            <span class="semester-one-cover gallery-cover-07" aria-hidden="true"></span>
+            <span class="semester-one-gallery-copy"><strong>Laporan Hasil Akhir Pengembangan Website</strong><small>Siklus III · Produk Akhir Murid</small><em>Buka konten ↗</em></span>
+          </a>
+          <a class="semester-one-gallery-card" data-gallery-item data-category="artefak" href="https://drive.google.com/file/d/1h5-oXSsOpTZn_6Rt7xDOgQE8UM-4cifs/view?usp=drive_link" target="_blank" rel="noopener">
+            <span class="semester-one-cover gallery-cover-08" aria-hidden="true"></span>
+            <span class="semester-one-gallery-copy"><strong>Presensi Murid</strong><small>Dokumentasi Kehadiran X RPL 2</small><em>Buka konten ↗</em></span>
+          </a>
+          <a class="semester-one-gallery-card" data-gallery-item data-category="dok" href="img/dokumentasi/pendampingan_s2_compressed.jpg" target="_blank" rel="noopener">
+            <span class="semester-one-cover gallery-cover-09" aria-hidden="true"></span>
+            <span class="semester-one-gallery-copy"><strong>Pendampingan Perancangan UI/UX</strong><small>Dokumentasi Siklus II</small><em>Buka konten ↗</em></span>
+          </a>
+          <a class="semester-one-gallery-card" data-gallery-item data-category="artefak" href="https://drive.google.com/drive/folders/1h_FwnzoiFgSb7hc30n90nlmWz0_9Imi2?usp=sharing" target="_blank" rel="noopener">
+            <span class="semester-one-cover gallery-cover-10" aria-hidden="true"></span>
+            <span class="semester-one-gallery-copy"><strong>Lembar Kerja Murid (LKPD)</strong><small>Artefak Siklus I, II, III</small><em>Buka konten ↗</em></span>
+          </a>
+          <a class="semester-one-gallery-card" data-gallery-item data-category="media" href="https://docs.google.com/presentation/d/17M3nN8CrHjBP7FNGQYss4aVGO8YBZLiM8QOfDkVVyGQ/edit?usp=drive_link" target="_blank" rel="noopener">
+            <span class="semester-one-cover gallery-cover-11" aria-hidden="true"></span>
+            <span class="semester-one-gallery-copy"><strong>Bahan Ajar — Perencanaan Website</strong><small>Media Pembelajaran Siklus I</small><em>Buka konten ↗</em></span>
+          </a>
+          <a class="semester-one-gallery-card" data-gallery-item data-category="media" href="https://docs.google.com/presentation/d/1Q1NvHqGdhFs_OFx1gGEWUSEGIBDgjdlVk6Mk0I0s6eI/edit?usp=drive_link" target="_blank" rel="noopener">
+            <span class="semester-one-cover gallery-cover-12" aria-hidden="true"></span>
+            <span class="semester-one-gallery-copy"><strong>Bahan Ajar — Perancangan UI/UX</strong><small>Media Pembelajaran Siklus II</small><em>Buka konten ↗</em></span>
+          </a>
+          <a class="semester-one-gallery-card" data-gallery-item data-category="media" href="https://docs.google.com/presentation/d/1WkEibBgKK9MRgSEJMZFOBQK9uX9GlPnLIpn7nqnDaOk/edit?usp=drive_link" target="_blank" rel="noopener">
+            <span class="semester-one-cover gallery-cover-13" aria-hidden="true"></span>
+            <span class="semester-one-gallery-copy"><strong>Bahan Ajar — Implementasi Website</strong><small>Media Pembelajaran Siklus III</small><em>Buka konten ↗</em></span>
+          </a>
         </div>
       </div>
     </section>
 
-    <!-- === KONTAK === -->
-    <section id="kontak" class="s-mid">
-      <div class="container">
-        <div class="kon-grid">
-          <div>
-            <span class="eyebrow rv">Kontak</span>
-            <h2 class="h-disp rv d1" style="margin-bottom: 12px">Mari Terhubung<br />Bersama Saya</h2>
-            <p class="body-muted rv d2">
-              Punya pertanyaan tentang e-portofolio ini atau ingin berdiskusi tentang pendidikan vokasi Informatika? Jangan ragu menghubungi saya.
-            </p>
-            
-            <div class="ci-list">
-              <div class="ci-row rv d1">
-                <div class="ci-ico">
-                  <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
-                    <polyline points="22,6 12,13 2,6" />
-                  </svg>
-                </div>
-                <div>
-                  <h4>Email</h4>
-                  <p>peserta.48808@ppg.belajar.id</p>
-                </div>
-              </div>
-              
-              <div class="ci-row rv d2">
-                <div class="ci-ico">
-                  <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.56 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.29 6.29l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" />
-                  </svg>
-                </div>
-                <div>
-                  <h4>WhatsApp</h4>
-                  <p>+62 813-2979-2820</p>
-                </div>
-              </div>
-              
-              <div class="ci-row rv d3">
-                <div class="ci-ico">
-                  <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <rect x="2" y="2" width="20" height="20" rx="5" />
-                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
-                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
-                  </svg>
-                </div>
-                <div>
-                  <h4>Instagram</h4>
-                  <p>@argya_353</p>
-                </div>
-              </div>
-              
-              <div class="ci-row rv d4">
-                <div class="ci-ico">
-                  <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
-                    <circle cx="12" cy="10" r="3" />
-                  </svg>
-                </div>
-                <div>
-                  <h4>Lokasi PPL</h4>
-                  <p>SMK Negeri 1 Surabaya, Jawa Timur</p>
-                </div>
-              </div>
-              
-              <div class="ci-row rv d5">
-                <div class="ci-ico">
-                  <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <circle cx="12" cy="12" r="10" />
-                    <polyline points="12 6 12 12 16 14" />
-                  </svg>
-                </div>
-                <div>
-                  <h4>Jam Aktif</h4>
-                  <p>Senin–Jumat, 07.00–16.00 WIB</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          
-          <div class="rv d2">
-            <div class="kon-card">
-              <div style="width: 56px; height: 56px; background: rgba(37, 211, 102, 0.12); border-radius: 16px; display: flex; align-items: center; justify-content: center; margin: 0 auto 18px;">
-                <svg width="26" height="26" viewBox="0 0 24 24" fill="#25D366">
-                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z" />
-                </svg>
-              </div>
-              <h3>Chat via WhatsApp</h3>
-              <p> Cara paling mudah untuk terhubung langsung. Saya biasa membalas di jam kerja, Senin sampai Jumat. Silakan mulai obrolan kapan saja! </p>
-              <a href="https://wa.me/6281329792820" target="_blank" rel="noopener" class="btn btn-wa">Chat via WhatsApp</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+    <aside id="kontak" class="legacy-fallback"><a href="index.html#kontak">Buka bagian Mari Terhubung di halaman beranda.</a></aside>
 
     </main>
-    <!-- === FOOTER === -->
-    <footer>
-      <div class="container">
-        <div class="ft-grid">
-          <div class="ft-brand">
-            <div class="fl">Putranto Argya Kuncara Jati</div>
-            <p>
-              Mahasiswa PPG Prajabatan Gelombang I 2026 — PPLG, Universitas Negeri Surabaya. e-Portofolio PPL Terbimbing di SMK Negeri 1 Surabaya, Kelas X RPL, Mata Pelajaran Informatika.
-            </p>
-          </div>
-          <div class="ft-col">
-            <h4>Navigasi</h4>
-            <ul>
-              <li><a href="#home">Home</a></li>
-              <li><a href="semester2.html" target="_blank" rel="noopener">e-Portofolio Semester 2</a></li>
-              <li><a href="#tentang">Tentang Saya</a></li>
-              <li><a href="#implementasi">Implementasi PPL</a></li>
-              <li><a href="#refleksi">Refleksi &amp; Filosofi</a></li>
-              <li><a href="#dokumentasi">Dokumentasi</a></li>
-              <li><a href="#kontak">Kontak</a></li>
-            </ul>
-          </div>
-          <div class="ft-col">
-            <h4>Siklus PPL</h4>
-            <ul>
-              <li><a href="#implementasi">Siklus I — Perencanaan Website</a></li>
-              <li><a href="#implementasi">Siklus II — Perancangan UI/UX</a></li>
-              <li><a href="#implementasi">Siklus III — Implementasi &amp; Presentasi</a></li>
-              <li><a href="#refleksi">Refleksi Akhir</a></li>
-              <li><a href="#refleksi">Filosofi Mengajar</a></li>
-            </ul>
-          </div>
-        </div>
-        
-        <div class="ft-bot">
-          <p class="ft-copy"> © 2026 Putranto Argya Kuncara Jati — Seluruh hak cipta dilindungi. </p>
-          <div class="soc-links">
-            <a href="https://instagram.com/argya_353" target="_blank" rel="noopener" class="soc-l" title="@argya_353">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <rect x="2" y="2" width="20" height="20" rx="5" />
-                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
-                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
-              </svg>
-            </a>
-          </div>
-        </div>
-      </div>
-    </footer>
-
-    <!-- ===== LOGIC JAVASCRIPT ===== -->
-    <script>
-      // 1. EFEK NAVBAR ON SCROLL
-      const nav = document.getElementById('nav');
-      window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-          nav.classList.add('scrolled');
-        } else {
-          nav.classList.remove('scrolled');
-        }
-      });
-
-      // 2. TOGGLE BURGER MENU (MOBILE NAVIGATION)
-      const burger = document.getElementById('burger');
-      const mobNav = document.getElementById('mobNav');
-      const mobLinks = document.querySelectorAll('.mob-nav a');
-
-      burger.addEventListener('click', () => {
-        burger.classList.toggle('open');
-        mobNav.classList.toggle('open');
-      });
-
-      mobLinks.forEach(link => {
-        link.addEventListener('click', () => {
-          burger.classList.remove('open');
-          mobNav.classList.remove('open');
-        });
-      });
-
-      // 3. LOGIK TABS SIKLUS IMPLEMENTASI PPL
-      function showSik(num) {
-        const tabs = document.querySelectorAll('.sik-tab');
-        const panels = document.querySelectorAll('.sik-panel');
-        
-        tabs.forEach((tab, index) => {
-          if (index === num - 1) tab.classList.add('active');
-          else tab.classList.remove('active');
-        });
-
-        panels.forEach((panel, index) => {
-          if (index === num - 1) panel.classList.add('active');
-          else panel.classList.remove('active');
-        });
-      }
-
-      // 4. LOGIK TABS REFLEKSI AKHIR PPL
-      function showRef(prefix, id, currentBtn) {
-        const tabContainer = currentBtn.parentElement;
-        tabContainer.querySelectorAll('.ref-tab').forEach(btn => btn.classList.remove('active'));
-        currentBtn.classList.add('active');
-
-        const targetId = prefix + '-' + id;
-        document.querySelectorAll('.ref-pan').forEach(panel => {
-          if (panel.id === targetId) panel.classList.add('active');
-          else panel.classList.remove('active');
-        });
-      }
-
-      // 5. FILTER GALERI DOKUMENTASI
-      const filterBtns = document.querySelectorAll('.gf-btn');
-      const galItems = document.querySelectorAll('.g-i');
-
-      filterBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-          filterBtns.forEach(b => b.classList.remove('active'));
-          btn.classList.add('active');
-
-          const cat = btn.getAttribute('data-cat');
-          galItems.forEach(item => {
-            if (cat === 'all' || item.getAttribute('data-gc') === cat) {
-              item.style.display = 'block';
-            } else {
-              item.style.display = 'none';
-            }
-          });
-        });
-      });
-
-      // 6. ANIMASI REVEAL ON SCROLL (SIMPLE OBSERVER)
-      const rvItems = document.querySelectorAll('.rv');
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('in');
-          }
-        });
-      }, { threshold: 0.1 });
-
-      rvItems.forEach(item => observer.observe(item));
-    </script>
+    <footer class="site-footer"><div class="page-width"><div class="footer-grid"><div class="footer-brand"><strong>Putranto Argya Kuncara Jati</strong><p>Semester 1 mendokumentasikan PPL Terbimbing dalam tiga siklus pembelajaran Informatika di SMK Negeri 1 Surabaya.</p></div><nav class="footer-links" aria-label="Navigasi Semester 1"><h3>Semester 1</h3><a href="#tentang">Refleksi awal</a><a href="#implementasi">Tiga siklus</a><a href="#refleksi">Refleksi &amp; filosofi</a><a href="#dokumentasi">Galeri kegiatan</a></nav><nav class="footer-links" aria-label="Lanjutkan perjalanan"><h3>Lanjutkan</h3><a href="index.html#tentang">Profil mahasiswa</a><a href="semester2.html">Semester 2</a><a href="pplm.html">PPL Mandiri</a><a href="index.html#kontak">Mari terhubung</a></nav></div><div class="footer-bottom"><span>© 2026 Putranto Argya Kuncara Jati</span><a href="index.html">Kembali ke beranda</a></div></div></footer>
+    </div>
   </body>
 </html>

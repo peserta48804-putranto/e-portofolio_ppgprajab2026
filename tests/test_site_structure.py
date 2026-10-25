@@ -128,6 +128,79 @@ class SiteStructureTests(unittest.TestCase):
         self.assertNotIn("25 Agustus", html)
         self.assertNotIn("1 September", html)
 
+    def test_home_restores_rich_contact_and_footer(self):
+        html = (ROOT / "index.html").read_text(encoding="utf-8")
+        for expected in (
+            "contact-home-grid",
+            'class="contact-card"',
+            'class="footer-grid"',
+            "Mari Terhubung",
+            "Bersama Saya",
+            "SMK Negeri 1 Surabaya, Jawa Timur",
+            "Senin–Jumat, 07.00–16.00 WIB",
+            'href="mailto:peserta.48808@ppg.belajar.id"',
+            'href="https://wa.me/6281329792820"',
+            'href="https://instagram.com/argya_353"',
+        ):
+            self.assertIn(expected, html)
+
+    def test_identity_is_consolidated_on_home(self):
+        home = (ROOT / "index.html").read_text(encoding="utf-8")
+        semester_one = (ROOT / "semester1.html").read_text(encoding="utf-8")
+        for expected in (
+            "Nama saya Putranto Argya Kuncara Jati",
+            "Memayu Hayuning Bawana",
+            "NIM 2500103916524001",
+            "img/gwehj_formal.jpg",
+        ):
+            self.assertIn(expected, home)
+            self.assertNotIn(expected, semester_one)
+
+    def test_semester_one_uses_redesigned_shell_and_cleaned_photos(self):
+        html = (ROOT / "semester1.html").read_text(encoding="utf-8")
+        self.assertIn('class="semester-one-page"', html)
+        self.assertIn('href="assets/css/site.css"', html)
+        self.assertIn('src="assets/js/site.js"', html)
+        self.assertNotIn('id="nav"', html)
+        clean_photos = (
+            "assets/img/semester1/lokasi-ppl-bersih.webp",
+            "assets/img/semester1/siklus-1-bersih.webp",
+            "assets/img/semester1/siklus-2-bersih.webp",
+            "assets/img/semester1/siklus-3-bersih.webp",
+        )
+        old_photos = (
+            "img/dokumentasi/penyerahan_compressed.jpg",
+            "img/dokumentasi/siklus1_compressed.jpg",
+            "img/dokumentasi/siklus2_compressed.jpg",
+            "img/dokumentasi/siklus3_compressed.jpg",
+        )
+        for photo in clean_photos:
+            self.assertIn(photo, html)
+            self.assertTrue((ROOT / photo).is_file())
+        for photo in old_photos:
+            self.assertNotIn(photo, html)
+
+    def test_semester_one_gallery_uses_generated_thumbnails_and_keeps_targets(self):
+        html = (ROOT / "semester1.html").read_text(encoding="utf-8")
+        self.assertEqual(html.count("data-gallery-item"), 13)
+        self.assertIn("assets/img/semester1/galeri-thumbnail-sprite.webp", html)
+        for target in (
+            "https://www.canva.com/design/DAHI2Mb3oIM/xeHDZKVV_-TH0JW_sUxQZw/edit",
+            "img/dokumentasi/pendampingan_s1_compressed.jpg",
+            "img/dokumentasi/presentasi_compressed.jpg",
+            "https://drive.google.com/drive/folders/1t8cus5SVm0W649w4E3ivZWZCw6FMNh9L?usp=sharing",
+            "https://drive.google.com/drive/folders/1MupMB2sFIP3u-dSLq7MGQhjB5CpD1u-_?usp=sharing",
+            "img/dokumentasi/pendampingan_s3.jpg",
+            "https://drive.google.com/drive/folders/1jzo7-CmldRK4OWIXUNcy_cERA9lFewe-?usp=drive_link",
+            "https://drive.google.com/file/d/1h5-oXSsOpTZn_6Rt7xDOgQE8UM-4cifs/view?usp=drive_link",
+            "img/dokumentasi/pendampingan_s2_compressed.jpg",
+            "https://drive.google.com/drive/folders/1h_FwnzoiFgSb7hc30n90nlmWz0_9Imi2?usp=sharing",
+            "https://docs.google.com/presentation/d/17M3nN8CrHjBP7FNGQYss4aVGO8YBZLiM8QOfDkVVyGQ/edit?usp=drive_link",
+            "https://docs.google.com/presentation/d/1Q1NvHqGdhFs_OFx1gGEWUSEGIBDgjdlVk6Mk0I0s6eI/edit?usp=drive_link",
+            "https://docs.google.com/presentation/d/1WkEibBgKK9MRgSEJMZFOBQK9uX9GlPnLIpn7nqnDaOk/edit?usp=drive_link",
+        ):
+            self.assertIn(f'href="{target}"', html)
+
     def test_semester_two_media_is_grouped_and_review_media_is_not_rendered(self):
         media = ROOT / "assets/media/semester2"
         for group in ("ppl", "sppg", "lainnya", "_review"):
