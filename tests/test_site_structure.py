@@ -144,6 +144,12 @@ class SiteStructureTests(unittest.TestCase):
             self.assertIn(expected, html)
         self.assertNotIn('class="contact-card"', html)
 
+    def test_all_pages_use_the_shared_footer_layout(self):
+        for page_name in PAGES:
+            html = (ROOT / page_name).read_text(encoding="utf-8")
+            self.assertIn('class="footer-grid"', html, page_name)
+            self.assertIn('class="footer-bottom"', html, page_name)
+
     def test_identity_is_consolidated_on_home(self):
         home = (ROOT / "index.html").read_text(encoding="utf-8")
         semester_one = (ROOT / "semester1.html").read_text(encoding="utf-8")
@@ -225,6 +231,27 @@ class SiteStructureTests(unittest.TestCase):
         self.assertGreater(len(list(media.rglob("*.webp"))), 0)
         rendered = "\n".join((ROOT / page).read_text(encoding="utf-8") for page in PAGES)
         self.assertNotIn("assets/media/semester2/_review/", rendered)
+
+    def test_pplm_geotagged_photos_are_click_targets_not_thumbnails(self):
+        html = (ROOT / "pplm.html").read_text(encoding="utf-8")
+        targets = re.findall(
+            r'href="(assets/media/semester2/ppl/[^"]+GPSMapCamera\.webp)"',
+            html,
+        )
+        self.assertEqual(len(targets), 12)
+        self.assertEqual(len(set(targets)), 12)
+        self.assertEqual(html.count('class="photo-cover"'), 12)
+        self.assertIsNone(
+            re.search(
+                r'src="assets/media/semester2/ppl/[^"]+GPSMapCamera\.webp"',
+                html,
+            )
+        )
+        for target in targets:
+            self.assertIn(
+                f'href="{target}" target="_blank" rel="noopener"',
+                html,
+            )
 
     def test_public_media_tree_does_not_expose_source_manifest(self):
         self.assertFalse((ROOT / "assets/media/semester2/manifest.json").exists())
