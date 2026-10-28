@@ -10,7 +10,14 @@ SCRIPT = Path(__file__).parents[1] / "scripts" / "check-content.py"
 
 
 class ContentCheckTests(unittest.TestCase):
-    def run_check(self, source, target, migrations=None):
+    def run_check(
+        self,
+        source,
+        target,
+        migrations=None,
+        text_migrations=None,
+        allow_additions=False,
+    ):
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)
             source_path = root / "source.html"
@@ -29,6 +36,14 @@ class ContentCheckTests(unittest.TestCase):
                 migration_path = root / "migrations.json"
                 migration_path.write_text(json.dumps(migrations), encoding="utf-8")
                 command.extend(["--migrations", str(migration_path)])
+            if text_migrations is not None:
+                text_migration_path = root / "text-migrations.json"
+                text_migration_path.write_text(
+                    json.dumps(text_migrations), encoding="utf-8"
+                )
+                command.extend(["--text-migrations", str(text_migration_path)])
+            if allow_additions:
+                command.append("--allow-additions")
             return subprocess.run(command, capture_output=True, text=True)
 
     def test_reports_missing_semester_one_content(self):
@@ -123,6 +138,63 @@ class ContentCheckTests(unittest.TestCase):
         )
 
         self.assertEqual(result.returncode, 0, result.stdout)
+
+    def test_allow_additions_keeps_protected_content_while_accepting_new_shell(self):
+        result = self.run_check(
+            '<main><section id="refleksi"><h2>Refleksi</h2>'
+            '<p>Isi akademik tetap.</p>'
+            '<a href="https://example.com/bukti">Buka bukti</a></section></main>',
+            '<nav><a href="index.html">Beranda</a></nav><main>'
+            '<section id="pengantar"><h2>Pengantar baru</h2></section>'
+            '<section id="refleksi"><h2>Refleksi</h2>'
+            '<p>Isi akademik tetap.</p>'
+            '<a href="https://example.com/bukti">Buka bukti</a></section></main>',
+            allow_additions=True,
+        )
+
+        self.assertEqual(result.returncode, 0, result.stdout)
+
+    def test_allow_additions_still_reports_removed_protected_content(self):
+        result = self.run_check(
+            '<main><section id="refleksi"><h2>Refleksi</h2>'
+            '<p>Isi akademik tetap.</p></section></main>',
+            '<main><section id="refleksi"><h2>Refleksi</h2></section>'
+            '<section id="pengantar"><p>Konten baru.</p></section></main>',
+            allow_additions=True,
+        )
+
+        self.assertEqual(result.returncode, 1, result.stdout)
+        self.assertIn("missing content", result.stdout)
+
+    def test_allow_additions_still_requires_explicit_href_migration(self):
+        result = self.run_check(
+            '<main><a href="https://old.example/bukti">Buka bukti</a></main>',
+            '<main><a href="https://new.example/bukti">Buka bukti</a>'
+            '<p>Pengantar baru.</p></main>',
+            allow_additions=True,
+        )
+
+        self.assertEqual(result.returncode, 1, result.stdout)
+        self.assertIn("external href changed", result.stdout)
+
+    def test_allow_additions_requires_explicit_text_migration_for_heading_change(self):
+        source = '<main><section id="lk3"><h2>Judul lama</h2><p>Isi tetap.</p></section></main>'
+        target = (
+            '<main><section id="lk3"><h2>Judul baru</h2><p>Isi tetap.</p>'
+            '<p>Pengantar baru.</p></section></main>'
+        )
+
+        without_migration = self.run_check(source, target, allow_additions=True)
+        with_migration = self.run_check(
+            source,
+            target,
+            text_migrations={"Judul lama": "Judul baru"},
+            allow_additions=True,
+        )
+
+        self.assertEqual(without_migration.returncode, 1, without_migration.stdout)
+        self.assertIn("missing content", without_migration.stdout)
+        self.assertEqual(with_migration.returncode, 0, with_migration.stdout)
 
     def test_reports_removed_list_structure(self):
         result = self.run_check(

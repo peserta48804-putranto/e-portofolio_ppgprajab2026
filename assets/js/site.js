@@ -15,6 +15,14 @@
     location.replace(`semester1.html${location.hash}`);
   }
 
+  if (location.hash) {
+    const realignFragment = () => document.querySelector(":target")?.scrollIntoView({ behavior: "instant" });
+    window.addEventListener("load", () => {
+      if (document.fonts) document.fonts.ready.then(realignFragment);
+      else realignFragment();
+    }, { once: true });
+  }
+
   document.querySelectorAll("details.mobile-nav").forEach((drawer) => {
     drawer.addEventListener("keydown", (event) => {
       if (event.key === "Escape" && drawer.open) {
@@ -25,6 +33,54 @@
     drawer.querySelectorAll("a").forEach((link) => link.addEventListener("click", () => {
       drawer.open = false;
     }));
+  });
+
+  document.querySelectorAll(".site-nav").forEach((nav) => {
+    const fragmentLinks = [...nav.querySelectorAll('a[href^="#"]')];
+    const targets = fragmentLinks.map((link) => ({ link, target: document.querySelector(link.hash) })).filter(({ target }) => target);
+    const sidebar = nav.closest(".site-sidebar");
+    let frame = 0;
+    const setCurrentFragment = (hash) => {
+      let matched = false;
+      const previous = nav.querySelector('[aria-current="location"]');
+      let currentLink = null;
+      fragmentLinks.forEach((link) => {
+        const current = link.hash === hash;
+        if (current) link.setAttribute("aria-current", "location");
+        else link.removeAttribute("aria-current");
+        if (current) currentLink = link;
+        matched ||= current;
+      });
+      nav.classList.toggle("has-current-section", matched);
+      if (currentLink && currentLink !== previous && sidebar) {
+        const linkTop = currentLink.offsetTop;
+        const linkBottom = linkTop + currentLink.offsetHeight;
+        if (linkTop < sidebar.scrollTop) sidebar.scrollTop = linkTop;
+        else if (linkBottom > sidebar.scrollTop + sidebar.clientHeight) sidebar.scrollTop = linkBottom - sidebar.clientHeight;
+      }
+    };
+    const updateCurrentSection = () => {
+      frame = 0;
+      const marker = Math.min(window.innerHeight * 0.2, 96);
+      const atBottom = window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 2;
+      const current = atBottom ? targets.at(-1) : targets.filter(({ target }) => target.getBoundingClientRect().top <= marker).at(-1);
+      const fallback = nav.querySelector('[aria-current="page"]') ? null : targets[0];
+      setCurrentFragment((current || fallback)?.link.hash || "");
+    };
+    const schedule = () => {
+      if (!frame) frame = requestAnimationFrame(updateCurrentSection);
+    };
+
+    fragmentLinks.forEach((link) => link.addEventListener("click", () => setCurrentFragment(link.hash)));
+    sidebar.addEventListener("wheel", (event) => {
+      if (!event.deltaY || event.ctrlKey) return;
+      event.preventDefault();
+      window.scrollBy({ top: event.deltaY, behavior: "instant" });
+    }, { passive: false });
+    window.addEventListener("scroll", schedule, { passive: true });
+    window.addEventListener("resize", schedule);
+    window.addEventListener("hashchange", schedule);
+    schedule();
   });
 
   document.querySelectorAll("[data-tabs]").forEach((tabs) => {
@@ -51,6 +107,26 @@
 
   const cycleFromHash = { sp1: 1, sp2: 2, sp3: 3 }[location.hash.slice(1)];
   if (cycleFromHash) window.showSik(cycleFromHash);
+
+  const detailRevealSelector = [
+    ".topline",
+    ".detail-hero > *",
+    ".section-heading",
+    ".section > .page-width > .lead",
+    ".document-link",
+    ".timeline-card",
+    ".photo-grid > a",
+    ".pending",
+    ".section .actions",
+    ".portal",
+    ".stat-grid > *",
+  ].join(",");
+  document.querySelectorAll("[data-reveal-page]").forEach((page) => {
+    page.querySelectorAll(detailRevealSelector).forEach((item, index) => {
+      item.classList.add("rv");
+      if (index % 4) item.classList.add(`d${index % 4}`);
+    });
+  });
 
   const revealItems = document.querySelectorAll(".rv");
   if ("IntersectionObserver" in window) {
