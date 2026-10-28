@@ -336,14 +336,35 @@ class SiteStructureTests(unittest.TestCase):
 
         self.assertEqual(len(catalog_cards), 12)
         self.assertTrue(all("rv" in classes.split() for classes in catalog_cards))
-        self.assertIn('href="assets/css/site.css?v=20261028-gallery-v11"', html)
+        self.assertIn(
+            'href="assets/css/site.css?v=20261029-semester2-route-v1"', html
+        )
         self.assertIn('src="assets/js/site.js?v=20261027-scrollspy-v6"', html)
+
+    def test_semester_two_routes_group_copy_and_actions_in_a_compact_layout(self):
+        html = (ROOT / "semester2.html").read_text(encoding="utf-8")
+        css = (ROOT / "assets/css/site.css").read_text(encoding="utf-8")
+
+        self.assertEqual(html.count('class="semester-route-copy"'), 2)
+        self.assertIn(
+            ".semester-route-copy { display: flex; align-items: center;",
+            css,
+        )
+        self.assertIn(
+            "grid-template-columns: minmax(300px,.72fr) minmax(0,1.28fr);",
+            css,
+        )
+        self.assertIn(
+            'href="assets/css/site.css?v=20261029-semester2-route-v1"',
+            html,
+        )
 
     def test_every_public_page_uses_fresh_shared_animation_assets(self):
         for page_name in PAGES:
             html = (ROOT / page_name).read_text(encoding="utf-8")
             css_version = {
                 "karya-inovasi.html": "20261028-karya-v1",
+                "semester2.html": "20261029-semester2-route-v1",
                 "sppg.html": "20261028-sppg-summary-v1",
             }.get(page_name, "20261028-gallery-v11")
             self.assertIn(
