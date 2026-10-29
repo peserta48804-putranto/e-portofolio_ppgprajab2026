@@ -193,6 +193,63 @@ class SiteStructureTests(unittest.TestCase):
         self.assertIn("Tonton video pembelajaran", html)
         self.assertIn("Baca analisis pembelajaran", html)
 
+    def test_pplm_exposes_lms_eportfolio_two_components(self):
+        html = (ROOT / "pplm.html").read_text(encoding="utf-8")
+        section_match = re.search(
+            r'<section id="eportfolio-2".*?</section>', html, re.S
+        )
+
+        self.assertEqual(html.count('id="eportfolio-2"'), 1)
+        self.assertIsNotNone(section_match)
+        section = section_match.group(0)
+        self.assertEqual(
+            section.count('data-eportfolio-component="cycle"'), 4
+        )
+        for number in (1, 2, 3, 4):
+            self.assertIn(f'href="#siklus-{number}"', section)
+        self.assertEqual(
+            section.count('data-eportfolio-component="video"'), 1
+        )
+        self.assertIn('href="#video-terbaik"', section)
+
+        for source_id in (
+            "1UtACCuiQO7W_AXsZVTzKbhulU2Oiea32",
+            "1umR-6-vZLciqv3Nuvk8nKrW2xFahjXe2",
+            "1q5Mbaryfyo0g0PkcCj5QG2ew6k6sLcPi",
+            "1XkvZz3Rhj9vJroAele4KSJ9CylfoaGy0",
+            "160yLHo5uyBKEIFz844m8U9tFpV5yKOlO",
+            "13J2RW656XRuLFnq6TschhchhMKpO4EhR",
+            "1g7Gok8SmELsrvTBQmswnfjaTrJsvgedt",
+            "1LTnRwDcREptBlUY2OznwtLp0FER_yyOU",
+            "1LT7C3WIzp0D9rMKvdqIRuNu-6o_j7mlOj2mjcerKGGA",
+        ):
+            self.assertEqual(html.count(source_id), 1, source_id)
+        self.assertNotIn("1llA0EbHu-nrHDkj3j_e1VAygaQnbxAcl", html)
+        self.assertIsNone(
+            re.search(
+                r'(?:href|src)=["\'][^"\']+\.(?:mp4|mov|avi|mkv)',
+                html,
+                re.I,
+            )
+        )
+
+    def test_pplm_sidebar_fragments_follow_document_section_order(self):
+        page = ROOT / "pplm.html"
+        html = page.read_text(encoding="utf-8")
+        fragments = parse_page(page).site_nav_fragments
+        positions = [html.index(f'id="{fragment[1:]}"') for fragment in fragments]
+
+        self.assertEqual(positions, sorted(positions))
+
+    def test_pplm_mobile_nav_exposes_every_cycle(self):
+        html = (ROOT / "pplm.html").read_text(encoding="utf-8")
+        mobile_nav = re.search(
+            r'<details class="mobile-nav">.*?</details>', html, re.S
+        ).group(0)
+
+        for cycle in range(1, 5):
+            self.assertIn(f'href="#siklus-{cycle}"', mobile_nav)
+
     def test_pplm_uses_final_signed_sources_and_cycle_support_folders(self):
         html = (ROOT / "pplm.html").read_text(encoding="utf-8")
 
@@ -217,9 +274,16 @@ class SiteStructureTests(unittest.TestCase):
             "1WTAwKRsezmMGeN3V6uI1QtYWkpv2kdB-",
             "1NEFTn3_iBXsy8Ezsc3tX4ubekaQX29XL",
             "1OuOioMfY6zhTXwXnCpdCnHEMBR71G5CP",
+            "1PrDV_ePSa0nQMGeIdOfzmsvjiZRHpyJq",
         ):
             self.assertIn(folder_id, html)
         self.assertEqual(html.count("<strong>Dokumen Pendukung</strong>"), 4)
+        self.assertIn("<strong>Data Asesmen Siklus 4</strong>", html)
+        self.assertIn(
+            "<strong>Sorting sederhana</strong> tercantum sebagai rencana Pertemuan III dalam modul, tetapi belum terlaksana.",
+            html,
+        )
+        self.assertNotIn("karena belum ada log pendukung", html)
 
         for superseded_id in (
             "1iZlZqm5rRkRJSHg-N2SZgZtthEO2UveD",
@@ -268,7 +332,8 @@ class SiteStructureTests(unittest.TestCase):
     def test_video_best_is_one_section_and_uses_drive(self):
         html = (ROOT / "pplm.html").read_text(encoding="utf-8")
         self.assertEqual(html.count('id="video-terbaik"'), 1)
-        self.assertIn("1llA0EbHu-nrHDkj3j_e1VAygaQnbxAcl", html)
+        self.assertIn("1LTnRwDcREptBlUY2OznwtLp0FER_yyOU", html)
+        self.assertNotIn("1llA0EbHu-nrHDkj3j_e1VAygaQnbxAcl", html)
         self.assertIn("1LT7C3WIzp0D9rMKvdqIRuNu-6o_j7mlOj2mjcerKGGA", html)
 
     def test_omitted_pplm_weeks_are_not_shown(self):
@@ -778,26 +843,91 @@ class SiteStructureTests(unittest.TestCase):
         rendered = "\n".join((ROOT / page).read_text(encoding="utf-8") for page in PAGES)
         self.assertNotIn("assets/media/semester2/_review/", rendered)
 
-    def test_pplm_geotagged_photos_are_click_targets_not_thumbnails(self):
+    def test_pplm_uses_cleaned_thumbnails_for_all_photos(self):
         html = (ROOT / "pplm.html").read_text(encoding="utf-8")
+        css = (ROOT / "assets/css/site.css").read_text(encoding="utf-8")
         targets = re.findall(
             r'href="(assets/media/semester2/ppl/[^"]+GPSMapCamera\.webp)"',
             html,
         )
-        self.assertEqual(len(targets), 12)
-        self.assertEqual(len(set(targets)), 12)
-        self.assertEqual(html.count('class="photo-cover"'), 12)
+        self.assertEqual(len(targets), 11)
+        self.assertEqual(len(set(targets)), 11)
+        self.assertEqual(html.count('class="photo-cover"'), 0)
+        self.assertNotIn("Pendampingan pembelajaran", html)
+        self.assertNotIn("20260908_82945AMByGPSMapCamera.webp", html)
+        self.assertIn(
+            "<figcaption>Penyampaian materi analisis gim</figcaption>",
+            html,
+        )
+        self.assertIn(
+            "Pada 6 Oktober 2026, kegiatan kokurikuler juga dilaksanakan sebagaimana dicatat dalam LK 4.4 Kegiatan Nonmengajar.",
+            html,
+        )
+        self.assertIn(
+            "<figcaption>Persiapan kegiatan kokurikuler</figcaption>",
+            html,
+        )
+        self.assertIn(
+            "<figcaption>Kegiatan kokurikuler di laboratorium komputer</figcaption>",
+            html,
+        )
+        self.assertNotIn("bukti utama praktik mengajar Siklus 4", html)
+        self.assertNotIn("<figcaption>6 Oktober · Struktur Data Dasar</figcaption>", html)
+        self.assertNotIn("<figcaption>Pertemuan I Siklus 4</figcaption>", html)
         self.assertIsNone(
             re.search(
                 r'src="assets/media/semester2/ppl/[^"]+GPSMapCamera\.webp"',
                 html,
             )
         )
+        cleaned_photos = {
+            "assets/media/semester2/ppl/cleaned/t01-praktik-terbimbing-clean.jpg":
+                "assets/media/semester2/ppl/terbimbing/2026-07-28/20260728_71925AMByGPSMapCamera.webp",
+            "assets/media/semester2/ppl/cleaned/t02-praktik-terbimbing-clean.jpg":
+                "assets/media/semester2/ppl/terbimbing/2026-08-04/20260804_84241AMByGPSMapCamera.webp",
+            "assets/media/semester2/ppl/cleaned/s1-01-persiapan-clean.jpg":
+                "assets/media/semester2/ppl/siklus-1/2026-08-18/20260818_83034AMByGPSMapCamera.webp",
+            "assets/media/semester2/ppl/cleaned/s1-02-dekomposisi-clean.jpg":
+                "assets/media/semester2/ppl/siklus-1/2026-08-18/20260818_94931AMByGPSMapCamera.webp",
+            "assets/media/semester2/ppl/cleaned/s1-03-pendampingan-murid-clean.jpg":
+                "assets/media/semester2/ppl/siklus-1/2026-08-18/20260818_83756AMByGPSMapCamera.webp",
+            "assets/media/semester2/ppl/cleaned/s2-01-analisis-gim-clean.jpg":
+                "assets/media/semester2/ppl/siklus-2/2026-09-08/20260908_82942AMByGPSMapCamera.webp",
+            "assets/media/semester2/ppl/cleaned/s3-01-konsep-gim-clean.jpg":
+                "assets/media/semester2/ppl/siklus-3/2026-09-15/20260915_94753AMByGPSMapCamera.webp",
+            "assets/media/semester2/ppl/cleaned/s3-02-praktik-mengajar-clean.jpg":
+                "assets/media/semester2/ppl/siklus-3/2026-09-22/20260922_72909AMByGPSMapCamera.webp",
+            "assets/media/semester2/ppl/cleaned/s3-03-variabel-clean.jpg":
+                "assets/media/semester2/ppl/siklus-3/2026-09-29/20260929_73534AMByGPSMapCamera.webp",
+            "assets/media/semester2/ppl/cleaned/s4-01-struktur-data-clean.jpg":
+                "assets/media/semester2/ppl/siklus-4/2026-10-06/20261006_72208AMByGPSMapCamera.webp",
+            "assets/media/semester2/ppl/cleaned/s4-02-pembelajaran-lab-clean.jpg":
+                "assets/media/semester2/ppl/siklus-4/2026-10-06/20261006_72230AMByGPSMapCamera.webp",
+        }
+        for thumbnail, original in cleaned_photos.items():
+            self.assertTrue((ROOT / thumbnail).is_file(), thumbnail)
+            self.assertIn(
+                f'href="{original}" target="_blank" rel="noopener"',
+                html,
+            )
+            self.assertIn(f'src="{thumbnail}"', html)
         for target in targets:
             self.assertIn(
                 f'href="{target}" target="_blank" rel="noopener"',
                 html,
             )
+        self.assertIn(
+            ".pplm-page .photo-grid { width: min(100%, 900px); margin-inline: auto !important; }",
+            css,
+        )
+        self.assertIn(
+            ".pplm-page .photo-grid img { aspect-ratio: 16/9; }",
+            css,
+        )
+        self.assertIn(
+            ".pplm-page #siklus-2 .photo-grid { width: min(100%, 560px); grid-template-columns: 1fr; }",
+            css,
+        )
 
     def test_public_media_tree_does_not_expose_source_manifest(self):
         self.assertFalse((ROOT / "assets/media/semester2/manifest.json").exists())

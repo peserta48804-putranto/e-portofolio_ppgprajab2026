@@ -302,6 +302,9 @@ h3 { font-size: 1.25rem; }
 .photo-grid a:hover .photo-cover { transform: scale(1.025); }
 .photo-grid figcaption { padding: .75rem .85rem; font-size: .88rem; font-weight: 600; background: var(--white); }
 
+.pplm-page .photo-grid { width: min(100%, 900px); margin-inline: auto !important; }
+.pplm-page .photo-grid img { aspect-ratio: 16/9; }
+.pplm-page #siklus-2 .photo-grid { width: min(100%, 560px); grid-template-columns: 1fr; }
 .pplm-page .section { padding-block: 3rem; }
 .pplm-page .detail-hero { padding-block: 2.5rem; }
 .pplm-page .section > .page-width > .lead { margin: 1rem 0 1.5rem; }
