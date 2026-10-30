@@ -7,6 +7,7 @@
   --cream: #efeae9;
   --warm: #cfc7c9;
   --white: #fffdfd;
+  --soft: #f6f1f2;
   --ink: #211f20;
   --line: rgba(42, 40, 41, 0.16);
   --shadow: 0 18px 45px rgba(42, 40, 41, 0.12);
@@ -276,6 +277,7 @@ h3 { font-size: 1.25rem; }
 .karya-inovasi-page #rancangan .timeline-card h3 { color: white; }
 .karya-inovasi-page #rancangan .timeline-card p { color: var(--warm); }
 .evaluation-overview { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 1rem; }
+.evaluation-overview + .evaluation-criteria-grid { margin-top: 1rem; }
 .evaluation-criteria { margin-top: 2rem; }
 .evaluation-criteria > .eyebrow { margin: 0 0 .8rem; }
 .evaluation-criteria-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 1rem; }
@@ -283,6 +285,23 @@ h3 { font-size: 1.25rem; }
 .evaluation-criterion > span { color: var(--rose); font-size: .8rem; font-weight: 800; letter-spacing: .12em; }
 .evaluation-criterion h3 { margin-top: .65rem; }
 .evaluation-criterion p:last-child { margin-bottom: 0; }
+.analysis-details { margin-top: 1rem; border: 1px solid var(--line); border-radius: 12px; background: var(--white); }
+.analysis-details > summary { min-height: 44px; padding: .7rem 1rem; color: var(--mid); font-weight: 600; cursor: pointer; }
+.analysis-details > summary::marker { color: var(--rose); }
+.analysis-details[open] > summary { margin-bottom: .8rem; border-bottom: 1px solid var(--line); }
+.analysis-body { padding: 0 1rem 1rem; }
+.analysis-body > :first-child { margin-top: 0; }
+.analysis-body > :last-child { margin-bottom: 0; }
+.artifact-grid { align-items: stretch; }
+.artifact-grid:has(details[open]) { align-items: start; }
+.artifact-card { display: flex; flex-direction: column; }
+.artifact-card > p { flex: 1; }
+.artifact-card > .button { display: flex; justify-content: center; margin-top: 1rem; }
+.assessment-stats { margin: 1rem 0; }
+.assessment-stats > div { padding: 1rem; border: 1px solid var(--line); border-radius: var(--radius); background: var(--white); }
+.assessment-stats strong { display: block; font-size: clamp(1.6rem,3vw,2.2rem); line-height: 1.2; }
+.assessment-stats span { display: block; margin-top: .35rem; color: var(--mid); font-size: .88rem; }
+.pplm-page .cycle-analysis { margin-bottom: 1rem; }
 .evaluation-boundary { display: grid; grid-template-columns: minmax(130px,.35fr) minmax(0,1.65fr); gap: 1.25rem; align-items: start; margin-top: 1.25rem; }
 .evaluation-boundary p { margin: 0; }
 .sppg-artifact-card { overflow: hidden; border: 1px solid var(--line); border-radius: var(--radius); background: var(--white); }
@@ -453,6 +472,7 @@ h3 { font-size: 1.25rem; }
 .footer-bottom { display: flex; justify-content: space-between; gap: 1rem; padding-top: 1.4rem; color: var(--mauve); font-size: .84rem; border-top: 1px solid rgba(209,177,183,.1); }
 
 @media (max-width: 980px) {
+  [id] { scroll-margin-top: 5.5rem; }
   .site-sidebar { display: none; }
   .site-shell { margin-left: 0; }
   .mobile-bar { display: flex; position: sticky; top: 0; z-index: 30; justify-content: space-between; align-items: center; padding: .7rem 1rem; color: white; background: var(--dark); }
@@ -460,7 +480,7 @@ h3 { font-size: 1.25rem; }
   .mobile-nav { position: relative; }
   .mobile-nav summary { min-width: 44px; min-height: 44px; display: grid; place-items: center; cursor: pointer; list-style: none; border: 1px solid rgba(255,255,255,.35); border-radius: 10px; }
   .mobile-nav summary::-webkit-details-marker { display: none; }
-  .mobile-nav nav { position: absolute; right: 0; top: calc(100% + .5rem); width: min(300px, calc(100vw - 2rem)); display: grid; padding: .7rem; background: var(--dark); border: 1px solid var(--mid); border-radius: 12px; box-shadow: var(--shadow); }
+  .mobile-nav nav { position: absolute; right: 0; top: calc(100% + .5rem); width: min(300px, calc(100vw - 2rem)); max-height: calc(100dvh - 5.5rem); overflow-y: auto; overscroll-behavior: contain; display: grid; padding: .7rem; background: var(--dark); border: 1px solid var(--mid); border-radius: 12px; box-shadow: var(--shadow); }
   .mobile-nav nav a { padding: .65rem; text-decoration: none; border-radius: 8px; }
   .mobile-nav nav a:hover { background: var(--mid); }
   .card-grid { grid-template-columns: repeat(3,minmax(0,1fr)); }

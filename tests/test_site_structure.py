@@ -256,17 +256,31 @@ class SiteStructureTests(unittest.TestCase):
         self.assertIn('id="refleksi-akhir"', html)
         self.assertIn('href="pplm.html#eportfolio-2"', (ROOT / "semester2.html").read_text(encoding="utf-8"))
 
-    def test_pplm_shares_anonymous_work_instead_of_student_records(self):
+    def test_pplm_opens_original_student_artifacts_for_presentation(self):
         html = (ROOT / "pplm.html").read_text(encoding="utf-8")
-        for name in ("analisis-game", "logika-scratch", "konsep-game"):
-            relative = f"assets/artefak/pplm/{name}-anonim.txt"
-            self.assertIn(relative, html)
-            text = (ROOT / relative).read_text(encoding="utf-8")
-            self.assertIn("Identitas murid disamarkan", text)
-            for identity in ("Mohamad Zakiyy", "Rahmansyah Hafiz", "MUHAMMAD RISKY ADITYA", "Valia Naurah"):
-                self.assertNotIn(identity, text)
+        works = re.search(r'<section id="hasil-karya".*?</section>', html, re.S).group(0)
+        for source in (
+            "1TV49vLcYhtNaP6TUox24Xwo86hO_M-PU",
+            "1ExBwNRjhOFWWNGXhb9ArHsEN8Zck86GJ",
+            "1SUSul_pGhiMP6d4RL8WEUwNWBLgJ1SQ6",
+        ):
+            self.assertIn(f'https://drive.google.com/file/d/{source}/view', works)
+        self.assertEqual(works.count("Buka dokumen asli"), 3)
+        self.assertNotIn(".txt", works)
+        analyses = re.findall(r'<details\b([^>]*)>.*?</details>', works, re.S)
+        self.assertEqual(len(analyses), 3)
+        self.assertTrue(all("open" not in attrs.split() for attrs in analyses))
         self.assertNotIn("1PrDV_ePSa0nQMGeIdOfzmsvjiZRHpyJq", html)
         self.assertNotIn("14E3e6aFQd5I76tkB7wJ8RlwHRfhZnFSF", html)
+
+    def test_presentation_keeps_assessment_details_available_without_overloading_cards(self):
+        html = (ROOT / "pplm.html").read_text(encoding="utf-8")
+        self.assertIn('class="stat-grid assessment-stats"', html)
+        self.assertIn("Rincian hasil dan tindak lanjut", html)
+        self.assertIn('class="analysis-details"', html)
+        css = (ROOT / "assets/css/site.css").read_text(encoding="utf-8")
+        self.assertIn(".evaluation-overview + .evaluation-criteria-grid", css)
+        self.assertIn("max-height: calc(100dvh - 5.5rem)", css)
 
     def test_pplm_assessment_distinguishes_results_from_planned_follow_up(self):
         html = (ROOT / "pplm.html").read_text(encoding="utf-8")
@@ -437,7 +451,7 @@ class SiteStructureTests(unittest.TestCase):
         self.assertEqual(len(catalog_cards), 12)
         self.assertTrue(all("rv" in classes.split() for classes in catalog_cards))
         self.assertIn(
-            'href="assets/css/site.css?v=20261029-context-covers-v2"', html
+            'href="assets/css/site.css?v=20261030-presentation-v1"', html
         )
         self.assertIn('src="assets/js/site.js?v=20261027-scrollspy-v6"', html)
 
@@ -455,14 +469,14 @@ class SiteStructureTests(unittest.TestCase):
             css,
         )
         self.assertIn(
-            'href="assets/css/site.css?v=20261029-context-covers-v2"',
+            'href="assets/css/site.css?v=20261030-presentation-v1"',
             html,
         )
 
     def test_every_public_page_uses_fresh_shared_animation_assets(self):
         for page_name in PAGES:
             html = (ROOT / page_name).read_text(encoding="utf-8")
-            css_version = "20261029-context-covers-v2"
+            css_version = "20261030-presentation-v1"
             self.assertIn(
                 f'href="assets/css/site.css?v={css_version}"', html, page_name
             )
@@ -508,7 +522,7 @@ class SiteStructureTests(unittest.TestCase):
         )
 
     def test_every_public_page_uses_contextual_cover_css_version(self):
-        css_version = "20261029-context-covers-v2"
+        css_version = "20261030-presentation-v1"
 
         for page_name in PAGES:
             html = (ROOT / page_name).read_text(encoding="utf-8")
@@ -832,7 +846,7 @@ class SiteStructureTests(unittest.TestCase):
     def test_semester_one_uses_redesigned_shell_and_cleaned_photos(self):
         html = (ROOT / "semester1.html").read_text(encoding="utf-8")
         self.assertIn('class="semester-one-page"', html)
-        self.assertIn('href="assets/css/site.css?v=20261029-context-covers-v2"', html)
+        self.assertIn('href="assets/css/site.css?v=20261030-presentation-v1"', html)
         self.assertIn('src="assets/js/site.js?v=20261027-scrollspy-v6"', html)
         self.assertNotIn('id="nav"', html)
         clean_photos = (
