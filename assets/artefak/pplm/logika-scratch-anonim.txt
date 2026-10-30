@@ -1,0 +1,165 @@
+SALINAN TEKS ARTEFAK PEMBELAJARAN PPL MANDIRI
+Identitas murid disamarkan untuk publikasi e-portofolio.
+Teks diambil dari dokumen hasil kerja murid. Gambar dan tata letak asli tidak disertakan; ejaan serta bagian yang belum terisi dipertahankan.
+
+JOB SHEET LANJUTAN
+Dari Game Concept Brief ke Logika dan Scratch
+Nama game: zombie shooter                                      Kelompok: [identitas disamarkan]
+Anggota kelompok
+Tujuan kegiatan
+Mengubah satu mekanik dari Game Concept Brief menjadi rancangan logika, mencoba membuatnya di Scratch, lalu memeriksa dan memperbaiki hasilnya.
+Petunjuk pengerjaan
+•  Buka kembali Job Sheet 2 – Game Concept Brief milik kelompok.
+•  Pilih satu mekanik game yang sederhana, jelas, dan mungkin dibuat di Scratch.
+•  Kerjakan bagian A sampai G secara berurutan. Diskusikan jawaban bersama anggota kelompok.
+•  Minta guru memeriksa bagian D (checkpoint) sebelum melanjutkan.
+•  Setiap anggota perlu memahami pekerjaan kelompok dan siap menjelaskannya.
+Catatan: Utamakan bagian A–D terlebih dahulu. Bagian E–G dapat dilanjutkan sesuai waktu dan arahan guru.
+A.  Memilih satu mekanik game
+Mekanik adalah satu kegiatan atau aturan dalam game, misalnya pemain mendapatkan skor saat menyentuh koin.
+1. Mekanik apa yang dipilih kelompokmu?
+Ganti senjata,power boost
+2. Apa yang dilakukan pemain pada mekanik tersebut?
+Pemain bisa mengganti senjata  dan pemain bisa mendapat power boost
+3. Apa yang seharusnya terjadi di dalam game?
+Bisa mengubah senjatah contoh dari vandal ke ak47 dan jika menyentuh item tertentu akan mendapatkan power boost
+4. Mengapa mekanik itu penting untuk game kalian?
+Supaya bisa merasakan senjata yg berbeda dan mempermudah untuk mengalahkan zombie
+5. Apakah mekanik ini cukup sederhana untuk dibuat pada pertemuan ini?
+☐ Ya, sudah sesuai       ☐ Belum, perlu disederhanakan
+Jika perlu disederhanakan, bagian mana yang akan dibuat lebih dahulu?
+..............................................................................................................................................
+B.  Menguraikan mekanik menjadi komponen program
+Isilah tabel berdasarkan mekanik game kelompok. Gunakan kalimat singkat dan jelas.
+C.  Menyusun alur dan logika program
+1. Ceritakan alur mekanik menggunakan kata-katamu sendiri.
+Ketika ...              player menembak ke arah zombie
+Program memeriksa ...   zombie terkena atau tidak oleh peluru
+Jika ...                peluru  mengenai zombie
+Maka ...                health zombie akan berkurang
+Setelah itu ...         zombie akan mati
+2. Tuliskan pseudocode sederhana sesuai alur di atas.
+Pseudocode adalah urutan instruksi program yang ditulis dengan bahasa sederhana. Contoh kata kunci: WHEN, IF, THEN, SET, dan FOREVER.
+Tanda “ ; “ berarti contiue, agar memudahkan dalam penulisan
+Tanda “ { “ untuk memudahkan penggunaan FOREVER dan lainnya
+IF user memencet tombol yang sudah ditentukan maka game akan dimulai.
+SET healt player total 5.
+Forever->{
+IF user memencet tombol WASD maka akan bergerak ke arah yang di inginkan;
+IF user menekan tombol tertentu maka akan menembak ke arah yang di tentukan;
+IF user menyentuh zombie maka Health bar akan berkurang satu;
+IF peluru mengenai zombie maka zombie akan mati karena health bar nya berkurang habis;
+IF user menyentuh kotak/item yang ada pada map maka akan mendapatkan power boost sementara;
+IF user health bar menyentuh nol maka akan game over dan Print(“GAME OVER”);
+}
+Gunakan IF, FOREVER, atau SET hanya jika dibutuhkan oleh mekanikmu.
+D.  Checkpoint: jelaskan hasil kerja kepada guru
+Setelah bagian A–C selesai, tunjukkan hasilnya kepada guru. Setiap anggota harus siap menjelaskan.
+Siapkan jawaban untuk pertanyaan berikut:
+Mekanik apa yang kalian buat?
+Kapan proses dimulai, dan apa yang diperiksa program?
+Data atau variabel apa yang digunakan?
+Apa yang dilakukan program jika kondisi terpenuhi?
+Bagaimana urutan langkahnya?
+Hasil pemeriksaan (diisi guru)
+☐ Mandiri       ☐ Bantuan A       ☐ Bantuan B       ☐ Bantuan C
+A = pertanyaan pemandu   •   B = kerangka sebagian   •   C = contoh lengkap dari mekanik lain
+Catatan / masukan guru:
+..............................................................................................................................................
+..............................................................................................................................................
+Perbaikan yang akan dilakukan kelompok:
+..............................................................................................................................................
+E.  Menghubungkan logika dengan Scratch
+Tentukan kategori atau blok Scratch yang sesuai dengan kebutuhan mekanik. Isi setelah rancangan logika siap.
+Mengapa kalian memilih blok tersebut?
+....................................................................................................................................................................................................................................................................................................................................... ...........................................................................................................................................................
+Tugas praktik: buat satu mekanik sesuai rancangan menggunakan Scratch, jika sudah siap dan waktu memungkinkan.
+F.  Menguji hasil program
+Jalankan mekanik di Scratch. Bandingkan hasilnya dengan rancangan. Uji beberapa keadaan yang berbeda.
+G.  Memperbaiki hasil program
+Jika program belum sesuai rancangan, catat masalah dan cara memperbaikinya. Jika sudah sesuai, tulis bagian yang berhasil.
+1. Masalah yang ditemukan (atau bagian yang sudah berhasil):
+..............................................................................................................................................
+..............................................................................................................................................
+2. Menurut kelompok, apa penyebabnya?
+..............................................................................................................................................
+..............................................................................................................................................
+3. Perubahan atau perbaikan yang dilakukan:
+..............................................................................................................................................
+..............................................................................................................................................
+4. Bagaimana hasil setelah dicoba kembali?
+..............................................................................................................................................
+..............................................................................................................................................
+Cek hasil kerja kelompok
+☐  Kami sudah memilih satu mekanik yang realistis.
+☐  Kami sudah menjelaskan objek, pemicu, data, kondisi, dan aksi.
+☐  Kami sudah menulis alur serta pseudocode sederhana.
+☐  Kami sudah mengikuti checkpoint bersama guru.
+☐  Kami sudah memilih blok Scratch yang dibutuhkan.
+☐  Kami sudah mencoba, menguji, dan memperbaiki program.
+Jika masih ada tugas yang belum selesai, apa yang akan dikerjakan berikutnya?
+................................................................................................................................................................
+.....................................................................................................................................................................
+Mata pelajaran:  Informatika
+Kelas:  X RPL 2
+Bentuk tugas:  Kelompok
+Alokasi Waktu:  4 JP
+[Daftar anggota kelompok disamarkan]
+Komponen
+Pertanyaan bantu
+Jawaban kelompok
+Objek / sprite
+Apa saja objek yang terlibat?
+
+player,zombie peluru,senjata, 
+
+Event / pemicu
+Kapan mekanik mulai berjalan?
+Ketika tombol yang sudah ditentukan di tekan
+
+
+Data / variabel
+Data atau nilai apa yang perlu disimpan atau berubah?
+Health dan batas waktu power boost
+Kondisi
+Apa yang harus diperiksa program?
+
+Jika peluru mengenai zombie maka zombie akan mati
+
+Aksi
+Apa yang dilakukan program saat syarat terpenuhi?
+Zombie terbunuh
+
+
+Perulangan
+Apakah ada langkah yang harus diulang?
+Ada jika player mati
+
+
+Hasil akhir
+Apa yang seharusnya terlihat atau terjadi?
+
+bertahan selama mungkin
+
+Kebutuhan program
+Blok / kategori Scratch yang dipilih
+Memulai program
+Mengulang langkah (jika perlu)
+Memeriksa kondisi
+Mendeteksi objek atau keadaan
+Menyimpan atau mengubah data
+Menjalankan aksi
+Kebutuhan lain (jika ada)
+Uji
+Hasil yang diharapkan
+Hasil yang terjadi
+Status
+1
+☐ Sesuai
+☐ Belum sesuai
+2
+☐ Sesuai
+☐ Belum sesuai
+3
+☐ Sesuai
+☐ Belum sesuai

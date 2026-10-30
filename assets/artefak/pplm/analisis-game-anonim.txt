@@ -1,0 +1,59 @@
+SALINAN TEKS ARTEFAK PEMBELAJARAN PPL MANDIRI
+Identitas murid disamarkan untuk publikasi e-portofolio.
+Teks diambil dari dokumen hasil kerja murid. Gambar dan tata letak asli tidak disertakan; ejaan serta bagian yang belum terisi dipertahankan.
+
+ANALISIS GAME: Pokemon Champions
+A. GAMBARAN UMUM GAME
+Pokémon Champions adalah game pertarungan berbasis strategi (turn-based battle) yang berfokus pada mode ranked/competitive battle. Game ini dimainkan di Nintendo Switch serta perangkat seluler, di mana pemain bertindak sebagai Pelatih Pokémon yang menyusun tim yang terdiri dari enam Pokémon. Sepanjang permainan, pemain beradu taktik, memilih urutan serangan, dan mengelola kemampuan Pokémon untuk mengalahkan tim lawan.
+B. TUJUAN DAN OBJEK GAME
+Tujuan pemain: Pemain bertujuan mengalahkan seluruh Pokémon milik lawan atau menyisakan sisa Pokémon terbanyak saat batas waktu berakhir hingga meraih kemenangan. Pemain dianggap berhasil jika berhasil membuat semua Pokémon lawan pingsan (faint), dan dianggap gagal jika seluruh Pokémon dalam timnya habis terlebih dahulu.
+​• Held Item — Memberikan efek pasif atau peningkatan statistik khusus pada Pokémon saat bertanding, seperti meningkatkan damage atau memulihkan HP.
+* Berry — Objek pemulih yang dapat digunakan atau dimakan otomatis oleh Pokémon untuk memulihkan status negatif maupun health point.
+* Move (Jurusan/Serangan) — Kemampuan aktif yang dipilih Pokémon untuk memberikan damage, efek status, atau dukungan strategi pada tiap giliran.
+* Mega Stone / Dynamax Band — Alat khusus untuk mengaktifkan transformasi atau perubahan bentuk Pokémon guna meningkatkan daya tempur secara signifikan.
+C. ATURAN DAN ALUR PERMAINAN
+​Aturan permainan
+​Sistem Turn-Based: Setiap pemain memilih aksi serangan atau pergantian Pokémon secara bergantian dalam satu babak.
+​Batas Tim: Pemain hanya boleh membawa maksimal 6 Pokémon dalam satu party dan memilih jumlah tertentu (misalnya 4v4 pada format Double Battle) untuk dibawa ke arena.
+​Efektivitas Tipe: Serangan menghasilkan damage berbeda berdasarkan kecocokan tipe (type advantage/weakness), seperti Air unggul atas Api.
+​Batas Waktu (Turn Timer): Setiap giliran memiliki batas waktu eksekusi; jika pemain terlambat memilih, aksi akan dipilihkan secara acak atau terlewat.
+​Alur permainan
+​Persiapan dan Team Preview: Pemain masuk ke dalam matchmaking, melihat komposisi tim lawan, lalu memilih Pokémon utama yang akan diturunkan ke arena.
+​Eksekusi Strategi: Pemain dan lawan bertukar serangan, mengganti Pokémon, atau mengaktifkan mekanisme khusus sesuai dengan giliran yang berjalan.
+​Menghadapi Tantangan: Pemain harus beradaptasi terhadap taktik lawan, prediksi serangan (reads), serta mengelola kondisi status dan HP tim.
+​Penyelesaian Pertandingan: Game berakhir ketika salah satu tim kehabisan Pokémon; sistem menampilkan layar hasil pertarungan beserta perubahan peringkat (rank/rating).
+D. MEKANIK DAN PENGALAMAN BERMAIN
+​Mekanik utama
+• Switching & Positioning — Cara kerja mengganti Pokémon aktif di tengah laga untuk menghindari serangan mematikan atau mengamankan keunggulan tipe.
+• EV & IV Stat Customization — Sistem penyesuaian poin statistik (Effort Values dan Individual Values) yang menentukan kecepatan, ketahanan, dan daya serang Pokémon.
+• Status Conditions & Field Effects — Cara kerja manipulasi arena (seperti cuaca atau Trick Room) serta kondisi status (seperti Paralyze atau Burn) untuk mengendalikan jalannya laga.
+​Pengalaman bermain dari sudut pandang saya terasa sangat menantang dan memuaskan. Hal ini disebabkan oleh tingginya kedalaman strategi yang dibutuhkan, di mana satu keputusan kecil saat memprediksi langkah lawan bisa langsung mengubah alur pertarungan secara drastis..
+SCREENSHOT PENDUKUNG
+Gambar 1. Tampilan permainan Pokemon Champions Double Battle Format.
+E. KESIMPULAN
+Bagian paling penting dari Pokémon Champions adalah keseimbangan antar elemen (type matchup) serta sistem giliran yang membutuhkan perhitungan matang. Dari game ini, kita dapat mempelajari cara merancang logika pertarungan berbasis turn-based dan pentingnya variasi statistik untuk membuat permainan terasa adil namun dinamis. Konsep mekanik sederhana ini menarik perhatian saya untuk pengembangan proyek game saya berikutnya.
+CEK SEBELUM MENGUMPULKAN
+TUGAS PRAKTIKUM 3 — ANALISIS GAME
+Nilai Praktik:   A   B   C   D
+Nama
+[identitas disamarkan]
+Kelas
+X RPL 2
+Kelompok
+1
+Game
+Pokemon Champions
+Judul, subjudul, dan isi sudah mengikuti format contoh.
+☑
+Font, ukuran, alignment, dan spasi baris sudah rapi dan konsisten.
+☑
+Bullets dan numbering digunakan pada bagian yang sesuai.
+☑
+Minimal 1 screenshot sudah dimasukkan dan diberi keterangan.
+☑
+Header, footer, dan nama file sudah sesuai petunjuk.
+☑
+Isi ditulis dengan bahasa sendiri dan bagian A–E sudah terisi.
+☑
+Diskusi kelompok membantu menyusun isi. Setiap murid tetap mengetik, mengatur format, dan mengumpulkan dokumen Word masing-masing.
+Diskusi kelompok membantu menyusun isi. Setiap murid tetap mengetik, mengatur format, dan mengumpulkan dokumen Word masing-masing.

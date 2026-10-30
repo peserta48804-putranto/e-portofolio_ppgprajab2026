@@ -241,6 +241,42 @@ class SiteStructureTests(unittest.TestCase):
 
         self.assertEqual(positions, sorted(positions))
 
+    def test_pplm_connects_dated_logs_and_final_reflection(self):
+        html = (ROOT / "pplm.html").read_text(encoding="utf-8")
+        logs = re.search(r'<section id="log-refleksi".*?</section>', html, re.S)
+        self.assertIsNotNone(logs)
+        for source in (
+            "1iVSUbfeToCIyVLNQ0we0ETkiJsZAXAds", "1weLKLB6jk_fDR3pZiojZUMnLJTjIpTvL",
+            "1QXcxM-nqurtJFY-w5VbmPycsavkd1HFN", "1RUDnMisqicPYAaHD8AazaY1MovAlw0ke",
+            "1qTyelDz9rVLvx_oP3dRKr8jx-pd_5YWO", "1ETOEJ6Sh2XTPg4-VeYIV3DG_zdE_uCT4",
+            "14GAaeC5-vjIiCOAqZiZzY_vrUNVfAE5B", "1F_cK4lhwqBSmN2PdQyEokD8eW2OaIisc",
+            "1BJhyAbwgypxSQsIyZtcQo4sNM5cz1lUs", "1NbB_30zml1yY76grGLDnxZPm6iHYcT9b",
+        ):
+            self.assertIn(source, logs.group(0))
+        self.assertIn('id="refleksi-akhir"', html)
+        self.assertIn('href="pplm.html#eportfolio-2"', (ROOT / "semester2.html").read_text(encoding="utf-8"))
+
+    def test_pplm_shares_anonymous_work_instead_of_student_records(self):
+        html = (ROOT / "pplm.html").read_text(encoding="utf-8")
+        for name in ("analisis-game", "logika-scratch", "konsep-game"):
+            relative = f"assets/artefak/pplm/{name}-anonim.txt"
+            self.assertIn(relative, html)
+            text = (ROOT / relative).read_text(encoding="utf-8")
+            self.assertIn("Identitas murid disamarkan", text)
+            for identity in ("Mohamad Zakiyy", "Rahmansyah Hafiz", "MUHAMMAD RISKY ADITYA", "Valia Naurah"):
+                self.assertNotIn(identity, text)
+        self.assertNotIn("1PrDV_ePSa0nQMGeIdOfzmsvjiZRHpyJq", html)
+        self.assertNotIn("14E3e6aFQd5I76tkB7wJ8RlwHRfhZnFSF", html)
+
+    def test_pplm_assessment_distinguishes_results_from_planned_follow_up(self):
+        html = (ROOT / "pplm.html").read_text(encoding="utf-8")
+        self.assertIn('id="hasil-asesmen"', html)
+        for fact in ("88,78", "799", "101", "Last played", "Remedial", "Pengayaan"):
+            self.assertIn(fact, html)
+        self.assertIn("bukan penetapan ketuntasan", html)
+        self.assertIn("rencana tindak lanjut", html)
+        self.assertIn("Video asli", html)
+
     def test_pplm_mobile_nav_exposes_every_cycle(self):
         html = (ROOT / "pplm.html").read_text(encoding="utf-8")
         mobile_nav = re.search(
@@ -274,7 +310,6 @@ class SiteStructureTests(unittest.TestCase):
             "1WTAwKRsezmMGeN3V6uI1QtYWkpv2kdB-",
             "1NEFTn3_iBXsy8Ezsc3tX4ubekaQX29XL",
             "1OuOioMfY6zhTXwXnCpdCnHEMBR71G5CP",
-            "1PrDV_ePSa0nQMGeIdOfzmsvjiZRHpyJq",
         ):
             self.assertIn(folder_id, html)
         self.assertEqual(html.count("<strong>Dokumen Pendukung</strong>"), 4)
@@ -402,7 +437,7 @@ class SiteStructureTests(unittest.TestCase):
         self.assertEqual(len(catalog_cards), 12)
         self.assertTrue(all("rv" in classes.split() for classes in catalog_cards))
         self.assertIn(
-            'href="assets/css/site.css?v=20261029-semester2-route-v1"', html
+            'href="assets/css/site.css?v=20261029-context-covers-v2"', html
         )
         self.assertIn('src="assets/js/site.js?v=20261027-scrollspy-v6"', html)
 
@@ -420,23 +455,65 @@ class SiteStructureTests(unittest.TestCase):
             css,
         )
         self.assertIn(
-            'href="assets/css/site.css?v=20261029-semester2-route-v1"',
+            'href="assets/css/site.css?v=20261029-context-covers-v2"',
             html,
         )
 
     def test_every_public_page_uses_fresh_shared_animation_assets(self):
         for page_name in PAGES:
             html = (ROOT / page_name).read_text(encoding="utf-8")
-            css_version = {
-                "karya-inovasi.html": "20261028-karya-v1",
-                "semester2.html": "20261029-semester2-route-v1",
-                "sppg.html": "20261028-sppg-summary-v1",
-            }.get(page_name, "20261028-gallery-v11")
+            css_version = "20261029-context-covers-v2"
             self.assertIn(
                 f'href="assets/css/site.css?v={css_version}"', html, page_name
             )
             self.assertIn(
                 'src="assets/js/site.js?v=20261027-scrollspy-v6"', html, page_name
+            )
+
+    def test_detail_and_feature_covers_use_contextual_existing_assets(self):
+        home = (ROOT / "index.html").read_text(encoding="utf-8")
+        semester_two = (ROOT / "semester2.html").read_text(encoding="utf-8")
+        sppg = (ROOT / "sppg.html").read_text(encoding="utf-8")
+        pplm = (ROOT / "pplm.html").read_text(encoding="utf-8")
+        innovation = (ROOT / "karya-inovasi.html").read_text(encoding="utf-8")
+        css = (ROOT / "assets/css/site.css").read_text(encoding="utf-8")
+
+        self.assertIn('class="detail-cover sprite cover-12 rv"', semester_two)
+        self.assertIn("<span>Semester 2</span>", semester_two)
+        self.assertIn('class="detail-cover sprite cover-01"', sppg)
+        self.assertIn('class="detail-cover detail-cover-pplm"', pplm)
+        self.assertIn('class="detail-cover sprite cover-04"', innovation)
+        self.assertIn('class="mini-cover sprite cover-10"', home)
+        self.assertIn('class="mini-cover sprite cover-04"', home)
+        self.assertIn(
+            '../media/semester2/ppl/cleaned/s3-02-praktik-mengajar-clean.jpg',
+            css,
+        )
+        self.assertIn(
+            ".detail-cover.cover-04 { background-position: center, 100% 0; }",
+            css,
+        )
+        self.assertIn(
+            ".detail-cover.cover-12 { background-position: center, 100% 100%; }",
+            css,
+        )
+        self.assertIn(".dark .feature-card { color: var(--ink); }", css)
+        self.assertIn(
+            ".catalog-search { flex: 0 1 420px; width: min(100%,420px);",
+            css,
+        )
+        self.assertIn(
+            ".cover-art { position: relative; display: flex; aspect-ratio: 1;",
+            css,
+        )
+
+    def test_every_public_page_uses_contextual_cover_css_version(self):
+        css_version = "20261029-context-covers-v2"
+
+        for page_name in PAGES:
+            html = (ROOT / page_name).read_text(encoding="utf-8")
+            self.assertIn(
+                f'href="assets/css/site.css?v={css_version}"', html, page_name
             )
 
     def test_detail_pages_reveal_their_main_content(self):
@@ -755,7 +832,7 @@ class SiteStructureTests(unittest.TestCase):
     def test_semester_one_uses_redesigned_shell_and_cleaned_photos(self):
         html = (ROOT / "semester1.html").read_text(encoding="utf-8")
         self.assertIn('class="semester-one-page"', html)
-        self.assertIn('href="assets/css/site.css?v=20261028-gallery-v11"', html)
+        self.assertIn('href="assets/css/site.css?v=20261029-context-covers-v2"', html)
         self.assertIn('src="assets/js/site.js?v=20261027-scrollspy-v6"', html)
         self.assertNotIn('id="nav"', html)
         clean_photos = (
