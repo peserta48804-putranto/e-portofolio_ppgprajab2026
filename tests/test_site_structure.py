@@ -261,11 +261,14 @@ class SiteStructureTests(unittest.TestCase):
         works = re.search(r'<section id="hasil-karya".*?</section>', html, re.S).group(0)
         for source in (
             "1TV49vLcYhtNaP6TUox24Xwo86hO_M-PU",
-            "1ExBwNRjhOFWWNGXhb9ArHsEN8Zck86GJ",
+            "1m6V5FSM4hQ8HbtvITL2S6wSsTfdZSurg",
             "1SUSul_pGhiMP6d4RL8WEUwNWBLgJ1SQ6",
         ):
             self.assertIn(f'https://drive.google.com/file/d/{source}/view', works)
         self.assertEqual(works.count("Buka dokumen asli"), 3)
+        self.assertIn("The Snake Rush", works)
+        self.assertNotIn("Angry Birds GAMMA", works)
+        self.assertNotIn("1ExBwNRjhOFWWNGXhb9ArHsEN8Zck86GJ", works)
         self.assertNotIn(".txt", works)
         analyses = re.findall(r'<details\b([^>]*)>.*?</details>', works, re.S)
         self.assertEqual(len(analyses), 3)
