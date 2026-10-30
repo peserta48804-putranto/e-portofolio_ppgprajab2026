@@ -285,6 +285,17 @@ class SiteStructureTests(unittest.TestCase):
         self.assertIn(".evaluation-overview + .evaluation-criteria-grid", css)
         self.assertIn("max-height: calc(100dvh - 5.5rem)", css)
 
+    def test_pplm_preserves_pending_report_without_showing_it(self):
+        html = (ROOT / "pplm.html").read_text(encoding="utf-8")
+        section = re.search(r'<section id="laporan"([^>]*)>.*?</section>', html, re.S)
+        self.assertIsNotNone(section)
+        self.assertIn("hidden", section.group(1).split())
+        self.assertIn('<a href="#laporan" hidden>Laporan</a>', html)
+        public_copy = html.replace(section.group(0), "")
+        public_copy = re.sub(r'<span hidden>.*?</span>', "", public_copy, flags=re.S)
+        self.assertNotIn("lembar skor", public_copy)
+        self.assertNotIn("Laporan akhir belum", public_copy)
+
     def test_pplm_assessment_distinguishes_results_from_planned_follow_up(self):
         html = (ROOT / "pplm.html").read_text(encoding="utf-8")
         self.assertIn('id="hasil-asesmen"', html)
