@@ -62,14 +62,10 @@ button, input { font: inherit; }
   border-bottom: 1px solid rgba(255,255,255,.13);
 }
 .brand-mark {
-  display: grid;
   width: 42px;
   aspect-ratio: 1;
-  place-items: center;
-  color: var(--dark);
-  background: var(--blush);
+  object-fit: cover;
   border-radius: 12px;
-  font-weight: 800;
 }
 .site-brand strong { display: block; font-size: 1.05rem; }
 .site-brand small { display: block; color: var(--blush); letter-spacing: .12em; }
@@ -150,7 +146,7 @@ h3 { font-size: 1.25rem; }
 .hero-art::before, .hero-art::after { content: ""; position: absolute; border: 2px solid rgba(255,255,255,.65); border-radius: 50%; }
 .hero-art::before { width: 320px; height: 320px; top: -70px; right: -40px; }
 .hero-art::after { width: 220px; height: 220px; bottom: -60px; left: -40px; }
-.hero-monogram { position: absolute; inset: auto 2rem 1rem auto; color: rgba(255,255,255,.92); font-size: clamp(5rem, 12vw, 9rem); font-weight: 700; letter-spacing: -.1em; }
+.hero-monogram { position: absolute; inset: auto 2rem 2rem auto; width: clamp(120px,14vw,190px); aspect-ratio: 1; object-fit: cover; border-radius: 24px; box-shadow: 0 20px 45px rgba(42,40,41,.24); }
 .actions { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: 1.4rem; }
 .button {
   display: inline-flex;

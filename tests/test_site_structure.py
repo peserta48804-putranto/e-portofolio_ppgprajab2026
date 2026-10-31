@@ -65,6 +65,8 @@ class PageParser(HTMLParser):
         self.main_count = 0
         self.skip_links = []
         self.site_nav_fragments = []
+        self.brand_logos = []
+        self.hero_logos = []
         self.in_site_nav = False
 
     def handle_starttag(self, tag, attrs):
@@ -77,6 +79,11 @@ class PageParser(HTMLParser):
             self.main_count += 1
         if tag == "a" and "skip-link" in attributes.get("class", "").split():
             self.skip_links.append(attributes.get("href"))
+        classes = attributes.get("class", "").split()
+        if tag == "img" and "brand-mark" in classes:
+            self.brand_logos.append((attributes.get("src"), attributes.get("alt")))
+        if tag == "img" and "hero-monogram" in classes:
+            self.hero_logos.append((attributes.get("src"), attributes.get("alt")))
         if self.in_site_nav and tag == "a" and attributes.get("href", "").startswith("#"):
             self.site_nav_fragments.append(attributes["href"])
         for attribute in ("href", "src"):
@@ -95,6 +102,18 @@ def parse_page(path):
 
 
 class SiteStructureTests(unittest.TestCase):
+    def test_public_pages_use_the_existing_black_p_logo(self):
+        self.assertTrue((ROOT / "img/logo.png").is_file())
+
+        for page_name in PAGES:
+            parsed = parse_page(ROOT / page_name)
+            self.assertEqual(parsed.brand_logos, [("img/logo.png", "")], page_name)
+
+        self.assertEqual(
+            parse_page(ROOT / "index.html").hero_logos,
+            [("img/logo.png", "")],
+        )
+
     def test_required_pages_assets_and_anchors_exist(self):
         self.assertTrue((ROOT / "assets/css/site.css").is_file())
         self.assertTrue((ROOT / "assets/js/site.js").is_file())
@@ -465,7 +484,7 @@ class SiteStructureTests(unittest.TestCase):
         self.assertEqual(len(catalog_cards), 12)
         self.assertTrue(all("rv" in classes.split() for classes in catalog_cards))
         self.assertIn(
-            'href="assets/css/site.css?v=20261030-presentation-v1"', html
+            'href="assets/css/site.css?v=20261031-logo-v1"', html
         )
         self.assertIn('src="assets/js/site.js?v=20261027-scrollspy-v6"', html)
 
@@ -483,14 +502,14 @@ class SiteStructureTests(unittest.TestCase):
             css,
         )
         self.assertIn(
-            'href="assets/css/site.css?v=20261030-presentation-v1"',
+            'href="assets/css/site.css?v=20261031-logo-v1"',
             html,
         )
 
     def test_every_public_page_uses_fresh_shared_animation_assets(self):
         for page_name in PAGES:
             html = (ROOT / page_name).read_text(encoding="utf-8")
-            css_version = "20261030-presentation-v1"
+            css_version = "20261031-logo-v1"
             self.assertIn(
                 f'href="assets/css/site.css?v={css_version}"', html, page_name
             )
@@ -536,7 +555,7 @@ class SiteStructureTests(unittest.TestCase):
         )
 
     def test_every_public_page_uses_contextual_cover_css_version(self):
-        css_version = "20261030-presentation-v1"
+        css_version = "20261031-logo-v1"
 
         for page_name in PAGES:
             html = (ROOT / page_name).read_text(encoding="utf-8")
@@ -860,7 +879,7 @@ class SiteStructureTests(unittest.TestCase):
     def test_semester_one_uses_redesigned_shell_and_cleaned_photos(self):
         html = (ROOT / "semester1.html").read_text(encoding="utf-8")
         self.assertIn('class="semester-one-page"', html)
-        self.assertIn('href="assets/css/site.css?v=20261030-presentation-v1"', html)
+        self.assertIn('href="assets/css/site.css?v=20261031-logo-v1"', html)
         self.assertIn('src="assets/js/site.js?v=20261027-scrollspy-v6"', html)
         self.assertNotIn('id="nav"', html)
         clean_photos = (
